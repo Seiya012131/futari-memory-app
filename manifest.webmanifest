@@ -1,10 +1,10 @@
 {
-  "name": "ゆのさんの宮崎ポケふた冒険",
-  "short_name": "ゆのさん冒険",
+  "name": "ゆのさんへ｜宮崎の小さな冒険",
+  "short_name": "YUNO宮崎",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#fff9e8",
-  "theme_color": "#2449a8",
+  "background_color": "#eef7f5",
+  "theme_color": "#eef7f5",
   "icons": [
     {
       "src": "icon.svg",
