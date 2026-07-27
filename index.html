@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7c948">
+<title>ふたりのポケふた冒険｜完全版</title>
+<style>
+:root{
+  --navy:#18213a; --blue:#2f6fed; --yellow:#f7c948; --cream:#fff9e8;
+  --red:#ef5350; --green:#2e9b72; --ink:#172033; --muted:#6c7484; --card:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:system-ui,-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%,rgba(247,201,72,.24),transparent 25%),
+    linear-gradient(180deg,#dff4ff 0,#fff9e8 43%,#f5f7fb 100%);
+  color:var(--ink);min-height:100vh;
+}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
+.app-shell{max-width:820px;margin:auto;padding-bottom:80px}
+.topbar{
+  position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;
+  padding:12px 16px;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(24,33,58,.08)
+}
+.brand{display:flex;gap:10px;align-items:center;font-weight:900}
+.brand-ball{
+  width:34px;height:34px;border-radius:50%;background:linear-gradient(#ef5350 0 48%,#172033 48% 55%,#fff 55%);
+  position:relative;box-shadow:0 4px 12px rgba(0,0,0,.12)
+}
+.brand-ball:after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:#fff;border:3px solid #172033;left:9px;top:11px}
+.icon-btn{border:0;background:#fff;border-radius:12px;padding:10px 12px;box-shadow:0 4px 14px rgba(20,30,60,.08)}
+.hero{padding:28px 18px 70px;background:
+  radial-gradient(circle at 82% 20%,#fff0a7 0 62px,transparent 63px),
+  linear-gradient(145deg,#3c7bf4,#2449a8);color:#fff;border-radius:0 0 34px 34px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;border:34px solid rgba(255,255,255,.08);right:-90px;bottom:-100px}
+.kicker{font-size:11px;letter-spacing:.18em;opacity:.78}
+.hero h1{font-size:clamp(38px,10vw,64px);line-height:.98;margin:10px 0 14px}
+.hero p{max-width:520px;line-height:1.75;margin:0}
+main{padding:0 16px;margin-top:-42px;position:relative;z-index:2}
+.card{background:rgba(255,255,255,.97);border-radius:24px;padding:20px;box-shadow:0 14px 40px rgba(21,41,84,.12)}
+.progress-row{display:flex;justify-content:space-between;align-items:flex-end}
+.progress-row small{display:block;color:var(--muted);font-weight:700}
+.progress-row strong{font-size:32px}
+.percent{font-size:28px;font-weight:900;color:var(--blue)}
+.bar{height:13px;background:#e8edf7;border-radius:99px;overflow:hidden;margin:14px 0 9px}
+.bar>div{height:100%;width:0;background:linear-gradient(90deg,var(--yellow),#ff9f43);transition:.4s}
+.status{margin:0;color:var(--muted);line-height:1.6}
+.actions{display:grid;grid-template-columns:2fr 1fr;gap:10px;margin:16px 0 26px}
+.primary,.secondary,.danger{border:0;border-radius:16px;padding:14px 16px;font-weight:900}
+.primary{background:var(--blue);color:white;box-shadow:0 8px 20px rgba(47,111,237,.25)}
+.secondary{background:white;color:var(--blue);border:1px solid #d8e2fb}
+.danger{background:#fff1f1;color:#c53a3a;border:1px solid #ffd0d0}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin:0 4px 12px}
+.section-title h2{margin:0;font-size:22px}.section-title span{font-size:12px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.spot{
+  background:#fff;border-radius:22px;padding:14px;box-shadow:0 8px 24px rgba(25,42,78,.08);
+  border:2px solid transparent;min-height:195px;display:flex;flex-direction:column;justify-content:space-between
+}
+.spot.got{border-color:var(--yellow);background:linear-gradient(145deg,#fffef6,#fff)}
+.spot-head{display:flex;justify-content:space-between;gap:10px}
+.spot-emoji{font-size:34px}
+.badge{
+  width:64px;height:64px;border-radius:50%;display:grid;place-items:center;text-align:center;
+  font-size:10px;font-weight:900;transform:rotate(-8deg);border:3px dashed #aeb7c9;color:#8a94a7;background:#f0f3f8
+}
+.got .badge{border-color:#d6a500;color:#9a7300;background:#fff4b7}
+.spot h3{font-size:21px;margin:12px 0 2px}.spot p{font-size:11px;color:var(--muted);margin:0;line-height:1.45}
+.spot button{margin-top:12px;border:0;border-radius:13px;padding:11px;background:#edf3ff;color:var(--blue);font-weight:900}
+.memory{margin-top:24px}
+.memory textarea{width:100%;min-height:110px;border:1px solid #dbe2ef;border-radius:16px;padding:14px;line-height:1.6;resize:vertical}
+.full{width:100%;margin-top:10px}
+.ending-card{margin-top:24px;text-align:center;color:#7b8496}
+.ending-card.ready{border:2px solid var(--yellow);background:linear-gradient(145deg,#fffef4,#fff8cf);color:var(--ink);cursor:pointer}
+.ending-icon{font-size:44px}
+.footer{font-size:10px;color:#7b8496;line-height:1.6;padding:20px 8px}
+dialog{width:min(94vw,560px);border:0;border-radius:26px;padding:0;box-shadow:0 30px 90px rgba(10,20,40,.3)}
+dialog::backdrop{background:rgba(12,18,35,.68);backdrop-filter:blur(6px)}
+.close{position:absolute;right:11px;top:11px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;font-size:24px;z-index:3}
+.dialog-inner{padding:36px 22px 24px}
+.dialog-hero{text-align:center;font-size:64px}
+.dialog-inner h2{text-align:center;margin:0}
+.pokemon{text-align:center;color:var(--muted);font-size:13px}
+.mission{
+  background:linear-gradient(145deg,#fff7c7,#fffdf0);border:1px solid #f7d96d;
+  border-radius:17px;padding:15px;margin:16px 0;line-height:1.65
+}
+.mission small{display:block;color:#967200;font-weight:900;letter-spacing:.08em}
+.distance{background:#edf5ff;border-radius:15px;padding:13px;text-align:center;margin:13px 0}
+.photo{width:100%;max-height:300px;object-fit:cover;border-radius:18px;margin:10px 0}
+.note{font-family:serif;text-align:center;line-height:1.9;color:#536071}
+.dialog-actions{display:grid;gap:10px}
+.maplink{text-decoration:none;text-align:center;padding:14px;border-radius:16px;background:#edf3ff;color:var(--blue);font-weight:900}
+.admin{padding:34px 20px 22px}
+.admin h2{margin-top:0}
+.admin label{display:block;font-size:12px;font-weight:800;color:#596274;margin:14px 0 6px}
+.admin input,.admin textarea,.admin select{
+  width:100%;border:1px solid #dbe2ef;border-radius:13px;padding:12px;background:#fff
+}
+.admin textarea{min-height:90px;resize:vertical}
+.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.admin-photo{width:100%;max-height:240px;object-fit:cover;border-radius:16px;margin-top:10px}
+.admin-actions{display:grid;gap:10px;margin-top:18px}
+.ending{
+  min-height:70vh;padding:48px 24px 32px;text-align:center;display:flex;flex-direction:column;justify-content:center;
+  background:linear-gradient(180deg,#12204a,#283f83 65%,#f4c84d);color:#fff
+}
+.ending h2{font-size:34px;margin:8px 0 18px}.ending p{line-height:1.9}
+.ending-photo{width:100%;max-height:330px;object-fit:cover;border-radius:22px;box-shadow:0 18px 45px rgba(0,0,0,.28);margin:8px 0 20px}
+.signature{text-align:right;margin-top:20px}
+.toast{position:fixed;z-index:100;left:50%;bottom:26px;transform:translate(-50%,120px);background:#172033;color:#fff;padding:12px 18px;border-radius:99px;font-weight:800;transition:.3s;white-space:nowrap}
+.toast.show{transform:translate(-50%,0)}
+.confetti{position:fixed;inset:0;z-index:110;pointer-events:none;overflow:hidden}
+.piece{position:absolute;top:-40px;font-size:24px;animation:fall 3s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+
+.lid-frame{
+  position:relative;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;
+  background:radial-gradient(circle,#e7ecf5 0 45%,#cbd3e2 46% 58%,#aab4c7 59% 100%);
+  box-shadow:inset 0 0 0 5px rgba(255,255,255,.78),0 8px 20px rgba(23,32,51,.14);
+  margin-bottom:12px
+}
+.lid-frame img{width:100%;height:100%;object-fit:contain;display:block;transition:.7s cubic-bezier(.2,.8,.2,1)}
+.lid-frame.locked img{filter:grayscale(1) brightness(.18) blur(8px);transform:scale(.94)}
+.lid-frame.locked:after{
+  content:"？";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:54px;font-weight:1000;
+  text-shadow:0 5px 15px rgba(0,0,0,.4);background:radial-gradient(circle,transparent 0 30%,rgba(20,28,50,.28) 75%)
+}
+.lid-frame.unlocked{animation:unlockGlow 1.2s ease both}
+.lid-frame.unlocked img{filter:none;transform:scale(1)}
+@keyframes unlockGlow{0%{transform:scale(.75) rotate(-12deg);filter:brightness(2)}55%{transform:scale(1.08) rotate(3deg)}100%{transform:scale(1) rotate(0)}}
+.discovery{
+  position:relative;text-align:center;padding:20px 16px 16px;
+  background:linear-gradient(180deg,#eef6ff,#fff);border-radius:22px;margin-bottom:15px
+}
+.discovery .lid-frame{max-width:330px;margin:0 auto 16px}
+.discovery-title{font-size:12px;letter-spacing:.18em;font-weight:900;color:#8a6a00}
+.discovery h2{font-size:30px;margin:5px 0}
+.rarity{display:inline-block;padding:5px 11px;border-radius:99px;background:#fff2b3;color:#8d6a00;font-size:11px;font-weight:900}
+.source-note{font-size:10px;color:#8690a3;line-height:1.5;text-align:center;margin:10px 0 0}
+
+@media(min-width:620px){.grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+</head>
+<body>
+<div class="app-shell">
+<header class="topbar">
+  <div class="brand"><span class="brand-ball"></span><span>ふたりのポケふた冒険</span></div>
+  <button id="adminBtn" class="icon-btn" aria-label="設定">⚙️</button>
+</header>
+
+<section class="hero">
+  <div class="kicker">SEIYA × YUNO / MIYAZAKI 2026</div>
+  <h1>ふたりの<br>ポケふた冒険</h1>
+  <p>9つのポケふたと、9つの思い出ミッション。見つけた数より、そこで笑ったことを残そう。</p>
+</section>
+
+<main>
+<section class="card">
+  <div class="progress-row">
+    <div><small>冒険の進み具合</small><strong id="progressText">0 / 9</strong></div>
+    <div id="percent" class="percent">0%</div>
+  </div>
+  <div class="bar"><div id="barFill"></div></div>
+  <p id="status" class="status">最初のポケふたを探しに行こう。</p>
+</section>
+
+<section class="actions">
+  <button id="nearestBtn" class="primary">📍 近くのポケふたを探す</button>
+  <button id="testBtn" class="secondary">🧪 テスト</button>
+</section>
+
+<section>
+  <div class="section-title"><h2>冒険マップ</h2><span>全9か所</span></div>
+  <div id="grid" class="grid"></div>
+</section>
+
+<section class="card memory">
+  <h2>ふたりの旅日記</h2>
+  <p class="status">今日いちばん心に残ったことを書いておこう。</p>
+  <textarea id="tripMemo" placeholder="景色、会話、ごはん、笑ったこと…"></textarea>
+  <button id="saveMemo" class="secondary full">旅日記を保存</button>
+</section>
+
+<section id="endingCard" class="card ending-card">
+  <div class="ending-icon">🔒</div>
+  <h2>最後の演出</h2>
+  <p>9つ集めると開きます。</p>
+</section>
+
+<p class="footer">個人旅行用の非公式ファンメイドです。ポケふた画像は「ポケモンローカルActs」公式サイト上の画像を取得後のみ表示します。位置情報・写真・設定は、この端末のブラウザ内に保存されます。</p>
+</main>
+</div>
+
+<dialog id="spotDialog"><button class="close" data-close="spotDialog">×</button><div id="spotBody"></div></dialog>
+
+<dialog id="adminDialog">
+  <button class="close" data-close="adminDialog">×</button>
+  <div class="admin">
+    <h2>成矢専用設定</h2>
+    <p class="status">ミッションやエンディング写真を、コードを書かずに変更できるじ。</p>
+
+    <label>編集する場所</label>
+    <select id="adminSpot"></select>
+
+    <label>思い出ミッション</label>
+    <textarea id="adminMission"></textarea>
+
+    <label>取得後の一言</label>
+    <textarea id="adminMessage"></textarea>
+
+    <label>エンディング用の初日写真</label>
+    <input id="endingPhotoInput" type="file" accept="image/*">
+    <img id="endingPhotoPreview" class="admin-photo hidden" alt="エンディング写真">
+
+    <label>エンディング本文</label>
+    <textarea id="endingText"></textarea>
+
+    <div class="admin-actions">
+      <button id="saveSettings" class="primary">設定を保存</button>
+      <button id="exportSettings" class="secondary">設定データを書き出す</button>
+      <label class="secondary" style="text-align:center">設定データを読み込む<input id="importSettings" type="file" accept="application/json" hidden></label>
+      <button id="resetProgress" class="danger">スタンプ進捗だけリセット</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="endingDialog">
+  <button class="close" data-close="endingDialog">×</button>
+  <div class="ending">
+    <div style="font-size:56px">✨</div>
+    <div class="kicker">ADVENTURE COMPLETE</div>
+    <h2>9つの思い出が集まりました</h2>
+    <img id="endingPhoto" class="ending-photo hidden" alt="初日の思い出写真">
+    <p id="endingTextView"></p>
+    <p class="signature">また一緒に、続きを探しに行こう。<br><strong>成矢より</strong></p>
+  </div>
+</dialog>
+
+<div id="toast" class="toast"></div>
+<div id="confetti" class="confetti"></div>
+
+<script>
+const DEFAULT_SPOTS = [
+ {id:"aoshima",name:"青島エリア",image:"https://local.pokemon.jp/img/p/manhole/4df805be8a64d2c988d992788be19a9b_l.png",area:"宮崎市",lat:31.807505,lng:131.457839,pokemon:"ナッシー＆ポワルン",emoji:"🌴",mission:"海を背景に、今回最初のツーショットを撮ろう。",message:"海から始まる、ふたりの宮崎冒険。"},
+ {id:"shintomi",name:"新富",image:"https://local.pokemon.jp/img/p/manhole/73c6c49f8aa194dcb52da6808758de16_l.png",area:"新富町",lat:32.071055,lng:131.512198,pokemon:"アローラナッシー＆マクノシタ",emoji:"🌱",mission:"今回の宮崎旅行で楽しみにしていることを、ひとつずつ話そう。",message:"これから先の楽しみも、ふたりで増やしていこう。"},
+ {id:"takanabe",name:"高鍋",image:"https://local.pokemon.jp/img/p/manhole/7020590767375a1d51a3bb6af9b37edf_l.png",area:"高鍋町",lat:32.115956,lng:131.532841,pokemon:"アローラナッシー＆アローラライチュウ",emoji:"🌻",mission:"相手の好きなところを、ひとつ伝えよう。",message:"照れくさい言葉ほど、旅の宝物になる。"},
+ {id:"kawaminami",name:"川南",image:"https://local.pokemon.jp/img/p/manhole/3da8c4d33f82dbd65c7092f4080c88ab_l.png",area:"川南町",lat:32.191491,lng:131.528984,pokemon:"ナッシー＆ヌマクロー",emoji:"🐄",mission:"道中で見つけた『宮崎らしい景色』を一枚撮ろう。",message:"目的地だけじゃなく、途中の景色も思い出。"},
+ {id:"tsuno",name:"都農",image:"https://local.pokemon.jp/img/p/manhole/249dfc49428f58aff38f37c46131982e_l.png",area:"都農町",lat:32.2609016,lng:131.5575768,pokemon:"アローラナッシー＆ブイゼル",emoji:"🍇",mission:"今日ここまでで、一番笑った出来事を記録しよう。",message:"何気ない笑い声も、ふたりなら特別。"},
+ {id:"hyuga",name:"日向",image:"https://local.pokemon.jp/img/p/manhole/cce5f8178d3186bff628ad5efe8e9962_l.png",area:"日向市",lat:32.4253924,lng:131.6277364,pokemon:"ナッシー＆オドリドリ",emoji:"🌊",mission:"クルスの海か馬ヶ背で、ふたりの記念写真を撮ろう。",message:"また一緒に見たい景色が、ひとつ増えた。"},
+ {id:"kadogawa",name:"門川",image:"https://local.pokemon.jp/img/p/manhole/1d1261134ec64c046aacae63dba74c6f_l.png",area:"門川町",lat:32.487021,lng:131.676733,pokemon:"アローラナッシー＆マケンカニ",emoji:"🐟",mission:"今日の旅で『意外だったこと』をひとつ話そう。",message:"思いがけない出来事も、旅の宝物。"},
+ {id:"hinokage",name:"日之影",image:"https://local.pokemon.jp/img/p/manhole/dbe8fa0ecdf59974cf1c01b55f7f089b_l.png",area:"日之影町",lat:32.660643,lng:131.388639,pokemon:"ナッシー＆レジスチル",emoji:"🌲",mission:"ふたりの思い出に残したい曲を、一曲ずつ選ぼう。",message:"この曲を聴いたら、今日を思い出せますように。"},
+ {id:"takachiho",name:"高千穂",image:"https://local.pokemon.jp/img/p/manhole/ba1ab8ae9af98b080f9ed1d867cb75c9_l.png",area:"高千穂町",lat:32.707748,lng:131.305889,pokemon:"ナッシー＆レジギガス",emoji:"⛰️",mission:"この旅行で一番心に残った出来事と、次に一緒に行きたい場所を話そう。",message:"ここまで一緒に来てくれて、ありがとう。"}
+];
+
+const DEFAULT_ENDING = "宮崎まで来てくれてありがとう。\\n\\n一緒に見た景色も、車の中で話したことも、何気なく笑った時間も、全部僕にとって大切な思い出です。\\n\\n宮崎を少しでも好きになってもらえてたら嬉しい。\\nでもそれ以上に、また僕と一緒に来たいと思ってもらえたら嬉しい。";
+
+const KEY = "futari-pokefuta-rally-v3";
+let state = JSON.parse(localStorage.getItem(KEY) || "null") || {
+  stamps:{}, memo:"", test:false,
+  spots:DEFAULT_SPOTS,
+  endingText:DEFAULT_ENDING,
+  endingPhoto:""
+};
+if(!state.spots) state.spots = DEFAULT_SPOTS;
+if(!state.endingText) state.endingText = DEFAULT_ENDING;
+
+const $ = id => document.getElementById(id);
+const rad = x => x * Math.PI / 180;
+function distanceKm(a,b,c,d){
+  const R=6371, x=rad(c-a), y=rad(d-b);
+  const q=Math.sin(x/2)**2 + Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(y/2)**2;
+  return 2*R*Math.asin(Math.sqrt(q));
+}
+function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+function toast(msg){
+  $("toast").textContent=msg;$("toast").classList.add("show");
+  setTimeout(()=>$("toast").classList.remove("show"),1900);
+}
+function confetti(n=42){
+  const chars=["✨","⭐","💛","🔴","🔵","🌈"];
+  for(let i=0;i<n;i++){
+    const p=document.createElement("span");p.className="piece";p.textContent=chars[i%chars.length];
+    p.style.left=(Math.random()*100)+"vw";p.style.animationDelay=(Math.random()*.8)+"s";
+    $("confetti").appendChild(p);setTimeout(()=>p.remove(),3800);
+  }
+}
+function render(){
+  const got=Object.keys(state.stamps).length,total=state.spots.length,pct=Math.round(got/total*100);
+  $("progressText").textContent=`${got} / ${total}`;$("percent").textContent=pct+"%";
+  $("barFill").style.width=pct+"%";
+  $("status").textContent=got===total?"ふたりの宮崎冒険、コンプリート！":`あと${total-got}か所。次はどんな思い出が待っちょるかな。`;
+  $("testBtn").textContent=state.test?"🧪 テスト中":"🧪 テスト";
+  $("grid").innerHTML=state.spots.map(s=>{
+    const g=state.stamps[s.id];
+    return `<article class="spot ${g?"got":""}">
+      <div>
+        <div class="lid-frame ${g?"unlocked":"locked"}"><img src="${s.image}" alt="${s.name}のポケふた" loading="lazy" referrerpolicy="no-referrer"></div>
+        <div class="spot-head"><span class="spot-emoji">${s.emoji}</span><span class="badge">${g?"GET!":"LOCK"}</span></div>
+        <h3>${s.name}</h3><p>${g?s.pokemon:"？？？ ＆ ？？？"}</p>
+      </div>
+      <button onclick="openSpot('${s.id}')">${g?"図鑑を見る":"ポケふたを探す"}</button>
+    </article>`;
+  }).join("");
+  const end=$("endingCard");
+  if(got===total){
+    end.classList.add("ready");
+    end.innerHTML='<div class="ending-icon">💌</div><h2>最後の演出</h2><p>タップして開く</p>';
+    end.onclick=showEnding;
+  }else{
+    end.classList.remove("ready");
+    end.innerHTML=`<div class="ending-icon">🔒</div><h2>最後の演出</h2><p>あと${total-got}つ集めると開きます。</p>`;
+    end.onclick=null;
+  }
+}
+function openSpot(id,d=null){
+  const s=state.spots.find(x=>x.id===id),g=state.stamps[id];
+  $("spotBody").innerHTML=`<div class="dialog-inner">
+    <div class="discovery">
+      <div class="discovery-title">${g?"POKE LID DISCOVERED":"UNKNOWN POKE LID"}</div>
+      <div class="lid-frame ${g?"unlocked":"locked"}"><img src="${s.image}" alt="${s.name}のポケふた" referrerpolicy="no-referrer"></div>
+      <span class="rarity">${g?"COLLECTION No. "+(state.spots.findIndex(x=>x.id===id)+1):"GPS LOCKED"}</span>
+      <h2>${s.name}</h2>
+      <p class="pokemon">${g?s.pokemon:"現地に着くとデザインが解放されます"}</p>
+    </div>
+    <div class="mission"><small>MEMORY MISSION</small>${s.mission}</div>
+    ${d!==null?`<div class="distance">現在地から <strong>${d<1?Math.round(d*1000)+"m":d.toFixed(1)+"km"}</strong></div>`:""}
+    ${g?.photo?`<img class="photo" src="${g.photo}" alt="思い出写真">`:""}
+    ${g?`<p class="note">「${s.message}」</p><p style="text-align:center;font-size:11px;color:#7b8496">${new Date(g.time).toLocaleString("ja-JP")}</p>`:""}
+    <div class="dialog-actions">
+      <button class="primary" onclick="checkSpot('${id}')">📍 ${g?"現在地を再確認":"現地でGETする"}</button>
+      <label class="secondary" style="text-align:center">📷 思い出写真を追加<input hidden type="file" accept="image/*" onchange="addSpotPhoto('${id}',this)"></label>
+      <a class="maplink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=${s.lat},${s.lng}">Googleマップで開く</a>
+    </div></div>`;
+  $("spotDialog").showModal();
+}
+function checkSpot(id){
+  const s=state.spots.find(x=>x.id===id);
+  if(state.test){claim(s,0);return}
+  if(!navigator.geolocation){toast("この端末は位置情報に対応してないみたいやわ");return}
+  navigator.geolocation.getCurrentPosition(pos=>{
+    const d=distanceKm(pos.coords.latitude,pos.coords.longitude,s.lat,s.lng);
+    if(d<=0.15) claim(s,d);
+    else{openSpot(id,d);toast("まだ少し遠いみたいやじ")}
+  },()=>toast("位置情報を許可してね"),{enableHighAccuracy:true,timeout:12000});
+}
+function claim(s,d){
+  const first=!state.stamps[s.id];
+  state.stamps[s.id]=state.stamps[s.id]||{time:new Date().toISOString()};
+  save();render();openSpot(s.id,d);
+  toast(first?`${s.name}を見つけた！`:"取得済みやよ");
+  if(first)confetti();
+  if(first && Object.keys(state.stamps).length===state.spots.length){
+    setTimeout(()=>{ $("spotDialog").close(); showEnding(); },700);
+  }
+}
+function addSpotPhoto(id,input){
+  const f=input.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{state.stamps[id]=state.stamps[id]||{time:new Date().toISOString()};state.stamps[id].photo=r.result;save();render();openSpot(id);toast("思い出写真を保存したよ")};
+  r.readAsDataURL(f);
+}
+function showEnding(){
+  $("endingTextView").innerText=state.endingText;
+  if(state.endingPhoto){$("endingPhoto").src=state.endingPhoto;$("endingPhoto").classList.remove("hidden")}
+  else{$("endingPhoto").classList.add("hidden")}
+  $("endingDialog").showModal();confetti(90);
+}
+function populateAdmin(){
+  $("adminSpot").innerHTML=state.spots.map(s=>`<option value="${s.id}">${s.name}</option>`).join("");
+  loadAdminSpot();
+  $("endingText").value=state.endingText;
+  if(state.endingPhoto){$("endingPhotoPreview").src=state.endingPhoto;$("endingPhotoPreview").classList.remove("hidden")}
+  else{$("endingPhotoPreview").classList.add("hidden")}
+}
+function loadAdminSpot(){
+  const s=state.spots.find(x=>x.id===$("adminSpot").value)||state.spots[0];
+  $("adminMission").value=s.mission;$("adminMessage").value=s.message;
+}
+$("adminBtn").onclick=()=>{populateAdmin();$("adminDialog").showModal()};
+$("adminSpot").onchange=loadAdminSpot;
+$("saveSettings").onclick=()=>{
+  const s=state.spots.find(x=>x.id===$("adminSpot").value);
+  s.mission=$("adminMission").value.trim();s.message=$("adminMessage").value.trim();
+  state.endingText=$("endingText").value.trim();
+  save();render();toast("設定を保存したよ");
+};
+$("endingPhotoInput").onchange=e=>{
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{state.endingPhoto=r.result;$("endingPhotoPreview").src=r.result;$("endingPhotoPreview").classList.remove("hidden");save();toast("エンディング写真を保存したよ")};
+  r.readAsDataURL(f);
+};
+$("exportSettings").onclick=()=>{
+  const blob=new Blob([JSON.stringify({spots:state.spots,endingText:state.endingText,endingPhoto:state.endingPhoto},null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="futari_rally_settings.json";a.click();URL.revokeObjectURL(a.href);
+};
+$("importSettings").onchange=e=>{
+  const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{try{const x=JSON.parse(r.result);if(x.spots)state.spots=x.spots;if(x.endingText)state.endingText=x.endingText;if(x.endingPhoto!==undefined)state.endingPhoto=x.endingPhoto;save();render();populateAdmin();toast("設定を読み込んだよ")}catch{toast("設定ファイルを読み込めんかった")}};
+  r.readAsText(f);
+};
+$("resetProgress").onclick=()=>{if(confirm("スタンプ進捗と旅日記をリセットする？")){state.stamps={};state.memo="";$("tripMemo").value="";save();render();toast("進捗をリセットしたよ")}};
+$("nearestBtn").onclick=()=>{
+  if(!navigator.geolocation){toast("位置情報に対応してないみたいやわ");return}
+  navigator.geolocation.getCurrentPosition(pos=>{
+    const nearest=state.spots.map(s=>({...s,d:distanceKm(pos.coords.latitude,pos.coords.longitude,s.lat,s.lng)})).sort((a,b)=>a.d-b.d)[0];
+    openSpot(nearest.id,nearest.d);
+  },()=>toast("位置情報を許可してね"),{enableHighAccuracy:true,timeout:12000});
+};
+$("testBtn").onclick=()=>{state.test=!state.test;save();render();toast(state.test?"テストモードON":"テストモードOFF")};
+$("tripMemo").value=state.memo||"";
+$("saveMemo").onclick=()=>{state.memo=$("tripMemo").value;save();toast("旅日記を保存したよ")};
+document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>$(b.dataset.close).close());
+render();
+
+if("serviceWorker" in navigator && location.protocol.startsWith("http")){
+  window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js").catch(()=>{}));
+}
+
+</script>
+</body>
+</html>
