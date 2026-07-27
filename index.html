@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#2449a8">
-<title>ふたりのポケふた冒険｜最終完成版</title>
+<title>SEIYA × YUNO｜ふたりのポケふた冒険</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <style>
@@ -74,20 +74,20 @@ dialog{width:min(94vw,580px);border:0;border-radius:26px;padding:0;box-shadow:0 
 <div id="opening" class="opening">
  <div class="opening-box">
   <div class="opening-ball"></div>
-  <div class="kicker">SEIYA × YUNO / MIYAZAKI 2026</div>
-  <h1>ふたりの<br>ポケふた冒険</h1>
-  <p>9つのポケふたと、9つの小さな思い出。<br>宮崎をめぐる、ふたりだけの冒険へ。</p>
-  <button id="startBtn" class="start">冒険をはじめる</button>
+  <div class="kicker">FOR YUNO / MIYAZAKI 2026</div>
+  <h1>ゆのさんへ<br>宮崎の冒険を</h1>
+  <p>ゆのさんに宮崎を楽しんでもらいたくて、<br>ゆのさんのためだけの冒険を作りました。<br><br>一緒に、宮崎の思い出を集めに行こう。</p>
+  <button id="startBtn" class="start">ゆのさんと冒険をはじめる</button>
  </div>
 </div>
 
 <div class="app">
-<header class="topbar"><div class="brand"><span class="ball"></span><span>ふたりのポケふた冒険</span></div><button id="adminBtn" class="icon-btn">⚙️</button></header>
-<section class="hero"><div class="kicker">PRIVATE MEMORY ADVENTURE</div><h1>宮崎を<br>一緒に探そう</h1><p>スタンプを集めるたび、ポケふたの実物デザインと、ふたりの思い出が解放されます。</p></section>
+<header class="topbar"><div class="brand"><span class="ball"></span><span>ゆのさんの宮崎冒険</span></div><button id="adminBtn" class="icon-btn">⚙️</button></header>
+<section class="hero"><div class="kicker">FOR YUNO / PRIVATE MIYAZAKI ADVENTURE</div><h1>ゆのさんと<br>宮崎を探そう</h1><p>ゆのさんとスタンプを集めるたび、ポケふたの実物デザインと、ゆのさんとの思い出が解放されます。</p><div style="margin-top:18px;display:inline-block;padding:8px 13px;border:1px solid rgba(255,255,255,.5);border-radius:99px;font-size:11px;font-weight:950;letter-spacing:.12em">YUNO SPECIAL / MIYAZAKI MEMORY 2026</div></section>
 <main>
 <section class="card">
- <div class="progress-top"><div><small>冒険の進み具合</small><strong id="progressText">0 / 9</strong></div><div id="percent" class="pct">0%</div></div>
- <div class="bar"><div id="barFill"></div></div><p id="status" class="muted">最初のポケふたを探しに行こう。</p>
+ <div class="progress-top"><div><small>ゆのさんとの宮崎冒険記録</small><strong id="progressText">0 / 9</strong></div><div id="percent" class="pct">0%</div></div>
+ <div class="bar"><div id="barFill"></div></div><p id="status" class="muted">ゆのさん、最初のポケふたを探しに行こう。</p>
 </section>
 <section class="quick"><button id="nearestBtn" class="primary">📍 近くのポケふたを探す</button><button id="testBtn" class="secondary">🧪 テスト</button></section>
 <nav class="tabs">
@@ -95,15 +95,15 @@ dialog{width:min(94vw,580px);border:0;border-radius:26px;padding:0;box-shadow:0 
 </nav>
 
 <section id="collectionTab" class="tabpane">
- <div class="section-head"><h2>ポケふた図鑑</h2><span>全9種類</span></div><div id="grid" class="grid"></div>
+ <div class="section-head"><h2>ゆのさんのポケふた図鑑</h2><span>全9種類</span></div><div id="grid" class="grid"></div>
 </section>
-<section id="routeTab" class="tabpane hidden"><div class="section-head"><h2>冒険ルート</h2><span>南から北へ</span></div><div id="route" class="route"></div></section>
-<section id="albumTab" class="tabpane hidden"><div class="section-head"><h2>思い出アルバム</h2><span>取得写真</span></div><div id="album" class="album"></div></section>
-<section id="badgeTab" class="tabpane hidden"><div class="section-head"><h2>冒険の称号</h2><span>条件達成で解放</span></div><div id="badges" class="achievements"></div></section>
+<section id="routeTab" class="tabpane hidden"><div class="section-head"><h2>ゆのさんと巡る冒険ルート</h2><span>南から北へ</span></div><div id="route" class="route"></div></section>
+<section id="albumTab" class="tabpane hidden"><div class="section-head"><h2>ゆのさんとの思い出アルバム</h2><span>取得写真</span></div><div id="album" class="album"></div></section>
+<section id="badgeTab" class="tabpane hidden"><div class="section-head"><h2>ゆのさんとの冒険称号</h2><span>条件達成で解放</span></div><div id="badges" class="achievements"></div></section>
 
-<section class="card memory"><h2>ふたりの旅日記</h2><p class="muted">今日いちばん心に残ったことを残しておこう。</p><textarea id="tripMemo" placeholder="景色、会話、ごはん、笑ったこと…"></textarea><button id="saveMemo" class="secondary full">旅日記を保存</button></section>
-<section id="endingCard" class="card ending-card"><div class="ending-icon">🔒</div><h2>最後のサプライズ</h2><p>9つ集めると開きます。</p></section>
-<p class="footer">個人旅行用の非公式ファンメイドです。ポケふた画像は公式サイト上の画像を取得後のみ表示します。写真・スタンプ・設定は、この端末のブラウザ内に保存されます。</p>
+<section class="card memory"><h2>ゆのさんとの宮崎旅日記</h2><p class="muted">ゆのさんと過ごした今日のことを、少しだけ残しておこう。</p><textarea id="tripMemo" placeholder="ゆのさんと見た景色、話したこと、笑ったこと…"></textarea><button id="saveMemo" class="secondary full">旅日記を保存</button></section>
+<section id="endingCard" class="card ending-card"><div class="ending-icon">🔒</div><h2>ゆのさんへ<br>最後のサプライズ</h2><p>9つ集めると開きます。</p></section>
+<p class="footer">ゆのさんのために作った、ふたりだけの宮崎冒険アプリ｜個人旅行用の非公式ファンメイドです。ポケふた画像は公式サイト上の画像を取得後のみ表示します。写真・スタンプ・設定は、この端末のブラウザ内に保存されます。</p>
 </main>
 </div>
 
@@ -117,7 +117,7 @@ dialog{width:min(94vw,580px);border:0;border-radius:26px;padding:0;box-shadow:0 
  <label>エンディング本文</label><textarea id="endingText"></textarea>
  <div class="admin-actions"><button id="saveSettings" class="primary">設定を保存</button><button id="exportSettings" class="secondary">設定を書き出す</button><label class="secondary" style="text-align:center">設定を読み込む<input id="importSettings" type="file" accept="application/json" hidden></label><button id="resetProgress" class="danger">進捗だけリセット</button></div>
 </div></dialog>
-<dialog id="endingDialog"><button class="close" data-close="endingDialog">×</button><div class="ending"><div style="font-size:54px">✨</div><div class="kicker">ADVENTURE COMPLETE</div><h2>9つの思い出が集まりました</h2><div id="slideshow" class="slideshow hidden"></div><p id="endingTextView"></p><p class="signature">また一緒に、続きを探しに行こう。<br><strong>成矢より</strong></p></div></dialog>
+<dialog id="endingDialog"><button class="close" data-close="endingDialog">×</button><div class="ending"><div style="font-size:54px">✨</div><div class="kicker">ADVENTURE COMPLETE</div><h2>ゆのさんと<br>9つの思い出を集めました</h2><div id="slideshow" class="slideshow hidden"></div><p id="endingTextView"></p><p class="signature">ゆのさんとの冒険は、これからも続く。<br>また一緒に、続きを探しに行こう。<br><strong>成矢より</strong></p></div></dialog>
 <div id="toast" class="toast"></div><div id="confetti" class="confetti"></div>
 
 <script>
@@ -131,7 +131,7 @@ const DEFAULT_SPOTS=[
 {id:"kadogawa",name:"門川",area:"門川町",lat:32.487021,lng:131.676733,pokemon:"アローラナッシー＆マケンカニ",emoji:"🐟",image:"https://local.pokemon.jp/img/p/manhole/1d1261134ec64c046aacae63dba74c6f_l.png",mission:"今日の旅で『意外だったこと』をひとつ話そう。",message:"思いがけない出来事も、旅の宝物。"},
 {id:"hinokage",name:"日之影",area:"日之影町",lat:32.660643,lng:131.388639,pokemon:"ナッシー＆レジスチル",emoji:"🌲",image:"https://local.pokemon.jp/img/p/manhole/dbe8fa0ecdf59974cf1c01b55f7f089b_l.png",mission:"ふたりの思い出に残したい曲を、一曲ずつ選ぼう。",message:"この曲を聴いたら、今日を思い出せますように。"},
 {id:"takachiho",name:"高千穂",area:"高千穂町",lat:32.707748,lng:131.305889,pokemon:"ナッシー＆レジギガス",emoji:"⛰️",image:"https://local.pokemon.jp/img/p/manhole/ba1ab8ae9af98b080f9ed1d867cb75c9_l.png",mission:"この旅行で一番心に残った出来事と、次に一緒に行きたい場所を話そう。",message:"ここまで一緒に来てくれて、ありがとう。"}];
-const DEFAULT_ENDING="宮崎まで来てくれてありがとう。\\n\\n一緒に見た景色も、車の中で話したことも、何気なく笑った時間も、全部僕にとって大切な思い出です。\\n\\n宮崎を少しでも好きになってもらえてたら嬉しい。\\nでもそれ以上に、また僕と一緒に来たいと思ってもらえたら嬉しい。";
+const DEFAULT_ENDING="ゆのさん、宮崎まで来てくれてありがとう。\\n\\nゆのさんに宮崎を楽しんでもらいたくて、この冒険を作りました。\\n一緒に見た景色も、車の中で話したことも、何気なく笑った時間も、全部僕にとって大切な思い出です。\\n\\nゆのさんが宮崎を少しでも好きになってくれていたら嬉しい。\\nそして、また僕と一緒に宮崎へ来たいと思ってもらえたら、もっと嬉しいです。";
 const KEY="futari-pokefuta-final-v1";
 let state=JSON.parse(localStorage.getItem(KEY)||"null")||{stamps:{},memo:"",test:false,spots:DEFAULT_SPOTS,endingText:DEFAULT_ENDING,endingPhotos:[]};
 if(!state.spots)state.spots=DEFAULT_SPOTS;if(!state.endingPhotos)state.endingPhotos=[];if(!state.endingText)state.endingText=DEFAULT_ENDING;
@@ -144,12 +144,12 @@ function chime(){try{const A=new(window.AudioContext||window.webkitAudioContext)
 function render(){
  const got=Object.keys(state.stamps).length,total=state.spots.length,p=Math.round(got/total*100);
  $("progressText").textContent=`${got} / ${total}`;$("percent").textContent=p+"%";$("barFill").style.width=p+"%";
- $("status").textContent=got===total?"ふたりの宮崎冒険、コンプリート！":`あと${total-got}か所。次はどんな思い出が待っちょるかな。`;
+ $("status").textContent=got===total?"ゆのさんとの宮崎冒険、コンプリート！":`ゆのさん、あと${total-got}か所。次はどんな思い出が待っちょるかな。`;
  $("testBtn").textContent=state.test?"🧪 テスト中":"🧪 テスト";
  $("grid").innerHTML=state.spots.map(s=>{const g=state.stamps[s.id];return `<article class="spot ${g?"got":""}"><div><div class="lid ${g?"unlocked":"locked"}"><img src="${s.image}" alt="${s.name}のポケふた" loading="lazy" referrerpolicy="no-referrer"></div><div class="spotline"><span class="emoji">${s.emoji}</span><span class="seal">${g?"GET!":"LOCK"}</span></div><h3>${s.name}</h3><p>${g?s.pokemon:"？？？ ＆ ？？？"}</p></div><button onclick="openSpot('${s.id}')">${g?"図鑑を見る":"ポケふたを探す"}</button></article>`}).join("");
  $("route").innerHTML=state.spots.map((s,i)=>`<div class="route-item ${state.stamps[s.id]?"done":""}"><div class="route-no">${i+1}</div><div><strong>${s.name}</strong><small>${s.area}・${s.pokemon}</small></div><div class="route-state">${state.stamps[s.id]?"GET":"未取得"}</div></div>`).join("");
  const photos=Object.values(state.stamps).map(x=>x.photo).filter(Boolean);
- $("album").innerHTML=photos.length?photos.map(x=>`<img src="${x}" alt="思い出写真">`).join(""):`<div class="empty">スタンプ取得後に写真を追加すると、ここに並びます 📷</div>`;
+ $("album").innerHTML=photos.length?photos.map(x=>`<img src="${x}" alt="思い出写真">`).join(""):`<div class="empty">ゆのさんとの思い出写真が、ここに並んでいきます 📷</div>`;
  const badges=[
   {icon:"🌱",name:"はじめの一歩",desc:"最初のスタンプをGET",on:got>=1},
   {icon:"🚗",name:"海岸線トラベラー",desc:"3つのポケふたをGET",on:got>=3},
@@ -159,7 +159,7 @@ function render(){
   {icon:"🏆",name:"ポケふたマスター",desc:"全9種類をコンプリート",on:got===total}
  ];
  $("badges").innerHTML=badges.map(b=>`<div class="achievement ${b.on?"unlocked":""}"><div class="medal">${b.icon}</div><h3>${b.name}</h3><p>${b.desc}</p></div>`).join("");
- const e=$("endingCard");if(got===total){e.classList.add("ready");e.innerHTML='<div class="ending-icon">💌</div><h2>最後のサプライズ</h2><p>タップして開く</p>';e.onclick=showEnding}else{e.classList.remove("ready");e.innerHTML=`<div class="ending-icon">🔒</div><h2>最後のサプライズ</h2><p>あと${total-got}つ集めると開きます。</p>`;e.onclick=null}
+ const e=$("endingCard");if(got===total){e.classList.add("ready");e.innerHTML='<div class="ending-icon">💌</div><h2>ゆのさんへ<br>最後のサプライズ</h2><p>タップして開く</p>';e.onclick=showEnding}else{e.classList.remove("ready");e.innerHTML=`<div class="ending-icon">🔒</div><h2>最後のサプライズ</h2><p>あと${total-got}つ集めると開きます。</p>`;e.onclick=null}
 }
 function openSpot(id,d=null){const s=state.spots.find(x=>x.id===id),g=state.stamps[id];$("spotBody").innerHTML=`<div class="dialog-inner"><div class="discovery"><div class="lid ${g?"unlocked":"locked"}"><img src="${s.image}" alt="${s.name}のポケふた" referrerpolicy="no-referrer"></div><span class="rarity">${g?"COLLECTION No. "+(state.spots.findIndex(x=>x.id===id)+1):"GPS LOCKED"}</span><h2>${s.name}</h2><p class="poke">${g?s.pokemon:"現地に着くとデザインが解放されます"}</p></div><div class="mission"><small>MEMORY MISSION</small>${s.mission}</div>${d!==null?`<div class="distance">現在地から <strong>${d<1?Math.round(d*1000)+"m":d.toFixed(1)+"km"}</strong></div>`:""}${g?.photo?`<img class="photo" src="${g.photo}" alt="思い出写真">`:""}${g?`<p class="note">「${s.message}」</p><p style="text-align:center;font-size:10px;color:#7c8595">${new Date(g.time).toLocaleString("ja-JP")}</p>`:""}<div class="dialog-actions"><button class="primary" onclick="checkSpot('${id}')">📍 ${g?"現在地を再確認":"現地でGETする"}</button><label class="secondary" style="text-align:center">📷 思い出写真を追加<input hidden type="file" accept="image/*" onchange="addPhoto('${id}',this)"></label><a class="maplink" target="_blank" href="https://www.google.com/maps/search/?api=1&query=${s.lat},${s.lng}">Googleマップで開く</a></div></div>`;$("spotDialog").showModal()}
 function checkSpot(id){const s=state.spots.find(x=>x.id===id);if(state.test){claim(s,0);return}if(!navigator.geolocation){toast("位置情報に対応してないみたいやわ");return}navigator.geolocation.getCurrentPosition(p=>{const d=dist(p.coords.latitude,p.coords.longitude,s.lat,s.lng);d<=.15?claim(s,d):(openSpot(id,d),toast("まだ少し遠いみたいやじ"))},()=>toast("位置情報を許可してね"),{enableHighAccuracy:true,timeout:12000})}
@@ -169,8 +169,7 @@ function showEnding(){$("endingTextView").innerText=state.endingText;const imgs=
 function populateAdmin(){$("adminSpot").innerHTML=state.spots.map(s=>`<option value="${s.id}">${s.name}</option>`).join("");loadAdmin();$("endingText").value=state.endingText;renderPreviews()}
 function loadAdmin(){const s=state.spots.find(x=>x.id===$("adminSpot").value)||state.spots[0];$("adminMission").value=s.mission;$("adminMessage").value=s.message}
 function renderPreviews(){$("photoPreviews").innerHTML=state.endingPhotos.map(x=>`<img class="admin-photo" src="${x}">`).join("")}
-$("startBtn").onclick=()=>{localStorage.setItem("futari-opening-seen","1");$("opening").classList.add("hide");setTimeout(()=>$("opening").classList.add("hidden"),750);chime()};
-if(localStorage.getItem("futari-opening-seen"))$("opening").classList.add("hidden");
+$("startBtn").onclick=()=>{$("opening").classList.add("hide");setTimeout(()=>$("opening").classList.add("hidden"),750);chime()};
 $("adminBtn").onclick=()=>{populateAdmin();$("adminDialog").showModal()};$("adminSpot").onchange=loadAdmin;
 $("saveSettings").onclick=()=>{const s=state.spots.find(x=>x.id===$("adminSpot").value);s.mission=$("adminMission").value.trim();s.message=$("adminMessage").value.trim();state.endingText=$("endingText").value.trim();save();render();toast("設定を保存したよ")};
 $("endingPhotoInput").onchange=e=>{const fs=[...e.target.files].slice(0,5);Promise.all(fs.map(f=>new Promise(ok=>{const r=new FileReader();r.onload=()=>ok(r.result);r.readAsDataURL(f)}))).then(arr=>{state.endingPhotos=arr;save();renderPreviews();toast("エンディング写真を保存したよ")})};
