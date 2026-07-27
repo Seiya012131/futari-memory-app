@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#eef7f5">
-<title>ゆのさんへ｜宮崎の小さな冒険</title>
+<title>YUNO NOTE｜宮崎の小さな冒険</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <style>
@@ -83,32 +83,45 @@ dialog{width:min(94vw,560px);border:0;border-radius:30px;padding:0;box-shadow:0 
 .opening{position:fixed;inset:0;z-index:200;background:linear-gradient(180deg,#eff8f5,#f8f2e8);display:grid;place-items:center;padding:28px;text-align:center;transition:.8s}.opening.hide{opacity:0;pointer-events:none}.opening-inner{max-width:430px}.opening .line{width:1px;height:78px;background:#8fb2ac;margin:0 auto 24px}.opening h1{font-family:Georgia,"Yu Mincho",serif;font-weight:500;font-size:42px;line-height:1.25;margin:0 0 20px}.opening p{color:var(--soft);line-height:2;margin:0}.opening button{margin-top:27px;border:0;border-radius:999px;padding:15px 24px;background:var(--deep);color:#fff;font-weight:900}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,120px);background:#203839;color:#fff;padding:12px 18px;border-radius:999px;z-index:300;transition:.3s;white-space:nowrap}.toast.show{transform:translate(-50%,0)}
 @media(min-width:680px){.story-list{grid-template-columns:repeat(2,1fr)}.album{grid-template-columns:repeat(3,1fr)}.badges{grid-template-columns:repeat(3,1fr)}}
+
+/* YUNO NOTE refined experience */
+.logo{font-family:Georgia,"Yu Mincho",serif;font-size:16px}.logo small{font-family:system-ui,-apple-system,"Yu Gothic",sans-serif}
+.hero-card{isolation:isolate;background:linear-gradient(180deg,rgba(17,57,58,.02),rgba(18,56,58,.62)),radial-gradient(circle at 78% 18%,rgba(255,238,192,.88),transparent 16%),linear-gradient(145deg,#9cd7cf 0%,#5e9ea0 52%,#315f60 100%)}
+.hero-card:after{content:"";position:absolute;inset:0;z-index:-1;opacity:.3;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(180deg,black,transparent 80%)}
+.hero h1{letter-spacing:.01em;text-shadow:0 4px 25px rgba(0,0,0,.12)}.hero-badge{border:1px solid rgba(255,255,255,.28)}
+.welcome{position:relative;overflow:hidden}.welcome:after{content:"YUNO";position:absolute;right:-4px;bottom:-22px;font-family:Georgia,serif;font-size:78px;color:rgba(49,95,96,.05);letter-spacing:.08em}
+.story,.stat,.polaroid{transition:transform .22s ease,box-shadow .22s ease}.story:active,.stat:active,.polaroid:active{transform:scale(.98)}
+.chapter-progress{display:flex;gap:5px;margin-top:12px}.chapter-progress span{height:4px;flex:1;border-radius:99px;background:rgba(255,255,255,.22)}.chapter-progress span.on{background:#f2d79c}
+.discovery-screen{position:fixed;inset:0;z-index:250;background:radial-gradient(circle at 50% 30%,rgba(255,242,195,.95),transparent 18%),linear-gradient(180deg,#173f42,#315f60 62%,#d8ae5e);display:grid;place-items:center;padding:24px;color:white;text-align:center;opacity:0;pointer-events:none;transition:.45s}.discovery-screen.show{opacity:1;pointer-events:auto}.discovery-card{max-width:420px;width:100%}.discovery-lid{width:min(76vw,310px);aspect-ratio:1;margin:0 auto 22px;border-radius:50%;background:#fff;padding:12px;box-shadow:0 25px 70px rgba(0,0,0,.3);transform:scale(.65) rotate(-10deg);opacity:0}.discovery-screen.show .discovery-lid{animation:revealLid 1.15s .15s cubic-bezier(.2,.9,.2,1) forwards}.discovery-lid img{width:100%;height:100%;object-fit:contain}.discovery-screen h2{font-family:Georgia,"Yu Mincho",serif;font-weight:500;font-size:37px;margin:8px 0}.discovery-screen p{line-height:1.8;opacity:.9}@keyframes revealLid{0%{transform:scale(.55) rotate(-16deg);opacity:0;filter:brightness(2)}65%{transform:scale(1.08) rotate(3deg);opacity:1;filter:brightness(1.25)}100%{transform:scale(1);opacity:1;filter:none}}
+.sparkles{position:absolute;inset:0;pointer-events:none;overflow:hidden}.sparkles i{position:absolute;top:48%;left:50%;font-style:normal;animation:spark 1.6s ease-out forwards}@keyframes spark{to{transform:translate(var(--x),var(--y)) scale(.2) rotate(180deg);opacity:0}}
+.ending-hero{min-height:78vh;padding:48px 24px;background:radial-gradient(circle at 50% 12%,rgba(255,239,187,.75),transparent 18%),linear-gradient(180deg,#234f52 0%,#315f60 56%,#d8ae5e 100%);color:#fff;text-align:center}.ending-hero h2{font-family:Georgia,"Yu Mincho",serif;font-size:36px;font-weight:500;line-height:1.35}.ending-hero p{line-height:2;white-space:pre-line}.memory-counter{font-size:10px;letter-spacing:.2em;opacity:.75}.empty-state{grid-column:1/-1;padding:32px;border-radius:24px;text-align:center;color:var(--soft)}
+
 </style>
 </head>
 <body>
 <div id="opening" class="opening">
  <div class="opening-inner">
   <div class="line"></div>
-  <div class="eyebrow" style="color:#6b8580">FOR YUNO / MIYAZAKI 2026</div>
-  <h1>ゆのさんへ。<br>宮崎の小さな冒険を。</h1>
-  <p>ゆのさんに宮崎を楽しんでもらいたくて、<br>この旅のためだけに作りました。<br><br>一緒に、景色と笑顔と思い出を集めに行こう。</p>
-  <button id="startBtn">ゆのさんと旅をはじめる</button>
+  <div class="eyebrow" style="color:#6b8580">YUNO NOTE / MIYAZAKI 2026</div>
+  <h1>ゆのさんへ。<br>宮崎の旅を贈ります。</h1>
+  <p>ゆのさんに宮崎を楽しんでもらいたくて、<br>この旅のためだけに作りました。<br><br>景色と笑顔と、ふたりだけの思い出を<br>一緒に集めに行こう。</p>
+  <button id="startBtn">ゆのさんと宮崎をはじめる</button>
  </div>
 </div>
 
 <div class="app">
-<header class="top"><div class="logo">YUNO'S MIYAZAKI<small>PRIVATE ADVENTURE BOOK</small></div><button id="settingsBtn" class="iconbtn">⚙️</button></header>
+<header class="top"><div class="logo">YUNO NOTE<small>MIYAZAKI PRIVATE ADVENTURE</small></div><button id="settingsBtn" class="iconbtn">⚙️</button></header>
 <section class="hero">
  <div class="hero-card">
   <div class="eyebrow">WELCOME TO MIYAZAKI, YUNO</div>
   <h1>ゆのさん、<br>宮崎へようこそ。</h1>
   <p>この3日間が、ゆのさんにとって「また宮崎に来たい」と思える時間になりますように。</p>
-  <div class="hero-badge">SEIYA × YUNO / MEMORY TRIP</div>
+  <div class="hero-badge">SEIYA × YUNO / MEMORY TRIP</div><div id="chapterProgress" class="chapter-progress"></div>
  </div>
 </section>
 <main>
 <section class="welcome glass">
- <h2>今日は、どんな思い出を作ろう。</h2>
+ <h2>ゆのさん、今日はどんな思い出を作ろう。</h2>
  <p>ゆのさんに見てほしい景色、食べてほしいもの、そして一緒に笑いたい時間を詰め込みました。</p>
 </section>
 <section class="stats">
@@ -174,7 +187,7 @@ dialog{width:min(94vw,560px);border:0;border-radius:30px;padding:0;box-shadow:0 
  <p id="letterText" style="line-height:2;color:#5e6c69;white-space:pre-line"></p>
  <p style="text-align:right;margin-top:24px"><strong>成矢より</strong></p>
 </div></dialog>
-<div id="toast" class="toast"></div>
+<div id="discoveryScreen" class="discovery-screen"><div id="sparkles" class="sparkles"></div><div class="discovery-card"><div class="memory-counter">NEW MEMORY DISCOVERED</div><div class="discovery-lid"><img id="discoveryImage" alt=""></div><h2 id="discoveryTitle"></h2><p id="discoveryMessage"></p><button id="closeDiscovery" class="primary" style="width:100%;margin-top:16px;background:white;color:#315f60">思い出に残す</button></div></div><dialog id="endingDialog"><button class="close" data-close="endingDialog">×</button><div class="ending-hero"><div class="eyebrow">YUNO NOTE / JOURNEY COMPLETE</div><h2>ゆのさんと、<br>9つの思い出を集めました。</h2><p id="endingLetter"></p><p style="text-align:right;margin-top:28px"><strong>成矢より</strong></p></div></dialog><div id="toast" class="toast"></div>
 
 <script>
 const SPOTS=[
@@ -202,13 +215,13 @@ let state=JSON.parse(localStorage.getItem(KEY)||"null")||{stamps:{},spots:SPOTS,
 const $=id=>document.getElementById(id);const rad=x=>x*Math.PI/180;
 function dist(a,b,c,d){const R=6371,x=rad(c-a),y=rad(d-b),q=Math.sin(x/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(y/2)**2;return 2*R*Math.asin(Math.sqrt(q))}
 function save(){localStorage.setItem(KEY,JSON.stringify(state))}
-function toast(t){$("toast").textContent=t;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),1800)}
+function toast(t){$("toast").textContent=t;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),1800)}function chime(){try{const A=new(window.AudioContext||window.webkitAudioContext)();[523,659,784,1046].forEach((f,i)=>{const o=A.createOscillator(),g=A.createGain();o.type="sine";o.frequency.value=f;g.gain.setValueAtTime(.0001,A.currentTime+i*.09);g.gain.exponentialRampToValueAtTime(.14,A.currentTime+i*.09+.02);g.gain.exponentialRampToValueAtTime(.0001,A.currentTime+i*.09+.36);o.connect(g);g.connect(A.destination);o.start(A.currentTime+i*.09);o.stop(A.currentTime+i*.09+.4)});}catch{}}function showDiscovery(s){$("discoveryImage").src=s.image;$("discoveryImage").alt=s.name;$("discoveryTitle").textContent=s.name+"を発見";$("discoveryMessage").textContent=s.message;$("discoveryScreen").classList.add("show");$("sparkles").innerHTML="";const icons=["✦","✨","⭐","💛","✧"];for(let i=0;i<30;i++){const e=document.createElement("i");e.textContent=icons[i%icons.length];const a=Math.random()*Math.PI*2,r=80+Math.random()*180;e.style.setProperty("--x",Math.cos(a)*r+"px");e.style.setProperty("--y",Math.sin(a)*r+"px");e.style.animationDelay=Math.random()*.35+"s";$("sparkles").appendChild(e)}chime();}
 function render(){
  const got=Object.keys(state.stamps).length,total=state.spots.length,p=got/total;
- $("progressText").textContent=`${got}/${total}`;$("ring").style.background=`conic-gradient(var(--gold) ${p*360}deg,#e9ece7 0deg)`;
+ $("progressText").textContent=`${got}/${total}`;$("ring").style.background=`conic-gradient(var(--gold) ${p*360}deg,#e9ece7 0deg)`;$("chapterProgress").innerHTML=Array.from({length:total},(_,i)=>`<span class="${i<got?"on":""}"></span>`).join("");
  $("storyList").innerHTML=state.spots.map((s,i)=>{const g=state.stamps[s.id];return `<article class="story"><div class="thumb ${g?"":"locked"}">${g?`<img src="${s.image}" alt="${s.name}" referrerpolicy="no-referrer">`:""}</div><div><small>CHAPTER ${String(i+1).padStart(2,"0")} / ${s.area}</small><h3>${s.name}</h3><p>${g?s.message:"どんなポケふたかは、ゆのさんと現地で見つけてからのお楽しみ。"}</p></div><button onclick="openSpot('${s.id}')">${g?"思い出を見る":"探しに行く"}</button></article>`}).join("");
  const photos=Object.entries(state.stamps).filter(([_,v])=>v.photo).map(([id,v])=>({id,photo:v.photo,name:state.spots.find(s=>s.id===id).name}));
- $("album").innerHTML=photos.length?photos.map(x=>`<div class="polaroid"><img src="${x.photo}"><p>${x.name}<br>with YUNO</p></div>`).join(""):`<div class="glass" style="grid-column:1/-1;padding:28px;border-radius:24px;text-align:center;color:var(--soft)">ゆのさんとの写真が、ここに並んでいきます。</div>`;
+ $("album").innerHTML=photos.length?photos.map(x=>`<div class="polaroid"><img src="${x.photo}"><p>${x.name}<br>with YUNO</p></div>`).join(""):`<div class="glass empty-state">まだ写真はありません。<br>ポケふたを見つけたあと、ゆのさんとの写真を残せます。</div>`;
  const badges=[
  {i:"🌱",n:"最初の一歩",d:"ゆのさんと最初の思い出",on:got>=1},
  {i:"🚗",n:"宮崎トラベラー",d:"3か所を巡る",on:got>=3},
@@ -218,16 +231,16 @@ function render(){
  {i:"🏆",n:"YUNO'S MASTER",d:"全9か所コンプリート",on:got===total}
  ];
  $("badges").innerHTML=badges.map(b=>`<div class="badge ${b.on?"on":""}"><div class="bicon">${b.i}</div><h3>${b.n}</h3><p>${b.d}</p></div>`).join("");
- $("letterBtn").textContent=got===total?"ゆのさんへ、手紙を開く":"まだ秘密にしておく";$("letterBtn").onclick=got===total?()=>{$("letterText").innerText=state.letter;$("letterDialog").showModal()}:()=>toast("9つの思い出が集まったら開くよ");
+ $("letterBtn").textContent=got===total?"ゆのさんへ、最後の手紙を開く":"あと"+(total-got)+"つで手紙が開きます";$("letterBtn").onclick=got===total?()=>{$("endingLetter").innerText=state.letter;$("endingDialog").showModal()}:()=>toast("9つの思い出が集まったら開くよ");
 }
 function openSpot(id,d=null){const s=state.spots.find(x=>x.id===id),g=state.stamps[id];
 const visual=g?`<img class="modal-image" src="${s.image}" alt="${s.name}" referrerpolicy="no-referrer">`:`<div class="mystery-image"><div><div class="mystery-mark">？</div><div class="mystery-label">DISCOVER AT THE LOCATION</div></div></div>`;
 const identity=g?`<div class="sub">${s.area} / ${s.pokemon}</div>`:`<div class="sub">${s.area} / 未発見のポケふた</div>`;
 $("spotBody").innerHTML=`<div class="modal">${visual}${identity}<h2>${s.name}</h2><div class="mission"><small>MISSION FOR YUNO</small>${s.mission}</div>${!g?`<p style="text-align:center;color:var(--soft);line-height:1.7">デザインとポケモンは、ゆのさんと現地で見つけた瞬間に解放されます。</p>`:""}${d!==null?`<p style="text-align:center;color:var(--soft)">現在地から ${d<1?Math.round(d*1000)+"m":d.toFixed(1)+"km"}</p>`:""}${g?.photo?`<img src="${g.photo}" style="width:100%;border-radius:20px;margin-bottom:12px">`:""}<div class="actions"><button class="primary" onclick="checkSpot('${id}')">${g?"現在地を再確認":"ゆのさんと見つける"}</button>${g?`<label class="secondary" style="text-align:center">思い出写真を追加<input hidden type="file" accept="image/*" onchange="addPhoto('${id}',this)"></label>`:""}</div></div>`;$("spotDialog").showModal()}
 function checkSpot(id){const s=state.spots.find(x=>x.id===id);if(state.test){claim(s);return}navigator.geolocation.getCurrentPosition(p=>{const d=dist(p.coords.latitude,p.coords.longitude,s.lat,s.lng);d<=.15?claim(s):(openSpot(id,d),toast("まだ少し遠いみたいやじ"))},()=>toast("位置情報を許可してね"),{enableHighAccuracy:true,timeout:12000})}
-function claim(s){const first=!state.stamps[s.id];state.stamps[s.id]=state.stamps[s.id]||{time:new Date().toISOString()};save();render();openSpot(s.id);toast(first?`${s.name}のポケふたを発見！`:"取得済みやよ")}
+function claim(s){const first=!state.stamps[s.id];state.stamps[s.id]=state.stamps[s.id]||{time:new Date().toISOString()};save();render();$("spotDialog").close();if(first){showDiscovery(s)}else{openSpot(s.id);toast("取得済みやよ")}}
 function addPhoto(id,input){const f=input.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{state.stamps[id]=state.stamps[id]||{time:new Date().toISOString()};state.stamps[id].photo=r.result;save();render();openSpot(id);toast("ゆのさんとの写真を保存したよ")};r.readAsDataURL(f)}
-$("startBtn").onclick=()=>{$("opening").classList.add("hide");setTimeout(()=>$("opening").classList.add("hidden"),800)};
+$("startBtn").onclick=()=>{$("opening").classList.add("hide");setTimeout(()=>$("opening").classList.add("hidden"),800)};$("closeDiscovery").onclick=()=>{$("discoveryScreen").classList.remove("show")};
 document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".tabpane").forEach(x=>x.classList.add("hidden"));$(b.dataset.tab+"Tab").classList.remove("hidden")});
 document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>$(b.dataset.close).close());
 $("settingsBtn").onclick=()=>{const s=state.spots[0];$("spotSelect").innerHTML=state.spots.map(x=>`<option value="${x.id}">${x.name}</option>`).join("");$("missionInput").value=s.mission;$("messageInput").value=s.message;$("letterInput").value=state.letter;$("settingsDialog").showModal()};
