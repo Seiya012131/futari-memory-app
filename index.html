@@ -60,7 +60,12 @@ main{padding:0 17px}
  background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.85);box-shadow:0 12px 32px rgba(57,78,74,.08)
 }
 .thumb{width:86px;height:86px;border-radius:22px;background:linear-gradient(145deg,#dce9e6,#9dc7c2);position:relative;overflow:hidden}
-.thumb img{width:100%;height:100%;object-fit:cover}.thumb.locked img{filter:grayscale(1) brightness(.45) blur(5px)}.thumb.locked:after{content:"✦";position:absolute;inset:0;display:grid;place-items:center;color:white;font-size:24px}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb.locked{background:
+ radial-gradient(circle at 70% 24%,rgba(255,255,255,.55),transparent 18%),
+ linear-gradient(145deg,#dce9e6,#93bbb6)}
+.thumb.locked:before{content:"？";position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.92);font-family:Georgia,serif;font-size:34px}
+.thumb.locked:after{content:"UNDISCOVERED";position:absolute;left:0;right:0;bottom:9px;text-align:center;color:rgba(255,255,255,.78);font-size:7px;font-weight:900;letter-spacing:.14em}
 .story small{font-size:10px;letter-spacing:.12em;color:var(--soft)}.story h3{margin:4px 0 6px}.story p{font-size:11px;line-height:1.55;color:var(--soft);margin:0}.story button{border:0;border-radius:14px;padding:10px;background:#edf5f2;color:var(--deep);font-weight:900}
 .album{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.polaroid{background:#fff;padding:10px 10px 18px;border-radius:7px;box-shadow:0 12px 30px rgba(58,65,60,.12);transform:rotate(-1deg)}.polaroid:nth-child(even){transform:rotate(1.5deg)}.polaroid img{width:100%;aspect-ratio:1;object-fit:cover}.polaroid p{font-family:"Comic Sans MS","Yu Gothic",sans-serif;text-align:center;margin:12px 0 0;color:#5b6462}
 .badges{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.badge{padding:20px;border-radius:24px;text-align:center;background:rgba(255,255,255,.75);filter:grayscale(1);opacity:.55}.badge.on{filter:none;opacity:1;border:1px solid rgba(216,174,94,.45)}.badge .bicon{font-size:38px}.badge h3{margin:8px 0 5px}.badge p{font-size:10px;color:var(--soft);margin:0;line-height:1.5}
@@ -68,7 +73,13 @@ main{padding:0 17px}
 .footer{text-align:center;color:#8b9793;font-size:9px;padding:25px}
 dialog{width:min(94vw,560px);border:0;border-radius:30px;padding:0;box-shadow:0 30px 90px rgba(28,54,54,.32)}dialog::backdrop{background:rgba(21,39,39,.65);backdrop-filter:blur(8px)}
 .close{position:absolute;right:12px;top:12px;border:0;border-radius:50%;width:40px;height:40px;background:#fff;z-index:5;font-size:21px}
-.modal{padding:24px}.modal-image{width:100%;aspect-ratio:4/3;object-fit:contain;background:#e8efec;border-radius:24px}.modal h2{font-family:Georgia,"Yu Mincho",serif;font-weight:500;font-size:34px;margin:18px 0 4px}.modal .sub{color:var(--soft);font-size:11px}.mission{margin:18px 0;padding:16px;border-radius:18px;background:#f4eee2;border:1px solid #ead8b8;line-height:1.7}.mission small{display:block;font-size:9px;letter-spacing:.18em;color:#9c7a3b;font-weight:900}.actions{display:grid;gap:10px}.primary,.secondary,.danger{border:0;border-radius:16px;padding:13px;font-weight:900}.primary{background:var(--deep);color:white}.secondary{background:#edf5f2;color:var(--deep)}.danger{background:#fff0ed;color:#a44b43}
+.modal{padding:24px}.modal-image{width:100%;aspect-ratio:4/3;object-fit:contain;background:#e8efec;border-radius:24px}
+.mystery-image{width:100%;aspect-ratio:4/3;border-radius:24px;display:grid;place-items:center;text-align:center;
+ background:radial-gradient(circle at 68% 24%,rgba(255,255,255,.72),transparent 18%),linear-gradient(145deg,#dce9e6,#8db8b3);
+ color:white;position:relative;overflow:hidden}
+.mystery-image:after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;border:28px solid rgba(255,255,255,.08);right:-60px;bottom:-75px}
+.mystery-mark{font-family:Georgia,serif;font-size:76px;line-height:1}
+.mystery-label{font-size:9px;font-weight:900;letter-spacing:.2em;opacity:.8;margin-top:7px}.modal h2{font-family:Georgia,"Yu Mincho",serif;font-weight:500;font-size:34px;margin:18px 0 4px}.modal .sub{color:var(--soft);font-size:11px}.mission{margin:18px 0;padding:16px;border-radius:18px;background:#f4eee2;border:1px solid #ead8b8;line-height:1.7}.mission small{display:block;font-size:9px;letter-spacing:.18em;color:#9c7a3b;font-weight:900}.actions{display:grid;gap:10px}.primary,.secondary,.danger{border:0;border-radius:16px;padding:13px;font-weight:900}.primary{background:var(--deep);color:white}.secondary{background:#edf5f2;color:var(--deep)}.danger{background:#fff0ed;color:#a44b43}
 .opening{position:fixed;inset:0;z-index:200;background:linear-gradient(180deg,#eff8f5,#f8f2e8);display:grid;place-items:center;padding:28px;text-align:center;transition:.8s}.opening.hide{opacity:0;pointer-events:none}.opening-inner{max-width:430px}.opening .line{width:1px;height:78px;background:#8fb2ac;margin:0 auto 24px}.opening h1{font-family:Georgia,"Yu Mincho",serif;font-weight:500;font-size:42px;line-height:1.25;margin:0 0 20px}.opening p{color:var(--soft);line-height:2;margin:0}.opening button{margin-top:27px;border:0;border-radius:999px;padding:15px 24px;background:var(--deep);color:#fff;font-weight:900}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,120px);background:#203839;color:#fff;padding:12px 18px;border-radius:999px;z-index:300;transition:.3s;white-space:nowrap}.toast.show{transform:translate(-50%,0)}
 @media(min-width:680px){.story-list{grid-template-columns:repeat(2,1fr)}.album{grid-template-columns:repeat(3,1fr)}.badges{grid-template-columns:repeat(3,1fr)}}
@@ -186,7 +197,7 @@ const LETTER=`ゆのさん、宮崎まで来てくれてありがとう。
 そして、また僕と一緒に宮崎へ来たいと思ってもらえたら、もっと嬉しいです。
 
 これからも、ゆのさんと一緒にたくさんの思い出を作っていきたい。`;
-const KEY="yuno-miyazaki-v2";
+const KEY="yuno-miyazaki-v2-complete";
 let state=JSON.parse(localStorage.getItem(KEY)||"null")||{stamps:{},spots:SPOTS,letter:LETTER,test:false};
 const $=id=>document.getElementById(id);const rad=x=>x*Math.PI/180;
 function dist(a,b,c,d){const R=6371,x=rad(c-a),y=rad(d-b),q=Math.sin(x/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(y/2)**2;return 2*R*Math.asin(Math.sqrt(q))}
@@ -195,7 +206,7 @@ function toast(t){$("toast").textContent=t;$("toast").classList.add("show");setT
 function render(){
  const got=Object.keys(state.stamps).length,total=state.spots.length,p=got/total;
  $("progressText").textContent=`${got}/${total}`;$("ring").style.background=`conic-gradient(var(--gold) ${p*360}deg,#e9ece7 0deg)`;
- $("storyList").innerHTML=state.spots.map((s,i)=>{const g=state.stamps[s.id];return `<article class="story"><div class="thumb ${g?"":"locked"}"><img src="${s.image}" alt="${s.name}" referrerpolicy="no-referrer"></div><div><small>CHAPTER ${String(i+1).padStart(2,"0")} / ${s.area}</small><h3>${s.name}</h3><p>${g?s.message:"ゆのさんと現地に着くと、思い出が開きます。"}</p></div><button onclick="openSpot('${s.id}')">${g?"見る":"探す"}</button></article>`}).join("");
+ $("storyList").innerHTML=state.spots.map((s,i)=>{const g=state.stamps[s.id];return `<article class="story"><div class="thumb ${g?"":"locked"}">${g?`<img src="${s.image}" alt="${s.name}" referrerpolicy="no-referrer">`:""}</div><div><small>CHAPTER ${String(i+1).padStart(2,"0")} / ${s.area}</small><h3>${s.name}</h3><p>${g?s.message:"どんなポケふたかは、ゆのさんと現地で見つけてからのお楽しみ。"}</p></div><button onclick="openSpot('${s.id}')">${g?"思い出を見る":"探しに行く"}</button></article>`}).join("");
  const photos=Object.entries(state.stamps).filter(([_,v])=>v.photo).map(([id,v])=>({id,photo:v.photo,name:state.spots.find(s=>s.id===id).name}));
  $("album").innerHTML=photos.length?photos.map(x=>`<div class="polaroid"><img src="${x.photo}"><p>${x.name}<br>with YUNO</p></div>`).join(""):`<div class="glass" style="grid-column:1/-1;padding:28px;border-radius:24px;text-align:center;color:var(--soft)">ゆのさんとの写真が、ここに並んでいきます。</div>`;
  const badges=[
@@ -209,9 +220,12 @@ function render(){
  $("badges").innerHTML=badges.map(b=>`<div class="badge ${b.on?"on":""}"><div class="bicon">${b.i}</div><h3>${b.n}</h3><p>${b.d}</p></div>`).join("");
  $("letterBtn").textContent=got===total?"ゆのさんへ、手紙を開く":"まだ秘密にしておく";$("letterBtn").onclick=got===total?()=>{$("letterText").innerText=state.letter;$("letterDialog").showModal()}:()=>toast("9つの思い出が集まったら開くよ");
 }
-function openSpot(id,d=null){const s=state.spots.find(x=>x.id===id),g=state.stamps[id];$("spotBody").innerHTML=`<div class="modal"><img class="modal-image" src="${s.image}" alt="${s.name}" referrerpolicy="no-referrer"><div class="sub">${s.area} / ${s.pokemon}</div><h2>${s.name}</h2><div class="mission"><small>MISSION FOR YUNO</small>${s.mission}</div>${d!==null?`<p style="text-align:center;color:var(--soft)">現在地から ${d<1?Math.round(d*1000)+"m":d.toFixed(1)+"km"}</p>`:""}${g?.photo?`<img src="${g.photo}" style="width:100%;border-radius:20px;margin-bottom:12px">`:""}<div class="actions"><button class="primary" onclick="checkSpot('${id}')">${g?"現在地を再確認":"ゆのさんとGETする"}</button><label class="secondary" style="text-align:center">思い出写真を追加<input hidden type="file" accept="image/*" onchange="addPhoto('${id}',this)"></label></div></div>`;$("spotDialog").showModal()}
+function openSpot(id,d=null){const s=state.spots.find(x=>x.id===id),g=state.stamps[id];
+const visual=g?`<img class="modal-image" src="${s.image}" alt="${s.name}" referrerpolicy="no-referrer">`:`<div class="mystery-image"><div><div class="mystery-mark">？</div><div class="mystery-label">DISCOVER AT THE LOCATION</div></div></div>`;
+const identity=g?`<div class="sub">${s.area} / ${s.pokemon}</div>`:`<div class="sub">${s.area} / 未発見のポケふた</div>`;
+$("spotBody").innerHTML=`<div class="modal">${visual}${identity}<h2>${s.name}</h2><div class="mission"><small>MISSION FOR YUNO</small>${s.mission}</div>${!g?`<p style="text-align:center;color:var(--soft);line-height:1.7">デザインとポケモンは、ゆのさんと現地で見つけた瞬間に解放されます。</p>`:""}${d!==null?`<p style="text-align:center;color:var(--soft)">現在地から ${d<1?Math.round(d*1000)+"m":d.toFixed(1)+"km"}</p>`:""}${g?.photo?`<img src="${g.photo}" style="width:100%;border-radius:20px;margin-bottom:12px">`:""}<div class="actions"><button class="primary" onclick="checkSpot('${id}')">${g?"現在地を再確認":"ゆのさんと見つける"}</button>${g?`<label class="secondary" style="text-align:center">思い出写真を追加<input hidden type="file" accept="image/*" onchange="addPhoto('${id}',this)"></label>`:""}</div></div>`;$("spotDialog").showModal()}
 function checkSpot(id){const s=state.spots.find(x=>x.id===id);if(state.test){claim(s);return}navigator.geolocation.getCurrentPosition(p=>{const d=dist(p.coords.latitude,p.coords.longitude,s.lat,s.lng);d<=.15?claim(s):(openSpot(id,d),toast("まだ少し遠いみたいやじ"))},()=>toast("位置情報を許可してね"),{enableHighAccuracy:true,timeout:12000})}
-function claim(s){const first=!state.stamps[s.id];state.stamps[s.id]=state.stamps[s.id]||{time:new Date().toISOString()};save();render();openSpot(s.id);toast(first?`${s.name}の思い出が開いたよ`:"取得済みやよ")}
+function claim(s){const first=!state.stamps[s.id];state.stamps[s.id]=state.stamps[s.id]||{time:new Date().toISOString()};save();render();openSpot(s.id);toast(first?`${s.name}のポケふたを発見！`:"取得済みやよ")}
 function addPhoto(id,input){const f=input.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{state.stamps[id]=state.stamps[id]||{time:new Date().toISOString()};state.stamps[id].photo=r.result;save();render();openSpot(id);toast("ゆのさんとの写真を保存したよ")};r.readAsDataURL(f)}
 $("startBtn").onclick=()=>{$("opening").classList.add("hide");setTimeout(()=>$("opening").classList.add("hidden"),800)};
 document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".tabpane").forEach(x=>x.classList.add("hidden"));$(b.dataset.tab+"Tab").classList.remove("hidden")});
