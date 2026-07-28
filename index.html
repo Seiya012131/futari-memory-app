@@ -86,18 +86,114 @@ dialog{width:min(92vw,430px);max-height:90vh;border:0;border-radius:27px;padding
 .opening{position:fixed;inset:0;z-index:400;background:linear-gradient(#fffdf9,#f8ecdc);display:grid;place-items:center;text-align:center;padding:25px;transition:.55s}.opening.hide{opacity:0;pointer-events:none}.opening-pokemon{display:flex;justify-content:center;align-items:end}.opening-pokemon img{width:105px;height:105px;object-fit:contain}.opening-pokemon img:last-child{width:88px;height:88px}.opening h1{font-family:"Kiwi Maru";font-size:33px;font-weight:500;line-height:1.5}.opening p{font-family:"Kiwi Maru";font-size:11px;line-height:2;color:var(--soft)}
 .arrival{text-align:center;padding:32px 22px;background:linear-gradient(#fffdf9,#f5e5d0)}.arrival .pair{display:flex;justify-content:center}.arrival .pair img{width:118px;height:118px;object-fit:contain}.arrival h2{font-family:"Kiwi Maru";font-size:28px;font-weight:500;line-height:1.5}.arrival p{font-size:10px;line-height:1.9;color:var(--soft)}
 .settings textarea,.settings select{width:100%;border:1px solid var(--line);border-radius:12px;background:white;padding:9px;margin-top:5px}.settings textarea{min-height:68px}.tabs{display:flex;gap:5px;margin-bottom:12px}.tabs button{flex:1;border:1px solid var(--line);background:white;border-radius:999px;padding:8px;font-size:9px}.tabs .active{background:#a76a3e;color:white}.copy-editor{display:grid;gap:8px}.field{padding:9px;border-radius:13px;background:#faf1e6}.field label{font-size:8px;color:#966d50;font-weight:700}.toast{position:fixed;z-index:500;bottom:84px;left:50%;transform:translate(-50%,120px);background:#563b2e;color:white;border-radius:999px;padding:10px 15px;font-size:9px;transition:.25s;white-space:nowrap}.toast.show{transform:translate(-50%,0)}
+
+/* ===== Opening + Home 100% pass ===== */
+body{background:#fffaf3}
+.opening{
+ background:
+ radial-gradient(circle at 18% 14%,rgba(255,255,255,.98),transparent 19%),
+ radial-gradient(circle at 85% 19%,rgba(250,238,219,.75),transparent 24%),
+ linear-gradient(180deg,#fffdf9 0%,#fbf1e4 100%);
+ overflow:hidden;
+}
+.opening:before{
+ content:"";position:absolute;inset:0;pointer-events:none;
+ background-image:
+ radial-gradient(circle at 10% 22%,rgba(239,190,168,.20) 0 2px,transparent 3px),
+ radial-gradient(circle at 82% 73%,rgba(239,195,109,.18) 0 2px,transparent 3px);
+ background-size:36px 36px,44px 44px;
+}
+.opening-inner{position:relative;z-index:2;max-width:390px;width:100%;margin:auto}
+.opening-visual{
+ width:230px;height:178px;margin:0 auto 22px;position:relative;
+}
+.opening-island{
+ position:absolute;left:15px;right:15px;bottom:5px;height:72px;border-radius:50%;
+ background:linear-gradient(180deg,#8cc9d6 0 30%,#e8d0a4 31% 62%,#baa47d 63% 100%);
+ filter:drop-shadow(0 15px 24px rgba(88,62,39,.12));
+}
+.opening-island:before{
+ content:"";position:absolute;left:18px;right:18px;top:18px;height:18px;
+ background:repeating-linear-gradient(90deg,#967f5e 0 8px,#bba885 8px 16px);
+ transform:skewX(-14deg);opacity:.72;border-radius:4px
+}
+.opening-palms{position:absolute;right:19px;bottom:47px;font-size:60px;filter:drop-shadow(0 7px 8px rgba(73,58,38,.12))}
+.opening-pokemon{position:absolute;left:50%;bottom:0;transform:translateX(-50%);display:flex;align-items:end;gap:0;z-index:3}
+.opening-pokemon img:first-child{width:120px;height:120px}
+.opening-pokemon img:last-child{width:92px;height:92px;margin-left:-18px}
+.opening h1{font-size:36px;line-height:1.52;letter-spacing:.08em;margin:8px 0 18px}
+.opening p{font-size:11px;line-height:2.1;max-width:330px;margin:0 auto}
+.opening .primary{margin-top:25px;padding:13px 23px;font-size:11px;box-shadow:0 9px 20px rgba(173,107,59,.22)}
+.opening .primary:active{transform:scale(.97)}
+.opening-kirakira{position:absolute;font-size:22px;color:#edc36d;animation:twinkle 2.6s ease-in-out infinite}
+.opening-kirakira.k1{left:4px;top:5px}.opening-kirakira.k2{right:10px;top:30px;animation-delay:.6s}.opening-kirakira.k3{left:26px;bottom:8px;animation-delay:1.1s}
+@keyframes twinkle{0%,100%{opacity:.45;transform:scale(.85) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(14deg)}}
+
+.hero{margin-top:11px}
+.hero-scene{
+ height:470px;
+ padding:31px 24px;
+ background:
+ linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,252,246,.08) 42%,rgba(255,248,238,.97) 100%),
+ radial-gradient(circle at 72% 14%,rgba(255,255,255,.96),transparent 18%),
+ linear-gradient(160deg,#dff0f5 0%,#e9f4f5 35%,#f0dec0 62%,#c9b086 100%);
+}
+.hero-scene:before{
+ bottom:94px;height:190px;
+ background:
+ linear-gradient(170deg,transparent 0 34%,#a6ccd7 35% 46%,#ead0a4 47% 60%,#9f8a66 61%);
+ clip-path:polygon(0 47%,14% 43%,26% 52%,41% 39%,58% 50%,72% 35%,100% 44%,100% 100%,0 100%);
+}
+.hero-copy{max-width:315px}
+.hero h1{font-size:37px;line-height:1.43;margin:17px 0 12px}
+.hero p{font-size:11px;line-height:2}
+.palm.p1{right:19px;bottom:148px;font-size:75px}.palm.p2{right:79px;bottom:138px;font-size:58px}
+.hero-pokemon{right:24px;bottom:101px;width:124px;height:124px}
+.flower.fl1{left:24px;top:101px}.flower.fl2{right:135px;top:165px}.flower.fl3{right:13px;bottom:118px}
+.daycard{
+ left:13px;right:13px;bottom:15px;height:108px;padding:18px 18px;
+ background:rgba(255,253,249,.97);backdrop-filter:blur(11px)
+}
+.daycard .date{font-size:9px}
+.daycard h2{font-size:28px}
+.aoshima-art{
+ width:82px;height:82px;border-radius:21px;
+ background:
+ linear-gradient(180deg,#8bd4e3 0 45%,#f1d3a2 46% 70%,#bca27b 71%);
+}
+.aoshima-art:before{
+ content:"";position:absolute;left:11px;right:11px;bottom:10px;height:25px;
+ background:repeating-linear-gradient(90deg,#9b7c58 0 7px,#d7c097 7px 14px);
+ transform:skewX(-10deg);border-radius:3px;opacity:.78
+}
+.aoshima-art:after{content:"⛩";position:absolute;left:21px;top:23px;font-size:38px}
+
+.progress{padding:17px 17px 14px}
+.progress img{width:82px;height:82px}
+.quick{gap:9px}.quick button{padding:13px 3px 10px}
+.mission{min-height:105px;padding-right:106px}
+.mission img{width:108px;height:108px}
+.letter-home{padding:15px}
+.letter-home img{width:68px;height:68px}
+
 </style>
 </head>
 <body>
-<div id="opening" class="opening"><div>
- <div class="opening-pokemon"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png"></div>
- <div id="openingKicker" class="kicker" data-copy>YUNO NOTE / MIYAZAKI 2026</div>
- <h1 id="openingTitle" data-copy>ゆのさんへ。
+<div id="opening" class="opening">
+ <div class="opening-inner">
+  <div class="opening-visual">
+   <span class="opening-kirakira k1">✦</span><span class="opening-kirakira k2">✿</span><span class="opening-kirakira k3">✧</span>
+   <div class="opening-island"></div><div class="opening-palms">🌴</div>
+   <div class="opening-pokemon"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png"></div>
+  </div>
+  <div id="openingKicker" class="kicker" data-copy>YUNO NOTE / MIYAZAKI 2026</div>
+  <h1 id="openingTitle" data-copy>ゆのさんへ。
 宮崎の旅を贈ります。</h1>
- <p id="openingBody" data-copy>景色と笑顔と、ふたりだけの思い出を。
+  <p id="openingBody" data-copy>景色と笑顔と、ふたりだけの思い出を。
 ポケふたを探しながら、一緒に集めに行こう。</p>
- <button id="startBtn" class="primary" data-copy>冒険をはじめる</button>
-</div></div>
+  <button id="startBtn" class="primary" data-copy>冒険をはじめる</button>
+ </div>
+</div>
 
 <div class="app">
 <header class="topbar"><div class="brand"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"><div><strong>YUNO NOTE</strong><small>MIYAZAKI MEMORY TRIP</small></div></div><button id="settingsBtn" class="iconbtn">⚙</button></header>
@@ -189,7 +285,7 @@ const LETTER=`ゆのさん、宮崎まで来てくれてありがとう。
 これからも、ゆのさんと一緒にたくさんの思い出を作っていきたい。`;
 const DEFAULT_TEXTS={openingKicker:"YUNO NOTE / MIYAZAKI 2026",openingTitle:"ゆのさんへ。\n宮崎の旅を贈ります。",openingBody:"景色と笑顔と、ふたりだけの思い出を。\nポケふたを探しながら、一緒に集めに行こう。",startBtn:"冒険をはじめる",homeKicker:"WELCOME TO MIYAZAKI",homeTitle:"ゆのさん、\n宮崎へようこそ。",homeBody:"この3日間が、ゆのさんにとって\n特別な思い出になりますように。",dayDate:"DAY 1\n11.21",dayTitle:"青島",daySub:"AOSHIMA",progressTitle:"ポケふたの冒険",missionTitle:"今日のミッション",missionBody:"最初のポケふたを見つけて、ふたりの冒険を始めよう！",homeLetterTitle:"成矢から、最後に手紙があります。",homeLetterBody:"9つそろった瞬間に、自動で届きます。",dexTitle:"図鑑",dexSub:"ポケふたコレクション",dexHelperTitle:"ポケふたを見つけると、ポケモンが図鑑に登録されるよ！",dexHelperBody:"未取得のデザインとポケモンは現地までシークレット。",mapTitle:"マップ",mapSub:"ポケふたマップ",albumTitle:"アルバム",albumSub:"ふたりだけの思い出",letterTitle:"手紙",letterSub:"ゆのさんへ",letterCardTitle:"最後に開く手紙",letterCardBody:"すべてのポケふたを見つけたら、成矢からの手紙が開きます。",arrivalKicker:"SPECIAL LETTER",arrivalTitle:"ゆのさんへ。\n成矢からお手紙です。",arrivalBody:"9つのポケふたを一緒に見つけてくれてありがとう。\n最後に、伝えたいことがあります。",footerCopy:"SEIYA × YUNO / MIYAZAKI 2026"};
 const FIELDS=Object.keys(DEFAULT_TEXTS).map(k=>[k,k]);
-const KEY="yuno-note-v2-from-scratch",OLD=["yuno-note-image-matched-final-v3","yuno-note-final-exact-v1"];
+const KEY="yuno-note-home-opening-100",OLD=["yuno-note-v2-from-scratch","yuno-note-image-matched-final-v3","yuno-note-final-exact-v1"];
 let stored=null;for(const k of [KEY,...OLD]){try{stored=JSON.parse(localStorage.getItem(k)||"null");if(stored)break}catch{}}
 let state=stored||{stamps:{},spots:SPOTS,letter:LETTER,test:false,texts:{...DEFAULT_TEXTS},finalSeen:false};state.spots=state.spots?.length===9?state.spots:SPOTS;state.texts={...DEFAULT_TEXTS,...(state.texts||{})};
 const $=id=>document.getElementById(id),rad=x=>x*Math.PI/180;function save(){localStorage.setItem(KEY,JSON.stringify(state))}
