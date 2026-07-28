@@ -10,109 +10,87 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
 :root{
- --cream:#fffaf3;--paper:#fffdf9;--beige:#f7ecdc;--line:#ead8c3;
- --brown:#543528;--soft:#927d70;--accent:#c57037;--red:#e65e47;
- --gold:#edc36f;--shadow:0 12px 30px rgba(104,73,44,.10);--radius:25px;
+ --cream:#fffaf3;--paper:#fffdf9;--beige:#f7ecdc;--line:#ead8c4;--brown:#4f3328;
+ --soft:#927e72;--accent:#c56f37;--red:#e36049;--gold:#edc36d;--blue:#acdbe7;
+ --shadow:0 12px 28px rgba(102,70,43,.09);--r:24px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;color:var(--brown);background:linear-gradient(180deg,#fffdf9,#fbf3e7);
+body{margin:0;background:linear-gradient(180deg,#fffdf9,#fbf2e6);color:var(--brown);
  font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN",sans-serif}
 button,input,textarea,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}
 [data-copy]{white-space:pre-line}
-.app{max-width:470px;margin:auto;min-height:100vh;padding-bottom:85px;background:rgba(255,253,249,.68)}
-.topbar{height:66px;display:flex;align-items:center;justify-content:space-between;padding:9px 17px;
- position:sticky;top:0;z-index:50;background:rgba(255,253,249,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(229,210,190,.7)}
-.brand{display:flex;align-items:center;gap:9px}.brand img{width:44px;height:44px;object-fit:contain}
-.brand strong{display:block;font-family:"Kiwi Maru";font-size:15px;letter-spacing:.2em;font-weight:500}
-.brand small{display:block;color:var(--soft);font-size:7px;letter-spacing:.2em;margin-top:2px}
-.iconbtn,.backbtn{width:39px;height:39px;border-radius:50%;border:1px solid var(--line);background:white;box-shadow:0 5px 14px rgba(90,62,40,.08)}
-.view{animation:fade .35s ease}@keyframes fade{from{opacity:0;transform:translateY(6px)}}
-.hero{margin:13px;border:1px solid #ead7c1;border-radius:30px;overflow:hidden;background:white;box-shadow:var(--shadow)}
-.hero-scene{height:438px;position:relative;padding:26px 22px;background:
- linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,250,241,.05) 45%,rgba(255,248,237,.98) 100%),
- radial-gradient(circle at 80% 12%,#fff 0 13%,transparent 27%),
- linear-gradient(160deg,#dff0f5,#f8ead2 58%,#cbb68f)}
-.hero-scene:before{content:"";position:absolute;left:0;right:0;bottom:105px;height:145px;background:
- linear-gradient(173deg,transparent 0 34%,#a8cfda 35% 47%,#e6d1aa 48% 61%,#9d8b67 62%);
- clip-path:polygon(0 38%,15% 44%,26% 36%,43% 48%,62% 31%,75% 39%,100% 24%,100% 100%,0 100%);opacity:.75}
-.palm{position:absolute;right:22px;bottom:140px;font-size:70px;filter:drop-shadow(0 8px 7px rgba(65,58,38,.12))}
-.hero-copy{position:relative;z-index:3}.kicker{font-size:8px;color:#ad7747;letter-spacing:.23em;font-weight:700}
-.hero h1{font-family:"Kiwi Maru";font-size:35px;font-weight:500;line-height:1.42;letter-spacing:.08em;margin:16px 0 10px}
+.app{max-width:470px;margin:auto;min-height:100vh;padding-bottom:88px;background:rgba(255,253,249,.72)}
+.topbar{height:66px;padding:8px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:60;
+ background:rgba(255,253,249,.93);backdrop-filter:blur(18px);border-bottom:1px solid rgba(232,214,195,.76)}
+.brand{display:flex;align-items:center;gap:8px}.brand img{width:46px;height:46px;object-fit:contain}
+.brand strong{font-family:"Kiwi Maru";font-size:15px;font-weight:500;letter-spacing:.2em}.brand small{display:block;font-size:7px;letter-spacing:.2em;color:var(--soft)}
+.iconbtn{width:39px;height:39px;border-radius:50%;border:1px solid var(--line);background:white;box-shadow:0 5px 14px rgba(79,55,36,.08)}
+.view{animation:fade .28s ease}@keyframes fade{from{opacity:0;transform:translateY(5px)}}
+.hero{margin:13px;border:1px solid #ead6c0;border-radius:30px;overflow:hidden;background:white;box-shadow:var(--shadow)}
+.hero-scene{height:440px;position:relative;padding:27px 23px;overflow:hidden;
+ background:
+ radial-gradient(circle at 73% 14%,rgba(255,255,255,.95),transparent 20%),
+ linear-gradient(180deg,#e5f3f7 0 43%,#b8dbe4 43% 55%,#f2ddb6 55% 68%,#d4bd90 68% 100%)}
+.hero-scene:before{content:"";position:absolute;left:-7%;right:-7%;bottom:90px;height:165px;
+ background:linear-gradient(170deg,transparent 0 36%,#a7ccd5 37% 48%,#ead2a7 49% 61%,#a28b65 62%);
+ clip-path:polygon(0 45%,16% 40%,29% 50%,45% 38%,61% 52%,75% 35%,100% 45%,100% 100%,0 100%);opacity:.8}
+.hero-copy{position:relative;z-index:4}.kicker{font-size:8px;color:#a87549;letter-spacing:.24em;font-weight:700}
+.hero h1{font-family:"Kiwi Maru";font-weight:500;font-size:35px;line-height:1.42;letter-spacing:.07em;margin:16px 0 10px}
 .hero p{font-family:"Kiwi Maru";font-size:11px;line-height:1.95;margin:0}
-.hero-pika{position:absolute;z-index:5;width:102px;right:45px;bottom:96px;filter:drop-shadow(0 9px 10px rgba(77,54,34,.18))}
-.flower{position:absolute;z-index:5;font-size:20px}.f1{left:22px;top:94px}.f2{right:126px;top:156px}.f3{right:14px;bottom:111px}
-.daycard{position:absolute;z-index:6;left:13px;right:13px;bottom:14px;height:100px;border:1px solid #ead7c1;background:rgba(255,253,248,.95);
- border-radius:22px;padding:18px;display:flex;align-items:center;gap:18px;box-shadow:0 9px 24px rgba(98,69,43,.11)}
-.daycard .date{font-size:9px;letter-spacing:.12em;line-height:1.65}.daycard h2{font-family:"Kiwi Maru";font-size:26px;font-weight:500;margin:0}
-.daycard h2 small{display:block;font-size:9px;letter-spacing:.18em;color:#a7744f;margin-top:5px}
-.dayphoto{margin-left:auto;width:68px;height:68px;border-radius:50%;background:linear-gradient(#83cddd 0 48%,#f0d3a3 49%);display:grid;place-items:center;font-size:35px;border:4px solid white}
-.content{padding:0 13px}.card{background:rgba(255,253,249,.94);border:1px solid var(--line);border-radius:21px;box-shadow:var(--shadow)}
-.progress{padding:16px 17px;margin-bottom:11px;display:flex;align-items:center;gap:12px}.progress-text strong{font-family:"Kiwi Maru";font-size:13px}.progress-text span{display:block;font-size:16px;margin-top:3px}.progress .piplup{margin-left:auto;width:66px;height:66px;object-fit:contain}
-.track{display:grid;grid-template-columns:repeat(9,1fr);gap:5px;margin-top:10px}.ball{aspect-ratio:1;border-radius:50%;border:2px solid #d9c6b1;position:relative;background:#fffaf3}
-.ball:before{content:"";position:absolute;left:0;right:0;top:calc(50% - 1px);height:2px;background:#d9c6b1}.ball:after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;border-radius:50%;background:white;border:2px solid #d9c6b1;transform:translate(-50%,-50%)}
-.ball.on{background:#ed806b;border-color:#c9503c}.ball.on:before{background:white}.ball.on:after{border-color:white}
-.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:11px 0}.quick button{border:1px solid var(--line);background:#fffdf9;border-radius:17px;padding:12px 3px 9px;box-shadow:0 8px 18px rgba(83,58,39,.07);color:var(--brown)}
-.quick i{font-style:normal;display:block;font-size:24px}.quick strong{font-size:10px}.quick small{display:block;font-size:7px;color:var(--soft);margin-top:3px}
-.mission{min-height:98px;padding:17px 90px 17px 17px;position:relative}.mission strong{font-family:"Kiwi Maru";font-size:13px}.mission p{font-size:10px;line-height:1.7;margin:5px 0 0}.mission .eevee{position:absolute;right:5px;bottom:0;width:82px;height:82px;object-fit:contain}
-.letter-home{padding:15px;margin-top:11px;display:flex;align-items:center;gap:10px}.letter-home img{width:55px;height:55px;object-fit:contain}.letter-home strong{font-size:12px}.letter-home p{font-size:8px;color:var(--soft);margin:3px 0 0}.letter-home button{margin-left:auto}
-.section{padding:20px 13px}.sectionhead{text-align:center;margin-bottom:17px}.sectionhead h2{font-family:"Kiwi Maru";font-size:23px;font-weight:500;margin:0}.sectionhead p{font-size:9px;margin:4px;color:var(--soft)}
-.dex-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.dex-top img{width:70px;height:70px;object-fit:contain}
+.palm{position:absolute;z-index:3;font-size:66px;filter:drop-shadow(0 7px 8px rgba(68,56,37,.12))}
+.palm.p1{right:25px;bottom:139px}.palm.p2{right:80px;bottom:128px;font-size:53px}
+.hero-pokemon{position:absolute;z-index:6;right:31px;bottom:94px;width:112px;height:112px;object-fit:contain;filter:drop-shadow(0 9px 11px rgba(76,52,31,.18))}
+.flower{position:absolute;z-index:7;font-size:19px}.fl1{left:20px;top:96px}.fl2{right:128px;top:155px}.fl3{right:11px;bottom:111px}
+.daycard{position:absolute;z-index:8;left:13px;right:13px;bottom:14px;height:102px;padding:17px 18px;display:flex;align-items:center;gap:18px;
+ border:1px solid #ead7c1;background:rgba(255,253,249,.96);border-radius:22px;box-shadow:0 9px 24px rgba(92,64,41,.11)}
+.daycard .date{font-size:9px;letter-spacing:.12em;line-height:1.7}.daycard h2{font-family:"Kiwi Maru";font-weight:500;font-size:27px;margin:0}
+.daycard h2 small{display:block;font-size:9px;letter-spacing:.18em;color:#a6744d;margin-top:5px}
+.aoshima-art{margin-left:auto;width:76px;height:76px;border-radius:19px;border:3px solid white;box-shadow:0 5px 14px rgba(81,57,38,.11);overflow:hidden;background:#dff2f5;position:relative}
+.aoshima-art:before{content:"";position:absolute;left:0;right:0;top:0;height:45%;background:#8dd3e2}.aoshima-art:after{content:"⛩";position:absolute;left:17px;top:20px;font-size:39px}
+.content{padding:0 13px}.card{background:rgba(255,253,249,.95);border:1px solid var(--line);border-radius:21px;box-shadow:var(--shadow)}
+.progress{padding:15px 17px;margin-bottom:11px;display:flex;align-items:center;gap:10px}.progress-body{flex:1}
+.progress strong{font-family:"Kiwi Maru";font-size:13px}.progress .count{display:block;font-size:16px;margin-top:3px}.progress img{width:76px;height:76px;object-fit:contain}
+.track{display:grid;grid-template-columns:repeat(9,1fr);gap:5px;margin-top:10px}.ball{aspect-ratio:1;border-radius:50%;border:2px solid #dac7b2;position:relative;background:#fffaf3}
+.ball:before{content:"";position:absolute;left:0;right:0;top:calc(50% - 1px);height:2px;background:#dac7b2}.ball:after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;border-radius:50%;background:white;border:2px solid #dac7b2;transform:translate(-50%,-50%)}
+.ball.on{background:#ee826d;border-color:#c8513e}.ball.on:before{background:white}.ball.on:after{border-color:white}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:11px 0}.quick button{border:1px solid var(--line);background:#fffdf9;border-radius:17px;padding:11px 3px 9px;box-shadow:0 8px 18px rgba(79,56,39,.07);color:var(--brown)}
+.quick i{display:block;font-style:normal;font-size:23px}.quick strong{font-size:10px}.quick small{display:block;font-size:7px;color:var(--soft);margin-top:3px}
+.mission{min-height:100px;padding:17px 100px 17px 17px;position:relative;overflow:hidden}.mission strong{font-family:"Kiwi Maru";font-size:13px}.mission p{font-size:10px;line-height:1.7;margin:5px 0 0}
+.mission img{position:absolute;right:0;bottom:-3px;width:100px;height:100px;object-fit:contain}
+.letter-home{padding:14px;margin-top:11px;display:flex;align-items:center;gap:9px}.letter-home img{width:64px;height:64px;object-fit:contain}.letter-home strong{font-size:11px}.letter-home p{font-size:8px;color:var(--soft);margin:3px 0}.letter-home button{margin-left:auto}
+.section{padding:21px 13px}.sectionhead{text-align:center;margin-bottom:17px}.sectionhead h2{font-family:"Kiwi Maru";font-size:23px;font-weight:500;margin:0}.sectionhead p{font-size:9px;color:var(--soft);margin:4px}
+.dex-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.dex-head img{width:90px;height:90px;object-fit:contain}
 .dexgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:23px 12px}.dexitem{text-align:center;position:relative}.dexitem button{width:100%;border:0;background:none;color:inherit;padding:0}
-.dexball{width:84px;max-width:100%;aspect-ratio:1;margin:auto;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fffdf9,#eee3d4);box-shadow:0 7px 15px rgba(89,62,41,.08);position:relative;overflow:hidden}
-.dexball:before{content:"";position:absolute;left:0;right:0;top:calc(50% - 1px);height:2px;background:#dbc6ad}.dexball:after{content:"";position:absolute;width:15px;height:15px;border-radius:50%;background:#fff;border:4px solid #dbc6ad;left:50%;top:50%;transform:translate(-50%,-50%)}
-.dexball img{position:relative;z-index:2;width:100%;height:100%;object-fit:cover}.dexitem small{display:block;color:#b27e52;font-size:8px;letter-spacing:.12em;margin-top:8px}.dexitem strong{font-family:"Kiwi Maru";font-size:12px}.spark{position:absolute;right:3px;top:61px;color:#ecc46e}
-.dex-helper{margin-top:22px;padding:15px;display:flex;gap:10px;align-items:center;background:#fff4df}.dex-helper img{width:64px;height:64px;object-fit:contain}.dex-helper p{font-size:9px;line-height:1.7;margin:0}
-.map-wrap{overflow:hidden;border-radius:25px;border:1px solid var(--line);background:white;box-shadow:var(--shadow)}.map-image{display:block;width:100%;height:auto}.map-note{padding:11px 14px;font-size:8px;color:var(--soft);display:flex;justify-content:space-between}
-.map-list{display:grid;gap:8px;margin-top:11px}.map-row{display:flex;align-items:center;gap:10px;padding:11px 13px}.map-row .mini{width:30px;height:30px;border-radius:50%;border:2px solid #9e8976;position:relative}.map-row .mini.on{border-color:var(--red);background:#ffe4df}.map-row strong{font-size:11px}.map-row small{display:block;color:var(--soft);font-size:8px}.map-row button{margin-left:auto}
+.dexball{width:84px;max-width:100%;aspect-ratio:1;margin:auto;border-radius:50%;position:relative;overflow:hidden;
+ background:radial-gradient(circle at 35% 27%,#fffdf9,#f1e3d1);border:1px solid #ead6be;box-shadow:0 7px 16px rgba(82,57,38,.08)}
+.dexball:before{content:"";position:absolute;left:0;right:0;top:calc(50% - 1px);height:2px;background:#dbc6ad}.dexball:after{content:"";position:absolute;width:15px;height:15px;border-radius:50%;background:white;border:4px solid #dbc6ad;left:50%;top:50%;transform:translate(-50%,-50%)}
+.dexball img{position:relative;z-index:2;width:100%;height:100%;object-fit:contain;background:#fffaf3;padding:4px}.dexitem small{display:block;color:#b27d50;font-size:8px;letter-spacing:.12em;margin-top:8px}.dexitem strong{font-family:"Kiwi Maru";font-size:12px}.dexitem .spark{position:absolute;right:4px;top:62px;color:#edc56d}
+.dex-helper{margin-top:22px;padding:15px;display:flex;align-items:center;gap:10px;background:#fff3dd}.dex-helper img{width:80px;height:80px;object-fit:contain}.dex-helper p{font-size:9px;line-height:1.7;margin:0}
+.map-card{position:relative;height:620px;border:1px solid var(--line);border-radius:27px;overflow:hidden;background:linear-gradient(180deg,#eaf6f7,#fff8eb);box-shadow:var(--shadow)}
+.map-svg{position:absolute;left:7px;right:7px;top:8px;width:calc(100% - 14px);height:565px}
+.map-hotspot{position:absolute;transform:translate(-50%,-50%);width:62px;height:42px;border:0;background:transparent;border-radius:999px;z-index:10}
+.map-hotspot:hover,.map-hotspot:active{background:rgba(255,222,167,.23);box-shadow:0 0 0 4px rgba(237,193,105,.22)}
+.map-note{position:absolute;left:14px;right:14px;bottom:10px;display:flex;justify-content:space-between;font-size:8px;color:var(--soft)}
+.map-poke{position:absolute;z-index:4;object-fit:contain;filter:drop-shadow(0 8px 10px rgba(72,51,33,.14))}.map-poke.pika{right:14px;bottom:49px;width:80px}.map-poke.piplup{right:70px;bottom:34px;width:74px}
 .album{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.polaroid{background:white;padding:7px 7px 14px;border:1px solid #eaded0;box-shadow:0 8px 18px rgba(79,57,42,.09);transform:rotate(-1deg)}.polaroid:nth-child(even){transform:rotate(1deg)}.polaroid img{width:100%;aspect-ratio:1;object-fit:cover}.polaroid p{text-align:center;font-family:"Kiwi Maru";font-size:10px;margin:8px 0 0}.empty{text-align:center;padding:30px;font-size:10px;line-height:1.8;color:var(--soft);grid-column:1/-1}
 .lettercard{padding:25px;position:relative}.lettercard:after{content:"🌸";position:absolute;right:15px;top:-17px;font-size:42px}.lettercard h2{font-family:"Kiwi Maru";font-size:20px;font-weight:500}.lettercard p{font-size:10px;line-height:1.8;color:var(--soft)}
-.primary,.secondary,.danger{border-radius:999px;padding:11px 15px;font-weight:700;font-size:10px}.primary{border:0;background:#aa6a3b;color:white}.secondary{border:1px solid var(--line);background:white;color:var(--brown)}.danger{border:0;background:#f8ded8;color:#a34537}
+.primary,.secondary,.danger{border-radius:999px;padding:11px 15px;font-size:10px;font-weight:700}.primary{border:0;background:#ad6b3b;color:white}.secondary{border:1px solid var(--line);background:white;color:var(--brown)}.danger{border:0;background:#f8ded8;color:#a44537}
 .bottomnav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(470px,100%);z-index:70;display:grid;grid-template-columns:repeat(5,1fr);padding:7px 5px calc(7px + env(safe-area-inset-bottom));background:rgba(255,253,249,.96);backdrop-filter:blur(18px);border-top:1px solid var(--line)}
-.bottomnav button{border:0;background:none;color:#987e6e;font-size:7px;padding:3px}.bottomnav i{display:block;font-style:normal;font-size:19px}.bottomnav .active{color:var(--accent);font-weight:700}
+.bottomnav button{border:0;background:none;color:#967e6f;font-size:7px;padding:3px}.bottomnav i{display:block;font-style:normal;font-size:19px}.bottomnav .active{color:var(--accent);font-weight:700}
 dialog{width:min(92vw,430px);max-height:90vh;border:0;border-radius:27px;padding:0;background:#fffaf3;box-shadow:0 28px 70px rgba(64,43,28,.3)}dialog::backdrop{background:rgba(67,47,34,.58);backdrop-filter:blur(7px)}
 .close{position:absolute;z-index:4;right:11px;top:11px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:white}.modal{padding:24px}.modal h2{font-family:"Kiwi Maru";font-size:28px;font-weight:500;margin:13px 0 4px}.sub{font-size:8px;color:#a67850;letter-spacing:.12em}
-.mystery,.modalimage{width:250px;max-width:100%;aspect-ratio:1;border-radius:50%;margin:13px auto;display:grid;place-items:center}.mystery{font-size:61px;color:#ab927d;background:#eee4d7}.modalimage{object-fit:contain;background:white;border:9px solid white;box-shadow:0 11px 28px rgba(74,52,36,.14)}
-.modal-mission{padding:15px;border:1px solid #ead4b7;border-radius:16px;background:#faedd9;font-size:10px;line-height:1.7;margin:15px 0}.modal-mission small{display:block;font-size:7px;color:#aa7645;letter-spacing:.16em;font-weight:700}
-.actions{display:grid;gap:9px}
-.discovery{position:fixed;inset:0;z-index:300;background:radial-gradient(circle at 50% 25%,#fffde3,transparent 28%),linear-gradient(#fffaf0,#f1d6a1);display:grid;place-items:center;text-align:center;padding:20px;opacity:0;pointer-events:none;transition:.35s}.discovery.show{opacity:1;pointer-events:auto}.discovery img{width:min(76vw,315px);aspect-ratio:1;object-fit:contain;background:white;border:11px solid white;border-radius:50%;box-shadow:0 17px 42px rgba(98,65,34,.2);animation:pop .9s cubic-bezier(.2,.9,.2,1)}@keyframes pop{from{opacity:0;transform:scale(.55) rotate(-10deg)}}.discovery h2{font-family:"Kiwi Maru";font-size:30px;font-weight:500;margin:14px 0 4px}.discovery p{font-size:10px;line-height:1.8;color:#7e654f}
-.opening{position:fixed;inset:0;z-index:400;background:linear-gradient(#fffdf9,#f8ecdc);display:grid;place-items:center;text-align:center;padding:25px;transition:.55s}.opening.hide{opacity:0;pointer-events:none}.opening-pokemon{display:flex;justify-content:center;align-items:end}.opening-pokemon img{width:105px;height:105px;object-fit:contain}.opening-pokemon img:last-child{width:85px;height:85px}.opening h1{font-family:"Kiwi Maru";font-size:33px;font-weight:500;line-height:1.5}.opening p{font-family:"Kiwi Maru";font-size:11px;line-height:2;color:var(--soft)}
-.arrival{text-align:center;padding:32px 22px;background:linear-gradient(#fffdf9,#f5e5d0)}.arrival .pair{display:flex;justify-content:center}.arrival .pair img{width:112px;height:112px;object-fit:contain}.arrival h2{font-family:"Kiwi Maru";font-size:28px;font-weight:500;line-height:1.5}.arrival p{font-size:10px;line-height:1.9;color:var(--soft)}
-.settings textarea,.settings input,.settings select{width:100%;border:1px solid var(--line);border-radius:12px;background:white;padding:9px;margin-top:5px}.settings textarea{min-height:68px}.tabs{display:flex;gap:5px;margin-bottom:12px}.tabs button{flex:1;border:1px solid var(--line);background:white;border-radius:999px;padding:8px;font-size:9px}.tabs .active{background:#a76a3e;color:white}.copy-editor{display:grid;gap:8px}.field{padding:9px;border-radius:13px;background:#faf1e6}.field label{font-size:8px;color:#966d50;font-weight:700}.toast{position:fixed;z-index:500;bottom:84px;left:50%;transform:translate(-50%,120px);background:#563b2e;color:white;border-radius:999px;padding:10px 15px;font-size:9px;transition:.25s;white-space:nowrap}.toast.show{transform:translate(-50%,0)}
-
-/* ===== image-matched final refinements ===== */
-.dayphoto{margin-left:auto;width:76px;height:76px;border-radius:18px;object-fit:cover;border:3px solid #fff;box-shadow:0 6px 15px rgba(93,63,39,.12)}
-.brand img{width:48px;height:48px;object-fit:contain}
-.hero-pika{width:122px;right:18px;bottom:91px}
-.progress .piplup{width:78px;height:78px}
-.mission .eevee{width:104px;height:104px;right:-4px}
-.dex-top img{width:92px;height:92px}
-.dex-helper img{width:83px;height:83px}
-.letter-home img{width:70px;height:70px}
-.opening-pokemon img{object-fit:contain;filter:drop-shadow(0 8px 10px rgba(91,61,36,.13))}
-.arrival .pair img{width:132px;height:132px}
-.interactive-map{position:relative;overflow:hidden}
-.map-image{display:block;width:100%;height:auto}
-.map-hotspots{position:absolute;left:0;right:0;top:0;bottom:37px;z-index:8}
-.map-hotspot{position:absolute;transform:translate(-50%,-50%);width:63px;height:42px;border:0;background:transparent;border-radius:999px;padding:0}
-.map-hotspot::after{content:"";position:absolute;inset:2px;border-radius:999px;transition:.18s}
-.map-hotspot:hover::after,.map-hotspot:active::after{background:rgba(255,224,168,.30);box-shadow:0 0 0 4px rgba(239,190,96,.28)}
-.map-hotspot:focus-visible{outline:3px solid rgba(225,92,70,.7);outline-offset:2px}
-.map-hotspot.found::before{content:"✓";position:absolute;right:-3px;top:-6px;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:#e45f48;color:#fff;font-size:10px;font-weight:700;box-shadow:0 3px 8px rgba(73,50,33,.2)}
-.discovery-pair{display:flex;justify-content:center;align-items:end;margin-bottom:-15px}
-.discovery-pair img{width:112px;height:112px;object-fit:contain;filter:drop-shadow(0 8px 10px rgba(82,55,35,.14))}
-.discovery-character{display:block;width:126px!important;height:126px!important;object-fit:contain!important;border:0!important;background:transparent!important;box-shadow:none!important;margin:-8px auto 0!important;animation:charPop .9s cubic-bezier(.2,.9,.2,1)}
-@keyframes charPop{from{opacity:0;transform:translateY(25px) scale(.72) rotate(-5deg)}70%{transform:translateY(-7px) scale(1.05) rotate(2deg)}}
-.dexball{background:radial-gradient(circle at 35% 27%,#fffdf8,#f1e4d2);border:1px solid rgba(230,208,182,.75)}
-.dexball img{object-fit:contain;background:#fffaf3;padding:4px}
-.modalimage{object-fit:contain;background:linear-gradient(145deg,#fffdf8,#f4e7d5)}
-@media(max-width:390px){.hero-pika{width:106px;right:12px}.mission .eevee{width:91px;height:91px}.map-hotspot{width:54px;height:38px}}
-
+.mystery,.modalimage{width:250px;max-width:100%;aspect-ratio:1;border-radius:50%;margin:13px auto;display:grid;place-items:center}.mystery{font-size:61px;color:#ab927d;background:#eee4d7}.modalimage{object-fit:contain;background:linear-gradient(145deg,#fffdf8,#f4e7d5);border:9px solid white;box-shadow:0 11px 28px rgba(74,52,36,.14)}
+.modal-mission{padding:15px;border:1px solid #ead4b7;border-radius:16px;background:#faedd9;font-size:10px;line-height:1.7;margin:15px 0}.modal-mission small{display:block;font-size:7px;color:#aa7645;letter-spacing:.16em;font-weight:700}.actions{display:grid;gap:9px}
+.discovery{position:fixed;inset:0;z-index:300;background:radial-gradient(circle at 50% 25%,#fffde3,transparent 28%),linear-gradient(#fffaf0,#f1d6a1);display:grid;place-items:center;text-align:center;padding:20px;opacity:0;pointer-events:none;transition:.35s}.discovery.show{opacity:1;pointer-events:auto}.discovery-pair{display:flex;justify-content:center;align-items:end;margin-bottom:-12px}.discovery-pair img{width:105px;height:105px;object-fit:contain}.discovery .modalimage{width:min(76vw,315px)}.discovery-character{display:block;width:120px;height:120px;object-fit:contain;margin:-7px auto 0}.discovery h2{font-family:"Kiwi Maru";font-size:30px;font-weight:500;margin:14px 0 4px}.discovery p{font-size:10px;line-height:1.8;color:#7e654f}
+.opening{position:fixed;inset:0;z-index:400;background:linear-gradient(#fffdf9,#f8ecdc);display:grid;place-items:center;text-align:center;padding:25px;transition:.55s}.opening.hide{opacity:0;pointer-events:none}.opening-pokemon{display:flex;justify-content:center;align-items:end}.opening-pokemon img{width:105px;height:105px;object-fit:contain}.opening-pokemon img:last-child{width:88px;height:88px}.opening h1{font-family:"Kiwi Maru";font-size:33px;font-weight:500;line-height:1.5}.opening p{font-family:"Kiwi Maru";font-size:11px;line-height:2;color:var(--soft)}
+.arrival{text-align:center;padding:32px 22px;background:linear-gradient(#fffdf9,#f5e5d0)}.arrival .pair{display:flex;justify-content:center}.arrival .pair img{width:118px;height:118px;object-fit:contain}.arrival h2{font-family:"Kiwi Maru";font-size:28px;font-weight:500;line-height:1.5}.arrival p{font-size:10px;line-height:1.9;color:var(--soft)}
+.settings textarea,.settings select{width:100%;border:1px solid var(--line);border-radius:12px;background:white;padding:9px;margin-top:5px}.settings textarea{min-height:68px}.tabs{display:flex;gap:5px;margin-bottom:12px}.tabs button{flex:1;border:1px solid var(--line);background:white;border-radius:999px;padding:8px;font-size:9px}.tabs .active{background:#a76a3e;color:white}.copy-editor{display:grid;gap:8px}.field{padding:9px;border-radius:13px;background:#faf1e6}.field label{font-size:8px;color:#966d50;font-weight:700}.toast{position:fixed;z-index:500;bottom:84px;left:50%;transform:translate(-50%,120px);background:#563b2e;color:white;border-radius:999px;padding:10px 15px;font-size:9px;transition:.25s;white-space:nowrap}.toast.show{transform:translate(-50%,0)}
 </style>
 </head>
 <body>
 <div id="opening" class="opening"><div>
- <div class="opening-pokemon"><img src="pikachu_illustrated.png"><img src="eevee_illustrated.png"></div>
+ <div class="opening-pokemon"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png"></div>
  <div id="openingKicker" class="kicker" data-copy>YUNO NOTE / MIYAZAKI 2026</div>
  <h1 id="openingTitle" data-copy>ゆのさんへ。
 宮崎の旅を贈ります。</h1>
@@ -122,81 +100,70 @@ dialog{width:min(92vw,430px);max-height:90vh;border:0;border-radius:27px;padding
 </div></div>
 
 <div class="app">
-<header class="topbar">
- <div class="brand"><img src="pikachu_illustrated.png"><div><strong>YUNO NOTE</strong><small>MIYAZAKI MEMORY TRIP</small></div></div>
- <button id="settingsBtn" class="iconbtn">⚙</button>
-</header>
+<header class="topbar"><div class="brand"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"><div><strong>YUNO NOTE</strong><small>MIYAZAKI MEMORY TRIP</small></div></div><button id="settingsBtn" class="iconbtn">⚙</button></header>
 
 <section id="home" class="view">
  <div class="hero"><div class="hero-scene">
-  <div class="hero-copy"><div id="homeKicker" class="kicker" data-copy>WELCOME TO MIYAZAKI</div>
-   <h1 id="homeTitle" data-copy>ゆのさん、
-宮崎へようこそ。</h1>
-   <p id="homeBody" data-copy>この3日間が、ゆのさんにとって
+  <div class="hero-copy"><div id="homeKicker" class="kicker" data-copy>WELCOME TO MIYAZAKI</div><h1 id="homeTitle" data-copy>ゆのさん、
+宮崎へようこそ。</h1><p id="homeBody" data-copy>この3日間が、ゆのさんにとって
 特別な思い出になりますように。</p></div>
-  <span class="flower f1">✦</span><span class="flower f2">🌸</span><span class="flower f3">🌼</span>
-  <div class="palm">🌴</div><img class="hero-pika" src="pikachu_illustrated.png">
+  <span class="flower fl1">✦</span><span class="flower fl2">🌸</span><span class="flower fl3">🌼</span>
+  <div class="palm p1">🌴</div><div class="palm p2">🌴</div>
+  <img class="hero-pokemon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png">
   <div class="daycard"><div id="dayDate" class="date" data-copy>DAY 1
-11.21</div><h2><span id="dayTitle" data-copy>青島</span><small id="daySub" data-copy>AOSHIMA</small></h2><img class="dayphoto" src="aoshima_illustrated.png" alt="青島のイラスト"></div>
+11.21</div><h2><span id="dayTitle" data-copy>青島</span><small id="daySub" data-copy>AOSHIMA</small></h2><div class="aoshima-art"></div></div>
  </div></div>
  <div class="content">
-  <div class="progress card"><div style="flex:1"><div class="progress-text"><strong id="progressTitle" data-copy>ポケふたの冒険</strong><span>見つけた数　<b id="count">0 / 9</b></span></div><div id="track" class="track"></div></div><img class="piplup" src="piplup_illustrated.png"></div>
-  <div class="quick">
-   <button data-go="dex"><i>◉</i><strong>図鑑</strong><small>ポケふた</small></button>
-   <button data-go="map"><i>🗺️</i><strong>マップ</strong><small>旅の地図</small></button>
-   <button data-go="album"><i>📷</i><strong>アルバム</strong><small>思い出</small></button>
-   <button data-go="letter"><i>💌</i><strong>手紙</strong><small>ゆのさんへ</small></button>
-  </div>
-  <div class="mission card"><strong id="missionTitle" data-copy>今日のミッション</strong><p id="missionBody" data-copy>最初のポケふたを見つけて、ふたりの冒険を始めよう！</p><img class="eevee" src="eevee_illustrated.png"></div>
-  <div class="letter-home card"><img src="pikachu_illustrated.png"><div><strong id="homeLetterTitle" data-copy>成矢から、最後に手紙があります。</strong><p id="homeLetterBody" data-copy>9つそろった瞬間に、自動で届きます。</p></div><button id="homeLetterBtn" class="secondary">あと9つ</button></div>
+  <div class="progress card"><div class="progress-body"><strong id="progressTitle" data-copy>ポケふたの冒険</strong><span class="count">見つけた数　<b id="count">0 / 9</b></span><div id="track" class="track"></div></div><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png"></div>
+  <div class="quick"><button data-go="dex"><i>◉</i><strong>図鑑</strong><small>ポケふた</small></button><button data-go="map"><i>🗺️</i><strong>マップ</strong><small>旅の地図</small></button><button data-go="album"><i>📷</i><strong>アルバム</strong><small>思い出</small></button><button data-go="letter"><i>💌</i><strong>手紙</strong><small>ゆのさんへ</small></button></div>
+  <div class="mission card"><strong id="missionTitle" data-copy>今日のミッション</strong><p id="missionBody" data-copy>最初のポケふたを見つけて、ふたりの冒険を始めよう！</p><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png"></div>
+  <div class="letter-home card"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"><div><strong id="homeLetterTitle" data-copy>成矢から、最後に手紙があります。</strong><p id="homeLetterBody" data-copy>9つそろった瞬間に、自動で届きます。</p></div><button id="homeLetterBtn" class="secondary">あと9つ</button></div>
  </div>
 </section>
 
 <section id="dex" class="view hidden section">
  <div class="sectionhead"><h2 id="dexTitle" data-copy>図鑑</h2><p id="dexSub" data-copy>ポケふたコレクション</p></div>
- <div class="dex-top"><div><span>🔴 見つけた数 </span><b id="dexCount">0 / 9</b></div><img src="pikachu_illustrated.png"></div>
+ <div class="dex-head"><div>🔴 見つけた数 <b id="dexCount">0 / 9</b></div><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"></div>
  <div id="dexGrid" class="dexgrid"></div>
- <div class="dex-helper card"><img src="piplup_illustrated.png"><p><b id="dexHelperTitle" data-copy>ポケふたを見つけると、ポケモンが図鑑に登録されるよ！</b><br><span id="dexHelperBody" data-copy>未取得のデザインとポケモンは現地までシークレット。</span></p></div>
+ <div class="dex-helper card"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png"><p><b id="dexHelperTitle" data-copy>ポケふたを見つけると、ポケモンが図鑑に登録されるよ！</b><br><span id="dexHelperBody" data-copy>未取得のデザインとポケモンは現地までシークレット。</span></p></div>
 </section>
 
 <section id="map" class="view hidden section">
  <div class="sectionhead"><h2 id="mapTitle" data-copy>マップ</h2><p id="mapSub" data-copy>ポケふたマップ</p></div>
- <div class="map-wrap interactive-map">
- <img class="map-image" src="miyazaki_map_illustrated.png" alt="宮崎県ポケふたマップ">
- <div id="mapHotspots" class="map-hotspots"></div>
- <div class="map-note"><span>モンスターボールをタップして図鑑を開こう！</span><span>日向灘</span></div>
-</div>
+ <div class="map-card">
+  <svg class="map-svg" viewBox="0 0 430 585">
+   <defs>
+    <linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7edcf"/><stop offset="1" stop-color="#e8d4aa"/></linearGradient>
+    <pattern id="waves" width="30" height="15" patternUnits="userSpaceOnUse"><path d="M0 7 Q8 1 15 7 T30 7" fill="none" stroke="#b9dbe1" stroke-width="1" opacity=".55"/></pattern>
+   </defs>
+   <rect width="430" height="585" fill="url(#waves)" opacity=".35"/>
+   <path d="M245 20 C270 5 300 17 309 41 C327 59 314 79 322 99 C331 119 318 137 307 153 C318 172 309 192 298 207 C310 226 299 247 288 261 C299 281 289 301 278 316 C291 336 279 359 268 375 C280 395 269 417 257 433 C267 454 254 477 241 493 C249 514 236 538 218 555 C201 565 186 553 181 534 C176 515 158 503 142 494 C121 482 100 475 82 464 C64 453 54 435 57 415 C60 397 72 383 79 371 C67 354 64 335 72 317 C60 299 61 278 72 261 C61 243 61 222 73 205 C64 186 67 165 81 151 C74 131 82 110 100 99 C119 87 136 96 151 83 C164 72 173 52 192 51 C208 44 222 28 245 20Z" fill="url(#land)" stroke="#c6aa78" stroke-width="2.5"/>
+   <path d="M245 20 C270 5 300 17 309 41 C327 59 314 79 322 99 C331 119 318 137 307 153 C318 172 309 192 298 207 C310 226 299 247 288 261 C299 281 289 301 278 316 C291 336 279 359 268 375 C280 395 269 417 257 433 C267 454 254 477 241 493 C249 514 236 538 218 555" fill="none" stroke="#91bac0" stroke-width="5"/>
+   <g fill="#91a778" opacity=".8"><path d="M127 137l18 34h-36z"/><path d="M169 183l20 38h-40z"/><path d="M119 327l21 40H98z"/><path d="M175 392l20 37h-40z"/></g>
+   <g font-family="Zen Maru Gothic" fill="#856d58" font-size="11"><text x="245" y="59">高千穂</text><text x="300" y="126">延岡</text><text x="287" y="217">日向</text><text x="282" y="365">宮崎</text><text x="253" y="433">青島</text><text x="230" y="502">日南</text><text x="104" y="449">都城</text></g>
+   <g font-size="26"><text x="75" y="100">🌴</text><text x="102" y="250">🌴</text><text x="260" y="170">🌴</text><text x="210" y="430">🌴</text></g>
+  </svg>
+  <div id="mapHotspots"></div>
+  <img class="map-poke pika" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"><img class="map-poke piplup" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png">
+  <div class="map-note"><span>モンスターボールをタップして図鑑を開こう！</span><span>日向灘</span></div>
+ </div>
 </section>
 
-<section id="album" class="view hidden section">
- <div class="sectionhead"><h2 id="albumTitle" data-copy>アルバム</h2><p id="albumSub" data-copy>ふたりだけの思い出</p></div>
- <div id="albumGrid" class="album"></div>
-</section>
-
-<section id="letter" class="view hidden section">
- <div class="sectionhead"><h2 id="letterTitle" data-copy>手紙</h2><p id="letterSub" data-copy>ゆのさんへ</p></div>
- <div class="lettercard card"><h2 id="letterCardTitle" data-copy>最後に開く手紙</h2><p id="letterCardBody" data-copy>すべてのポケふたを見つけたら、成矢からの手紙が開きます。</p><button id="letterBtn" class="primary">あと9つで開きます</button></div>
-</section>
+<section id="album" class="view hidden section"><div class="sectionhead"><h2 id="albumTitle" data-copy>アルバム</h2><p id="albumSub" data-copy>ふたりだけの思い出</p></div><div id="albumGrid" class="album"></div></section>
+<section id="letter" class="view hidden section"><div class="sectionhead"><h2 id="letterTitle" data-copy>手紙</h2><p id="letterSub" data-copy>ゆのさんへ</p></div><div class="lettercard card"><h2 id="letterCardTitle" data-copy>最後に開く手紙</h2><p id="letterCardBody" data-copy>すべてのポケふたを見つけたら、成矢からの手紙が開きます。</p><button id="letterBtn" class="primary">あと9つで開きます</button></div></section>
 <footer id="footerCopy" data-copy style="text-align:center;padding:31px;color:#a28c7e;font-size:8px;letter-spacing:.15em">SEIYA × YUNO / MIYAZAKI 2026</footer>
 </div>
 
-<nav class="bottomnav">
- <button class="active" data-go="home"><i>⌂</i>ホーム</button><button data-go="dex"><i>◉</i>ずかん</button><button data-go="map"><i>🗺</i>マップ</button><button data-go="album"><i>📷</i>アルバム</button><button data-go="letter"><i>☰</i>メニュー</button>
-</nav>
+<nav class="bottomnav"><button class="active" data-go="home"><i>⌂</i>ホーム</button><button data-go="dex"><i>◉</i>ずかん</button><button data-go="map"><i>🗺</i>マップ</button><button data-go="album"><i>📷</i>アルバム</button><button data-go="letter"><i>☰</i>メニュー</button></nav>
 
 <dialog id="spotDialog"><button class="close" data-close="spotDialog">×</button><div id="spotBody"></div></dialog>
-<dialog id="arrivalDialog"><div class="arrival"><div class="pair"><img src="pikachu_illustrated.png"><img src="piplup_illustrated.png"></div><div id="arrivalKicker" class="kicker" data-copy>SPECIAL LETTER</div><h2 id="arrivalTitle" data-copy>ゆのさんへ。
+<dialog id="arrivalDialog"><div class="arrival"><div class="pair"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png"></div><div id="arrivalKicker" class="kicker" data-copy>SPECIAL LETTER</div><h2 id="arrivalTitle" data-copy>ゆのさんへ。
 成矢からお手紙です。</h2><p id="arrivalBody" data-copy>9つのポケふたを一緒に見つけてくれてありがとう。
 最後に、伝えたいことがあります。</p><button id="openFinalLetter" class="primary">手紙を受け取る</button></div></dialog>
-<dialog id="letterDialog"><button class="close" data-close="letterDialog">×</button><div class="modal"><div style="display:flex;justify-content:center"><img src="pikachu_illustrated.png" style="width:95px"><img src="piplup_illustrated.png" style="width:95px"></div><div class="sub">A LETTER FOR YUNO</div><h2>ゆのさんへ</h2><p id="letterText" style="white-space:pre-line;line-height:2;font-family:'Kiwi Maru';font-size:11px"></p><p style="text-align:right">成矢より</p></div></dialog>
-<dialog id="settingsDialog"><button class="close" data-close="settingsDialog">×</button><div class="modal settings"><div class="sub">PRIVATE SETTINGS</div><h2>成矢専用設定</h2>
- <div class="tabs"><button class="active" data-tab="copy">言葉</button><button data-tab="spot">ポケふた</button><button data-tab="system">動作</button></div>
- <div id="copyPanel"><div id="copyEditor" class="copy-editor"></div><button id="saveCopy" class="primary" style="width:100%;margin-top:10px">言葉を保存</button></div>
- <div id="spotPanel" class="hidden"><label>スポット<select id="spotSelect"></select></label><label>ミッション<textarea id="missionInput"></textarea></label><label>取得後メッセージ<textarea id="messageInput"></textarea></label><label>最後の手紙<textarea id="letterInput"></textarea></label><button id="saveSettings" class="primary" style="width:100%;margin-top:9px">内容を保存</button></div>
- <div id="systemPanel" class="hidden"><div class="actions"><button id="toggleTest" class="secondary">テストモード切替</button><button id="reset" class="danger">進捗リセット</button></div></div>
-</div></dialog>
+<dialog id="letterDialog"><button class="close" data-close="letterDialog">×</button><div class="modal"><div style="display:flex;justify-content:center"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" style="width:95px"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png" style="width:95px"></div><div class="sub">A LETTER FOR YUNO</div><h2>ゆのさんへ</h2><p id="letterText" style="white-space:pre-line;line-height:2;font-family:'Kiwi Maru';font-size:11px"></p><p style="text-align:right">成矢より</p></div></dialog>
+<dialog id="settingsDialog"><button class="close" data-close="settingsDialog">×</button><div class="modal settings"><div class="sub">PRIVATE SETTINGS</div><h2>成矢専用設定</h2><div class="tabs"><button class="active" data-tab="copy">言葉</button><button data-tab="spot">ポケふた</button><button data-tab="system">動作</button></div><div id="copyPanel"><div id="copyEditor" class="copy-editor"></div><button id="saveCopy" class="primary" style="width:100%;margin-top:10px">言葉を保存</button></div><div id="spotPanel" class="hidden"><label>スポット<select id="spotSelect"></select></label><label>ミッション<textarea id="missionInput"></textarea></label><label>取得後メッセージ<textarea id="messageInput"></textarea></label><label>最後の手紙<textarea id="letterInput"></textarea></label><button id="saveSettings" class="primary" style="width:100%;margin-top:9px">内容を保存</button></div><div id="systemPanel" class="hidden"><div class="actions"><button id="toggleTest" class="secondary">テストモード切替</button><button id="reset" class="danger">進捗リセット</button></div></div></div></dialog>
 
-<div id="discovery" class="discovery"><div><div class="discovery-pair"><img src="pikachu_illustrated.png" alt="ピカチュウ"><img src="piplup_illustrated.png" alt="ポッチャマ"></div><div style="font-size:21px">✦ 🌸 ✦</div><div class="kicker">NEW POKÉFUTA DISCOVERED</div><img id="discoveryImage" class="modalimage"><h2 id="discoveryTitle"></h2><p id="discoveryMessage"></p><img id="discoveryCharacter" class="discovery-character" src="pikachu_illustrated.png" alt=""><button id="closeDiscovery" class="primary">図鑑に登録する</button></div></div>
+<div id="discovery" class="discovery"><div><div class="discovery-pair"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png"></div><div class="kicker">NEW POKÉFUTA DISCOVERED</div><img id="discoveryImage" class="modalimage"><h2 id="discoveryTitle"></h2><p id="discoveryMessage"></p><img id="discoveryCharacter" class="discovery-character" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"><button id="closeDiscovery" class="primary">図鑑に登録する</button></div></div>
 <div id="toast" class="toast"></div>
 
 <script>
@@ -221,42 +188,29 @@ const LETTER=`ゆのさん、宮崎まで来てくれてありがとう。
 
 これからも、ゆのさんと一緒にたくさんの思い出を作っていきたい。`;
 const DEFAULT_TEXTS={openingKicker:"YUNO NOTE / MIYAZAKI 2026",openingTitle:"ゆのさんへ。\n宮崎の旅を贈ります。",openingBody:"景色と笑顔と、ふたりだけの思い出を。\nポケふたを探しながら、一緒に集めに行こう。",startBtn:"冒険をはじめる",homeKicker:"WELCOME TO MIYAZAKI",homeTitle:"ゆのさん、\n宮崎へようこそ。",homeBody:"この3日間が、ゆのさんにとって\n特別な思い出になりますように。",dayDate:"DAY 1\n11.21",dayTitle:"青島",daySub:"AOSHIMA",progressTitle:"ポケふたの冒険",missionTitle:"今日のミッション",missionBody:"最初のポケふたを見つけて、ふたりの冒険を始めよう！",homeLetterTitle:"成矢から、最後に手紙があります。",homeLetterBody:"9つそろった瞬間に、自動で届きます。",dexTitle:"図鑑",dexSub:"ポケふたコレクション",dexHelperTitle:"ポケふたを見つけると、ポケモンが図鑑に登録されるよ！",dexHelperBody:"未取得のデザインとポケモンは現地までシークレット。",mapTitle:"マップ",mapSub:"ポケふたマップ",albumTitle:"アルバム",albumSub:"ふたりだけの思い出",letterTitle:"手紙",letterSub:"ゆのさんへ",letterCardTitle:"最後に開く手紙",letterCardBody:"すべてのポケふたを見つけたら、成矢からの手紙が開きます。",arrivalKicker:"SPECIAL LETTER",arrivalTitle:"ゆのさんへ。\n成矢からお手紙です。",arrivalBody:"9つのポケふたを一緒に見つけてくれてありがとう。\n最後に、伝えたいことがあります。",footerCopy:"SEIYA × YUNO / MIYAZAKI 2026"};
-const FIELDS=[["openingKicker","オープニング小見出し"],["openingTitle","オープニングタイトル"],["openingBody","オープニング本文"],["startBtn","開始ボタン"],["homeKicker","ホーム小見出し"],["homeTitle","ホームタイトル"],["homeBody","ホーム本文"],["dayDate","日付"],["dayTitle","旅先"],["daySub","旅先英字"],["progressTitle","進捗タイトル"],["missionTitle","ミッションタイトル"],["missionBody","ミッション本文"],["homeLetterTitle","ホーム手紙案内"],["homeLetterBody","ホーム手紙補足"],["dexTitle","図鑑タイトル"],["dexSub","図鑑補足"],["dexHelperTitle","図鑑案内"],["dexHelperBody","図鑑案内補足"],["mapTitle","マップタイトル"],["mapSub","マップ補足"],["albumTitle","アルバムタイトル"],["albumSub","アルバム補足"],["letterTitle","手紙タイトル"],["letterSub","手紙補足"],["letterCardTitle","手紙カードタイトル"],["letterCardBody","手紙カード本文"],["arrivalKicker","手紙到着小見出し"],["arrivalTitle","手紙到着タイトル"],["arrivalBody","手紙到着本文"],["footerCopy","フッター"]];
-const KEY="yuno-note-image-matched-final-v3",OLD=["yuno-note-final-polished-v2","yuno-note-final-exact-v1","yuno-note-ver1-complete","yuno-note-refined-v2","yuno-note-final-v1"];
+const FIELDS=Object.keys(DEFAULT_TEXTS).map(k=>[k,k]);
+const KEY="yuno-note-v2-from-scratch",OLD=["yuno-note-image-matched-final-v3","yuno-note-final-exact-v1"];
 let stored=null;for(const k of [KEY,...OLD]){try{stored=JSON.parse(localStorage.getItem(k)||"null");if(stored)break}catch{}}
-let state=stored||{stamps:{},spots:SPOTS,letter:LETTER,test:false,texts:{...DEFAULT_TEXTS},finalSeen:false};
-state.spots=state.spots?.length===9?state.spots:SPOTS;state.texts={...DEFAULT_TEXTS,...(state.texts||{})};state.finalSeen=!!state.finalSeen;
-const $=id=>document.getElementById(id),rad=x=>x*Math.PI/180;
-function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+let state=stored||{stamps:{},spots:SPOTS,letter:LETTER,test:false,texts:{...DEFAULT_TEXTS},finalSeen:false};state.spots=state.spots?.length===9?state.spots:SPOTS;state.texts={...DEFAULT_TEXTS,...(state.texts||{})};
+const $=id=>document.getElementById(id),rad=x=>x*Math.PI/180;function save(){localStorage.setItem(KEY,JSON.stringify(state))}
 function dist(a,b,c,d){const R=6371,x=rad(c-a),y=rad(d-b),q=Math.sin(x/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(y/2)**2;return 2*R*Math.asin(Math.sqrt(q))}
 function toast(t){$("toast").textContent=t;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),1800)}
 function copy(){Object.entries(state.texts).forEach(([k,v])=>{if($(k))$(k).textContent=v})}
 function go(id){document.querySelectorAll(".view").forEach(x=>x.classList.add("hidden"));$(id).classList.remove("hidden");document.querySelectorAll("[data-go]").forEach(x=>x.classList.toggle("active",x.dataset.go===id));scrollTo({top:0,behavior:"smooth"})}
+const mapPos={aoshima:[59,78],shintomi:[61,66],takanabe:[62,59],kawaminami:[63,53],tsuno:[65,46],hyuga:[69,37],kadogawa:[71,30],hinokage:[61,20],takachiho:[52,14]};
 function render(){
  copy();const got=Object.keys(state.stamps).length,total=9;$("count").textContent=`${got} / ${total}`;$("dexCount").textContent=`${got} / ${total}`;
  $("track").innerHTML=state.spots.map(s=>`<span class="ball ${state.stamps[s.id]?"on":""}"></span>`).join("");
- const hotspotPositions={
- takachiho:[62.8,7.7],hinokage:[67.2,15.2],kadogawa:[71.9,22.7],
- hyuga:[72.1,30.2],tsuno:[53.2,40.6],kawaminami:[48.5,48.3],
- takanabe:[43.8,56.0],shintomi:[41.0,63.7],aoshima:[41.0,71.8]
-};
-$("mapHotspots").innerHTML=state.spots.map((s,i)=>{
- const pos=hotspotPositions[s.id];
- return `<button class="map-hotspot ${state.stamps[s.id]?"found":""}" style="left:${pos[0]}%;top:${pos[1]}%" onclick="openSpot('${s.id}')" aria-label="${String(i+1).padStart(2,"0")} ${s.name}の図鑑を開く"></button>`;
-}).join("");
-$("dexGrid").innerHTML=state.spots.map((s,i)=>{const g=state.stamps[s.id];return `<div class="dexitem"><button onclick="openSpot('${s.id}')"><div class="dexball">${g?`<img src="${s.image}" referrerpolicy="no-referrer">`:""}</div><span class="spark">✦</span><small>${String(i+1).padStart(3,"0")}</small><strong>${s.name}</strong></button></div>`}).join("");
+ $("dexGrid").innerHTML=state.spots.map((s,i)=>{const g=state.stamps[s.id];return `<div class="dexitem"><button onclick="openSpot('${s.id}')"><div class="dexball">${g?`<img src="${s.image}" referrerpolicy="no-referrer">`:""}</div><span class="spark">✦</span><small>${String(i+1).padStart(3,"0")}</small><strong>${s.name}</strong></button></div>`}).join("");
+ $("mapHotspots").innerHTML=state.spots.map((s,i)=>{const p=mapPos[s.id];return `<button class="map-hotspot" style="left:${p[0]}%;top:${p[1]}%" onclick="openSpot('${s.id}')" aria-label="${s.name}を開く"></button>`}).join("");
  const photos=Object.entries(state.stamps).filter(([_,v])=>v.photo).map(([id,v])=>({name:state.spots.find(s=>s.id===id).name,photo:v.photo}));
  $("albumGrid").innerHTML=photos.length?photos.map(x=>`<div class="polaroid"><img src="${x.photo}"><p>${x.name}<br>SEIYA × YUNO</p></div>`).join(""):`<div class="empty card">まだ写真はありません。<br>ポケふたを見つけたあと、思い出写真を残せます。</div>`;
  $("letterBtn").textContent=got===total?"最後の手紙を見る":`あと${total-got}つで開きます`;$("homeLetterBtn").textContent=got===total?"手紙を見る":`あと${total-got}つ`;
  const open=()=>{$("letterText").textContent=state.letter;$("letterDialog").showModal()};$("letterBtn").onclick=got===total?open:()=>toast("すべて見つけたら開くよ");$("homeLetterBtn").onclick=got===total?open:()=>toast("9つそろったら自動で届くよ");
 }
 function openSpot(id,d=null){const s=state.spots.find(x=>x.id===id),g=state.stamps[id];$("spotBody").innerHTML=`<div class="modal"><div class="sub">${String(state.spots.indexOf(s)+1).padStart(3,"0")} / ${s.area}</div>${g?`<img class="modalimage" src="${s.image}" referrerpolicy="no-referrer">`:`<div class="mystery">？</div>`}<h2>${s.name}</h2><div class="sub">${g?s.pokemon:"どんなポケモンかは見つけてからのお楽しみ"}</div><div class="modal-mission"><small>MISSION FOR YUNO</small>${s.mission}</div>${d!==null?`<p style="text-align:center;font-size:9px;color:var(--soft)">現在地から ${d<1?Math.round(d*1000)+"m":d.toFixed(1)+"km"}</p>`:""}${g?.photo?`<img src="${g.photo}" style="width:100%;border-radius:17px;margin-bottom:10px">`:""}<div class="actions"><button class="primary" onclick="check('${id}')">${g?"現在地を確認":"このポケふたを見つける"}</button>${g?`<label class="secondary" style="text-align:center">思い出写真を追加<input hidden type="file" accept="image/*" onchange="photo('${id}',this)"></label>`:""}</div></div>`;$("spotDialog").showModal()}
-function check(id){const s=state.spots.find(x=>x.id===id);if(state.test){claim(s);return}if(!navigator.geolocation){toast("位置情報に対応していません");return}navigator.geolocation.getCurrentPosition(p=>{const d=dist(p.coords.latitude,p.coords.longitude,s.lat,s.lng);d<=.15?claim(s):(openSpot(id,d),toast("まだ少し遠いみたい"))},()=>toast("位置情報を許可してね"),{enableHighAccuracy:true,timeout:12000})}
-function claim(s){const first=!state.stamps[s.id];state.stamps[s.id]=state.stamps[s.id]||{time:new Date().toISOString()};save();render();$("spotDialog").close();if(first){$("discoveryImage").src=s.image;$("discoveryTitle").textContent=s.name+"を発見！";$("discoveryMessage").textContent=s.message;
- const illustrated=["pikachu_illustrated.png","eevee_illustrated.png","piplup_illustrated.png"];
- $("discoveryCharacter").src=illustrated[state.spots.indexOf(s)%illustrated.length];
- $("discoveryCharacter").alt="旅を彩るポケモン";
- $("discovery").classList.add("show")}else toast("取得済みです")}
+function check(id){const s=state.spots.find(x=>x.id===id);if(state.test){claim(s);return}navigator.geolocation.getCurrentPosition(p=>{const d=dist(p.coords.latitude,p.coords.longitude,s.lat,s.lng);d<=.15?claim(s):(openSpot(id,d),toast("まだ少し遠いみたい"))},()=>toast("位置情報を許可してね"),{enableHighAccuracy:true,timeout:12000})}
+function claim(s){const first=!state.stamps[s.id];state.stamps[s.id]=state.stamps[s.id]||{time:new Date().toISOString()};save();render();$("spotDialog").close();if(first){$("discoveryImage").src=s.image;$("discoveryTitle").textContent=s.name+"を発見！";$("discoveryMessage").textContent=s.message;const chars=[25,133,393];$("discoveryCharacter").src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${chars[state.spots.indexOf(s)%3]}.png`;$("discovery").classList.add("show")}else toast("取得済みです")}
 function photo(id,input){const f=input.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{state.stamps[id].photo=r.result;save();render();$("spotDialog").close();openSpot(id);toast("思い出写真を保存しました")};r.readAsDataURL(f)}
 function editor(){$("copyEditor").innerHTML=FIELDS.map(([k,l])=>`<div class="field"><label>${l}</label><textarea data-copy-input="${k}"></textarea></div>`).join("");document.querySelectorAll("[data-copy-input]").forEach(e=>e.value=state.texts[e.dataset.copyInput])}
 document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>$(b.dataset.close).close());
