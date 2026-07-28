@@ -8,6 +8,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
 :root{
  --bg:#fbf8f2;--paper:#fffdf9;--paper2:#f6efe4;--ink:#3a2c27;--muted:#8a776e;
  --line:#eadfd2;--gold:#bb854b;--gold2:#d7b078;--red:#d75d47;--green:#859b72;
@@ -149,11 +150,114 @@ dialog::backdrop{background:rgba(60,43,31,.55);backdrop-filter:blur(7px)}.close{
 .ending-pokemon{display:flex;justify-content:center;gap:2px;margin-bottom:10px}.ending-pokemon img{width:105px;height:105px;object-fit:contain}
 .pokemon-note{font-size:8px;color:#b3a598;text-align:center;margin-top:22px;line-height:1.6}
 
+
+/* ===== YUNO NOTE Ver.1.0 / kawaii final design ===== */
+:root{
+ --bg:#fffaf3;--paper:#fffdf9;--paper2:#f9f0e4;--ink:#4b3025;--muted:#907a6e;
+ --line:#ead8c5;--gold:#c78a4c;--gold2:#e9c891;--red:#e2634c;--green:#8ba273;
+ --pink:#eab1ad;--blue:#a9d9e7;--yellow:#f5d16d;--shadow:0 11px 28px rgba(99,66,38,.10);
+}
+body{font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",sans-serif;letter-spacing:.015em}
+.hero h1,.sectionhead h2,.modal h2,.lettercard h2,.final-arrival h2,.daycard h2{
+ font-family:"Kiwi Maru","Yu Mincho",serif!important;
+}
+.brand strong{font-family:"Kiwi Maru",serif;letter-spacing:.22em}
+.kicker{font-family:"Zen Maru Gothic",sans-serif}
+.topbar{box-shadow:0 5px 18px rgba(104,72,47,.05)}
+.hero,.progress-card,.mission-card,.letter-home,.paper-card,.quicknav button,.lettercard{
+ box-shadow:0 10px 24px rgba(110,76,46,.085);
+}
+.hero{border-color:#ead6c1}
+.hero-photo{
+ min-height:430px;
+ background:
+ linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,253,248,.08) 42%,rgba(255,250,242,.98) 100%),
+ radial-gradient(circle at 72% 14%,rgba(255,255,255,.95),transparent 19%),
+ linear-gradient(160deg,#dff1f6 0%,#f9eedc 52%,#d8c39d 100%);
+}
+.hero-flower{position:absolute;z-index:5;font-size:22px;filter:drop-shadow(0 4px 6px rgba(106,69,36,.12));animation:flowerFloat 4s ease-in-out infinite}
+.hero-flower.f1{left:25px;top:110px}.hero-flower.f2{right:132px;top:168px;animation-delay:.7s}.hero-flower.f3{right:27px;bottom:18px;animation-delay:1.1s}
+@keyframes flowerFloat{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-6px) rotate(4deg)}}
+.hero-pikachu{
+ right:23px!important;bottom:121px!important;width:104px!important;
+ filter:drop-shadow(0 10px 13px rgba(89,59,28,.18));
+}
+.daycard{margin-top:170px;padding-right:92px}
+.aoshima-dot{position:absolute;right:15px}
+.daycard-flower{position:absolute;font-size:17px;z-index:3}
+.daycard-flower.a{left:18px;bottom:8px}.daycard-flower.b{right:84px;top:12px}
+.mission-card{position:relative;overflow:hidden;padding-right:86px}
+.mission-card:after{content:"✿";position:absolute;right:67px;bottom:-7px;font-size:31px;color:#efbeb2;opacity:.62}
+.mission-pokemon{position:absolute;right:8px;bottom:0;width:74px!important;height:74px!important}
+.progress-card{position:relative;overflow:hidden}
+.progress-card:after{content:"✦";position:absolute;right:12px;top:10px;color:#e9c37c;font-size:17px}
+.quicknav button{position:relative;overflow:hidden;transition:.2s}
+.quicknav button:after{content:"";position:absolute;width:35px;height:35px;border-radius:50%;background:rgba(242,209,158,.14);right:-12px;bottom:-15px}
+.quicknav button:active{transform:scale(.97)}
+.qicon{font-size:23px!important}
+.dexgrid{gap:25px 14px}
+.dexball{
+ background:radial-gradient(circle at 36% 32%,#fffdf8,#eee3d5);
+ box-shadow:0 8px 17px rgba(104,72,46,.08);
+}
+.dexball:before{height:2px;background:#dbc7b0}
+.dexball:after{border-color:#dbc7b0}
+.dexitem{position:relative}
+.dexitem:after{content:"✦";position:absolute;right:5px;top:63px;color:#efc56f;font-size:14px}
+.dexitem:nth-child(3n+2):after{content:"✿";color:#eab3ad}
+.dex-helper{background:linear-gradient(145deg,#fff9ea,#fff1d9);position:relative;overflow:hidden}
+.dex-helper:after{content:"✿ ✦";position:absolute;right:12px;top:8px;color:#e6b98c}
+.mapcard{border-radius:28px;overflow:hidden;background:#edf7f7}
+.map-title-cute{position:absolute;left:18px;top:15px;font-size:10px;color:#8da6a8;z-index:4}
+.map-decoration{position:absolute;z-index:3;pointer-events:none}
+.map-decoration.compass{left:17px;top:28px;font-size:44px;color:#b59063}
+.map-decoration.cloud{right:12px;top:48px;font-size:34px}
+.map-decoration.palm1{left:48px;top:150px;font-size:30px}.map-decoration.palm2{right:73px;top:260px;font-size:28px}
+.map-decoration.star1{left:22px;bottom:75px;font-size:22px}.map-decoration.star2{right:41px;bottom:94px;font-size:20px}
+.map-pokemon{position:absolute;z-index:7;object-fit:contain;filter:drop-shadow(0 8px 10px rgba(77,54,34,.14));pointer-events:none}
+.map-pokemon.pika{right:17px;bottom:70px;width:82px}.map-pokemon.piplup{left:12px;bottom:32px;width:76px}
+.miyazaki-svg{inset:17px 15px 42px;width:calc(100% - 30px);height:calc(100% - 59px)}
+.pin{width:30px;height:30px;box-shadow:0 5px 10px rgba(70,51,38,.16)}
+.pin span{font-size:8px;font-family:"Zen Maru Gothic";font-weight:700}
+.polaroid{border-radius:3px}.polaroid p{font-family:"Kiwi Maru"}
+.lettercard{overflow:visible}
+.lettercard:before{content:"🌸";position:absolute;right:18px;top:-15px;font-size:42px;z-index:3}
+.lettercard:after{content:"✦";right:60px;top:18px;font-size:24px;color:#f1c56e;opacity:.9}
+.final-arrival{position:relative;overflow:hidden}
+.final-arrival:before{content:"🎏";position:absolute;left:15px;top:15px;font-size:46px}
+.final-arrival:after{content:"✿  ✦  ✿";position:absolute;right:18px;bottom:18px;color:#e7aeab;font-size:24px}
+.ending-pokemon img{animation:pokeBounce 2.8s ease-in-out infinite}.ending-pokemon img:nth-child(2){animation-delay:.55s}
+@keyframes pokeBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.bottomnav button{font-family:"Zen Maru Gothic";font-weight:500}.bottomnav button.active{color:#c36735}
+.opening{background:
+ radial-gradient(circle at 83% 15%,rgba(255,255,255,.95),transparent 18%),
+ linear-gradient(180deg,#fffdf9,#f9eddd)}
+.opening:before{content:"✿";position:absolute;left:12%;top:12%;font-size:44px;color:#e8aca7}
+.opening:after{content:"✦";position:absolute;right:14%;bottom:15%;font-size:42px;color:#edc978}
+.opening-pokemon{display:flex;justify-content:center;align-items:end;gap:0;margin-bottom:-9px}
+.opening-pokemon img{width:105px;height:105px;object-fit:contain;filter:drop-shadow(0 8px 9px rgba(92,61,35,.12))}
+.opening-pokemon img:nth-child(2){width:88px;height:88px}
+.modal{position:relative}.modal:after{content:"✿";position:absolute;right:18px;top:55px;color:#e8b4ad;font-size:25px}
+.discovery{background:
+ radial-gradient(circle at 50% 27%,#fffde9 0 14%,transparent 32%),
+ linear-gradient(180deg,#fffaf1,#f4dcae)}
+.discovery:before,.discovery:after{position:absolute;font-size:42px}
+.discovery:before{content:"✦";left:13%;top:18%;color:#f0c45f}.discovery:after{content:"✿";right:13%;bottom:15%;color:#eab0a9}
+@media(max-width:420px){
+ .hero-pikachu{width:91px!important;right:12px!important;bottom:123px!important}
+ .daycard{padding-right:78px}.aoshima-dot{width:62px;height:62px}
+ .mapcard{height:570px}.map-pokemon.pika{width:70px}.map-pokemon.piplup{width:65px}
+}
+
 </style>
 </head>
 <body>
 <div id="opening" class="opening">
  <div>
+  <div class="opening-pokemon">
+   <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="ピカチュウ" referrerpolicy="no-referrer">
+   <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png" alt="イーブイ" referrerpolicy="no-referrer">
+  </div>
   <div class="brandmark"></div>
   <div id="openingKicker" class="kicker" data-copy style="margin-top:18px">YUNO NOTE / MIYAZAKI 2026</div>
   <h1 id="openingTitle" data-copy>ゆのさんへ。
@@ -173,14 +277,14 @@ dialog::backdrop{background:rgba(60,43,31,.55);backdrop-filter:blur(7px)}.close{
 <section id="home" class="view">
  <div class="hero">
   <div class="hero-photo">
-   <div class="hero-copy">
+   <span class="hero-flower f1">🌸</span><span class="hero-flower f2">✿</span><span class="hero-flower f3">🌼</span><div class="hero-copy">
     <div id="homeKicker" class="kicker" data-copy>WELCOME TO MIYAZAKI</div>
     <h1 id="homeTitle" data-copy>ゆのさん、
 宮崎へようこそ。</h1>
     <p id="homeBody" data-copy>この3日間が、ゆのさんにとって
 「また宮崎に来たい」と思える時間になりますように。</p>
    </div>
-   <img class="hero-pikachu" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="ピカチュウ" referrerpolicy="no-referrer"><div class="daycard">
+   <img class="hero-pikachu" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="ピカチュウ" referrerpolicy="no-referrer"><div class="daycard"><span class="daycard-flower a">🌸</span><span class="daycard-flower b">✿</span>
     <div id="dayDate" class="date" data-copy>DAY 1
 11.21</div>
     <h2><span id="dayTitle" data-copy>青島</span><small id="daySub" data-copy>AOSHIMA</small></h2>
@@ -205,7 +309,7 @@ dialog::backdrop{background:rgba(60,43,31,.55);backdrop-filter:blur(7px)}.close{
   </div>
 
   <div class="letter-home">
-   <div class="envelope"></div>
+   <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png" alt="イーブイ" referrerpolicy="no-referrer" style="width:62px;height:62px;object-fit:contain;filter:drop-shadow(0 7px 8px rgba(78,54,34,.12))">
    <div><strong id="homeLetterTitle" data-copy>成矢から、最後に手紙があります。</strong><p id="homeLetterBody" data-copy>9つのポケふたがそろった瞬間に、自動で届きます。</p></div>
    <button id="homeLetterBtn" class="secondary">まだ秘密</button>
   </div>
@@ -218,7 +322,7 @@ dialog::backdrop{background:rgba(60,43,31,.55);backdrop-filter:blur(7px)}.close{
  <div id="dexGrid" class="dexgrid"></div>
  <div class="dex-helper">
   <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png" alt="イーブイ" referrerpolicy="no-referrer">
-  <div><strong>ポケふたを見つけるたび、図鑑にポケモンが現れます。</strong><br>未取得のデザインとポケモンは、現地に着くまでシークレット。</div>
+  <div><strong id="dexHelperTitle" data-copy>ポケふたを見つけるたび、図鑑にポケモンが現れます。</strong><br><span id="dexHelperBody" data-copy>未取得のデザインとポケモンは、現地に着くまでシークレット。</span></div>
  </div>
 
 </section>
@@ -227,46 +331,85 @@ dialog::backdrop{background:rgba(60,43,31,.55);backdrop-filter:blur(7px)}.close{
  <div class="sectionhead"><h2 id="mapTitle" data-copy>マップ</h2><p id="mapSub" data-copy>宮崎を北へ進むポケふたの旅</p></div>
  <div class="tabbar"><button class="active">地図</button><button data-go="dex">リスト</button></div>
  <div id="mapCard" class="mapcard">
- <svg class="miyazaki-svg" viewBox="0 0 360 560" aria-label="宮崎県マップ">
+ <div class="map-title-cute">MIYAZAKI POKÉFUTA MAP</div>
+ <div class="map-decoration compass">✧</div>
+ <div class="map-decoration cloud">☁</div>
+ <div class="map-decoration palm1">🌴</div>
+ <div class="map-decoration palm2">🌴</div>
+ <div class="map-decoration star1">☆</div>
+ <div class="map-decoration star2">✦</div>
+ <svg class="miyazaki-svg" viewBox="0 0 360 560" aria-label="宮崎県イラストマップ">
   <defs>
-   <linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4ead6"/><stop offset="1" stop-color="#e8d7b9"/></linearGradient>
-   <pattern id="mountains" width="28" height="22" patternUnits="userSpaceOnUse"><path d="M2 19 L10 7 L16 15 L21 10 L27 19" fill="none" stroke="#d4c29f" stroke-width="1" opacity=".45"/></pattern>
+   <linearGradient id="landCute" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#f5ebd2"/><stop offset=".55" stop-color="#eee0be"/><stop offset="1" stop-color="#e6d1a7"/>
+   </linearGradient>
+   <pattern id="wave" width="28" height="14" patternUnits="userSpaceOnUse">
+    <path d="M0 7 Q7 1 14 7 T28 7" fill="none" stroke="#b9dce2" stroke-width="1" opacity=".55"/>
+   </pattern>
+   <pattern id="mountainPattern" width="45" height="35" patternUnits="userSpaceOnUse">
+    <path d="M2 31 L15 10 L25 24 L33 14 L43 31" fill="#bac7a0" opacity=".32" stroke="#91a179" stroke-width="1"/>
+   </pattern>
   </defs>
-  <path d="M198 18
-   C215 5 237 6 252 18 C269 12 291 15 304 29
-   C316 41 306 57 312 70 C323 81 319 99 307 111
-   C317 125 309 143 299 152 C310 165 307 184 295 195
-   C304 211 299 230 287 240 C297 257 291 275 280 288
-   C290 304 288 323 278 338 C289 355 284 375 273 389
-   C284 406 279 426 266 441 C273 460 264 479 252 492
-   C257 510 248 532 232 546 C218 554 207 545 204 530
-   C201 511 186 500 173 490 C158 477 142 470 123 464
-   C104 458 90 445 83 427 C77 410 82 394 92 382
-   C78 366 74 346 83 329 C69 313 67 291 78 274
-   C64 257 61 235 72 216 C61 198 62 177 75 161
-   C64 145 68 124 83 111 C78 94 90 76 108 70
-   C122 65 135 72 146 63 C158 52 165 36 181 38
-   C187 31 189 24 198 18 Z" fill="url(#land)" stroke="#bda984" stroke-width="2.2"/>
-  <path d="M198 18 C215 5 237 6 252 18 C269 12 291 15 304 29
-   C316 41 306 57 312 70 C323 81 319 99 307 111
-   C317 125 309 143 299 152 C310 165 307 184 295 195
-   C304 211 299 230 287 240 C297 257 291 275 280 288
-   C290 304 288 323 278 338 C289 355 284 375 273 389
-   C284 406 279 426 266 441 C273 460 264 479 252 492
-   C257 510 248 532 232 546" fill="none" stroke="#87adb3" stroke-width="4" opacity=".75"/>
-  <path d="M82 426 C125 405 166 398 273 389 M76 274 C126 284 176 270 287 240 M83 161 C131 173 180 155 299 152 M146 63 C180 88 228 93 307 111" fill="none" stroke="#d3c3a8" stroke-width="1.1" stroke-dasharray="4 5"/>
-  <path d="M80 92 L178 92 L178 245 L78 245 Z" fill="url(#mountains)" opacity=".72"/>
-  <text x="218" y="58" font-size="11" fill="#806b56">高千穂</text>
-  <text x="266" y="119" font-size="11" fill="#806b56">延岡</text>
-  <text x="254" y="211" font-size="11" fill="#806b56">日向</text>
-  <text x="252" y="366" font-size="11" fill="#806b56">宮崎</text>
-  <text x="230" y="433" font-size="10" fill="#806b56">青島</text>
-  <text x="222" y="496" font-size="10" fill="#806b56">日南</text>
-  <text x="116" y="445" font-size="10" fill="#806b56">都城</text>
-  <text x="92" y="207" font-size="9" fill="#9b876e">九州山地</text>
+  <rect width="360" height="560" fill="url(#wave)" opacity=".35"/>
+  <!-- Miyazaki outline simplified from prefectural proportions -->
+  <path id="miyazakiLand" d="
+   M215 20
+   C230 8 250 10 264 23
+   C281 17 301 26 309 43
+   C318 60 307 75 314 91
+   C321 108 310 123 302 137
+   C311 153 304 170 294 183
+   C304 200 296 218 285 231
+   C295 248 286 266 277 280
+   C286 298 280 318 269 333
+   C280 350 272 370 262 384
+   C273 401 266 421 255 437
+   C264 454 255 473 244 487
+   C252 505 241 527 225 542
+   C211 551 198 542 194 525
+   C190 508 175 497 161 488
+   C145 478 126 470 108 462
+   C90 454 77 440 72 422
+   C67 404 74 389 84 376
+   C72 361 68 342 77 326
+   C65 309 65 289 75 273
+   C64 256 63 236 74 219
+   C64 202 65 181 77 165
+   C68 148 72 129 87 117
+   C81 99 93 82 109 75
+   C125 69 137 77 150 67
+   C162 56 171 40 188 41
+   C198 37 203 27 215 20 Z"
+   fill="url(#landCute)" stroke="#c5aa79" stroke-width="2.2"/>
+  <path d="M215 20
+   C230 8 250 10 264 23 C281 17 301 26 309 43 C318 60 307 75 314 91
+   C321 108 310 123 302 137 C311 153 304 170 294 183 C304 200 296 218 285 231
+   C295 248 286 266 277 280 C286 298 280 318 269 333 C280 350 272 370 262 384
+   C273 401 266 421 255 437 C264 454 255 473 244 487 C252 505 241 527 225 542"
+   fill="none" stroke="#8eb7bc" stroke-width="5" opacity=".8"/>
+  <path d="M90 410 C130 393 183 394 262 384 M75 273 C125 281 185 266 285 231 M77 165 C132 178 197 158 302 137 M150 67 C184 91 234 94 314 91"
+   fill="none" stroke="#d7c6a6" stroke-width="1" stroke-dasharray="4 5"/>
+  <path d="M82 105 H180 V260 H80 Z" fill="url(#mountainPattern)" opacity=".78"/>
+  <path d="M118 410 H205 V488 H107 Z" fill="url(#mountainPattern)" opacity=".48"/>
+  <g font-family="Zen Maru Gothic, sans-serif" fill="#806951">
+   <text x="216" y="56" font-size="10">高千穂</text>
+   <text x="268" y="123" font-size="10">延岡</text>
+   <text x="256" y="217" font-size="10">日向</text>
+   <text x="251" y="358" font-size="10">宮崎</text>
+   <text x="229" y="427" font-size="9">青島</text>
+   <text x="218" y="489" font-size="9">日南</text>
+   <text x="102" y="444" font-size="9">都城</text>
+   <text x="92" y="202" font-size="8" fill="#9c8872">九州山地</text>
+  </g>
+  <g fill="#87a274" opacity=".9">
+   <path d="M130 130 l13 24 h-26z"/><path d="M156 153 l15 27 h-30z"/>
+   <path d="M121 337 l15 26 h-30z"/><path d="M173 390 l14 26 h-28z"/>
+  </g>
  </svg>
  <div class="map-ocean-label">日向灘</div>
- <div class="map-credit">宮崎県の輪郭・位置関係をもとにした旅行用イラストマップ</div>
+ <img class="map-pokemon pika" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="ピカチュウ" referrerpolicy="no-referrer">
+ <img class="map-pokemon piplup" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png" alt="ポッチャマ" referrerpolicy="no-referrer">
+ <div class="map-credit">宮崎県の地形と各市町の位置関係をもとにした旅のイラストマップ</div>
  <div class="map-legend"><span class="legenddot"></span>未取得 <span class="legenddot on"></span>取得済み</div>
 </div>
 </section>
@@ -326,7 +469,7 @@ dialog::backdrop{background:rgba(60,43,31,.55);backdrop-filter:blur(7px)}.close{
  <div id="systemPanel" class="settings-panel hidden"><div class="actions"><button id="toggleTest" class="secondary">テストモード切替</button><button id="reset" class="danger">進捗をリセット</button></div><p style="font-size:10px;color:var(--muted);line-height:1.7">本番前にテストモードをOFFにしてください。</p></div>
  </div></dialog>
 
-<div id="discovery" class="discovery"><div><div class="kicker">NEW POKÉFUTA DISCOVERED</div><img id="discoveryImage" alt=""><h2 id="discoveryTitle"></h2><p id="discoveryMessage"></p><button id="closeDiscovery" class="primary">図鑑に登録する</button></div></div>
+<div id="discovery" class="discovery"><div><div style="font-size:22px;margin-bottom:5px">✦ 🌸 ✦</div><div class="kicker">NEW POKÉFUTA DISCOVERED</div><img id="discoveryImage" alt=""><h2 id="discoveryTitle"></h2><p id="discoveryMessage"></p><button id="closeDiscovery" class="primary">図鑑に登録する</button></div></div>
 <div id="toast" class="toast"></div>
 
 <script>
@@ -370,6 +513,8 @@ const DEFAULT_TEXTS={
  letterCardTitle:"最後に開く手紙",letterCardBody:"すべてのポケふたを見つけたら、成矢からの手紙が開きます。",
  arrivalKicker:"SPECIAL LETTER",arrivalTitle:"ゆのさんへ。\n成矢からお手紙です。",
  arrivalBody:"9つのポケふたを一緒に見つけてくれてありがとう。\n最後に、伝えたいことがあります。",
+ dexHelperTitle:"ポケふたを見つけるたび、図鑑にポケモンが現れます。",
+ dexHelperBody:"未取得のデザインとポケモンは、現地に着くまでシークレット。",
  footerCopy:"SEIYA × YUNO / MIYAZAKI 2026"
 };
 const TEXT_FIELDS=[
@@ -383,10 +528,10 @@ const TEXT_FIELDS=[
  ["albumTitle","アルバム：タイトル"],["albumSub","アルバム：補足"],["letterTitle","手紙：タイトル"],["letterSub","手紙：補足"],
  ["letterCardTitle","手紙カード：タイトル"],["letterCardBody","手紙カード：本文"],
  ["arrivalKicker","手紙到着：小見出し"],["arrivalTitle","手紙到着：タイトル"],["arrivalBody","手紙到着：本文"],
- ["footerCopy","フッター"]
+ ["dexHelperTitle","図鑑：案内タイトル"],["dexHelperBody","図鑑：案内本文"],["footerCopy","フッター"]
 ];
-const KEY="yuno-note-refined-v2";
-const oldKeys=["yuno-note-final-v1","yuno-miyazaki-v2-complete","yuno-note-miyazaki-v3","yuno-miyazaki-v2"];
+const KEY="yuno-note-ver1-complete";
+const oldKeys=["yuno-note-refined-v2","yuno-note-final-v1","yuno-miyazaki-v2-complete","yuno-note-miyazaki-v3","yuno-miyazaki-v2"];
 let stored=null;
 for(const k of [KEY,...oldKeys]){try{stored=JSON.parse(localStorage.getItem(k)||"null");if(stored)break}catch{}}
 let state=stored||{stamps:{},spots:DEFAULT_SPOTS,letter:LETTER,test:false,texts:{...DEFAULT_TEXTS},finalSeen:false};
@@ -416,13 +561,16 @@ function render(){
  $("track").innerHTML=state.spots.map(s=>`<div class="trackball ${state.stamps[s.id]?"on":""}"></div>`).join("");
  $("dexGrid").innerHTML=state.spots.map((s,i)=>{const g=state.stamps[s.id];return `<div class="dexitem"><button onclick="openSpot('${s.id}')"><div class="dexball">${g?`<img src="${s.image}" alt="${s.name}" referrerpolicy="no-referrer">`:""}</div><small>${String(i+1).padStart(3,"0")}</small><strong>${s.name}</strong></button></div>`}).join("");
  $("mapCard").querySelectorAll(".pin").forEach(x=>x.remove());
- const bounds={minLng:130.62,maxLng:131.84,minLat:31.32,maxLat:32.86};
+ const mapPositions={
+  aoshima:[64,78],shintomi:[67,63],takanabe:[68,57],kawaminami:[69,51],
+  tsuno:[70,45],hyuga:[72,36],kadogawa:[74,29],hinokage:[64,20],takachiho:[55,14]
+ };
  state.spots.forEach((s,i)=>{
-  const x=(s.lng-bounds.minLng)/(bounds.maxLng-bounds.minLng)*100;
-  const y=(bounds.maxLat-s.lat)/(bounds.maxLat-bounds.minLat)*100;
+  const pos=mapPositions[s.id]||[60,50];
   const pin=document.createElement("button");pin.className="pin "+(state.stamps[s.id]?"on":"");
-  pin.style.left=Math.max(10,Math.min(88,x))+"%";pin.style.top=Math.max(7,Math.min(91,y))+"%";
-  pin.innerHTML=`<span>${String(i+1).padStart(2,"0")} ${s.name}</span>`;pin.onclick=()=>openSpot(s.id);$("mapCard").appendChild(pin)
+  pin.style.left=pos[0]+"%";pin.style.top=pos[1]+"%";
+  pin.innerHTML=`<span>${String(i+1).padStart(2,"0")} ${s.name}</span>`;
+  pin.onclick=()=>openSpot(s.id);$("mapCard").appendChild(pin)
  });
  const photos=Object.entries(state.stamps).filter(([_,v])=>v.photo).map(([id,v])=>({name:state.spots.find(s=>s.id===id).name,photo:v.photo}));
  $("albumGrid").innerHTML=photos.length?photos.map(p=>`<div class="polaroid"><img src="${p.photo}"><p>${p.name}<br>SEIYA × YUNO</p></div>`).join(""):`<div class="empty paper-card">まだ写真はありません。<br>ポケふたを見つけたあと、思い出写真を残せます。</div>`;
