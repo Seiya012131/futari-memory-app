@@ -79,11 +79,71 @@ dialog{width:min(92vw,430px);max-height:90vh;border:0;border-radius:27px;padding
 .opening{position:fixed;inset:0;z-index:400;background:linear-gradient(#fffdf9,#f8ecdc);display:grid;place-items:center;text-align:center;padding:25px;transition:.55s}.opening.hide{opacity:0;pointer-events:none}.opening-pokemon{display:flex;justify-content:center;align-items:end}.opening-pokemon img{width:105px;height:105px;object-fit:contain}.opening-pokemon img:last-child{width:85px;height:85px}.opening h1{font-family:"Kiwi Maru";font-size:33px;font-weight:500;line-height:1.5}.opening p{font-family:"Kiwi Maru";font-size:11px;line-height:2;color:var(--soft)}
 .arrival{text-align:center;padding:32px 22px;background:linear-gradient(#fffdf9,#f5e5d0)}.arrival .pair{display:flex;justify-content:center}.arrival .pair img{width:112px;height:112px;object-fit:contain}.arrival h2{font-family:"Kiwi Maru";font-size:28px;font-weight:500;line-height:1.5}.arrival p{font-size:10px;line-height:1.9;color:var(--soft)}
 .settings textarea,.settings input,.settings select{width:100%;border:1px solid var(--line);border-radius:12px;background:white;padding:9px;margin-top:5px}.settings textarea{min-height:68px}.tabs{display:flex;gap:5px;margin-bottom:12px}.tabs button{flex:1;border:1px solid var(--line);background:white;border-radius:999px;padding:8px;font-size:9px}.tabs .active{background:#a76a3e;color:white}.copy-editor{display:grid;gap:8px}.field{padding:9px;border-radius:13px;background:#faf1e6}.field label{font-size:8px;color:#966d50;font-weight:700}.toast{position:fixed;z-index:500;bottom:84px;left:50%;transform:translate(-50%,120px);background:#563b2e;color:white;border-radius:999px;padding:10px 15px;font-size:9px;transition:.25s;white-space:nowrap}.toast.show{transform:translate(-50%,0)}
+
+/* ===== exact-reference illustration refinements ===== */
+.dayphoto{
+ margin-left:auto;width:74px;height:74px;border-radius:50%;object-fit:cover;
+ border:4px solid #fff;box-shadow:0 6px 14px rgba(96,67,42,.12);background:#e8f4f4;
+}
+.hero-pika{width:116px;right:30px;bottom:92px}
+.brand img{width:50px;height:50px;object-fit:contain}
+.progress .piplup{width:75px;height:75px}
+.mission .eevee{width:96px;height:96px;right:-2px}
+.opening-pokemon img{filter:drop-shadow(0 8px 10px rgba(94,62,35,.13))}
+.dex-top img{width:86px;height:86px}
+.dex-helper img{width:78px;height:78px}
+.letter-home img{width:66px;height:66px}
+.arrival .pair img{width:130px;height:130px}
+.interactive-map{position:relative}
+.map-image{width:100%;display:block}
+.map-hotspots{position:absolute;left:0;right:0;top:0;bottom:37px;z-index:5}
+.map-hotspot{
+ position:absolute;transform:translate(-50%,-50%);width:54px;height:40px;border:0;
+ background:transparent;border-radius:999px;padding:0;
+}
+.map-hotspot:focus-visible{outline:3px solid rgba(230,94,71,.65);outline-offset:2px}
+.map-hotspot::after{
+ content:"";position:absolute;inset:3px;border-radius:999px;
+ background:rgba(255,255,255,0);transition:.18s;
+}
+.map-hotspot:active::after,.map-hotspot:hover::after{
+ background:rgba(255,238,201,.28);box-shadow:0 0 0 3px rgba(237,195,111,.35);
+}
+.map-hotspot.found::before{
+ content:"✓";position:absolute;right:-2px;top:-7px;width:18px;height:18px;
+ display:grid;place-items:center;border-radius:50%;background:#e65e47;color:#fff;
+ font-size:10px;font-weight:700;box-shadow:0 3px 7px rgba(82,55,37,.18);
+}
+.discovery-character{
+ width:125px!important;height:125px!important;border:0!important;background:transparent!important;
+ box-shadow:none!important;object-fit:contain!important;margin:-12px auto 0!important;
+ animation:characterBounce 1.05s cubic-bezier(.2,.9,.2,1)!important;
+}
+@keyframes characterBounce{
+ 0%{opacity:0;transform:translateY(28px) scale(.72) rotate(-6deg)}
+ 70%{opacity:1;transform:translateY(-8px) scale(1.07) rotate(3deg)}
+ 100%{transform:none}
+}
+.discovery-pair{display:flex;justify-content:center;align-items:end;margin-bottom:-14px}
+.discovery-pair img{width:105px;height:105px;object-fit:contain;filter:drop-shadow(0 8px 10px rgba(82,55,35,.14))}
+.dexball{
+ border:1px solid rgba(232,208,179,.65);
+ background:
+ radial-gradient(circle at 35% 28%,rgba(255,255,255,.95),rgba(246,232,213,.88)),
+ linear-gradient(145deg,#fffaf2,#ead9c4);
+}
+.dexball::after{box-shadow:0 0 0 5px rgba(255,250,242,.55)}
+.quick i{filter:saturate(.82)}
+@media(max-width:390px){
+ .hero-pika{width:101px;right:20px}
+ .mission .eevee{width:82px;height:82px}
+}
+
 </style>
 </head>
 <body>
 <div id="opening" class="opening"><div>
- <div class="opening-pokemon"><img src="pikachu.png"><img src="eevee.png"></div>
+ <div class="opening-pokemon"><img src="pikachu_cute.png"><img src="eevee_cute.png"></div>
  <div id="openingKicker" class="kicker" data-copy>YUNO NOTE / MIYAZAKI 2026</div>
  <h1 id="openingTitle" data-copy>ゆのさんへ。
 宮崎の旅を贈ります。</h1>
@@ -94,7 +154,7 @@ dialog{width:min(92vw,430px);max-height:90vh;border:0;border-radius:27px;padding
 
 <div class="app">
 <header class="topbar">
- <div class="brand"><img src="pikachu.png"><div><strong>YUNO NOTE</strong><small>MIYAZAKI MEMORY TRIP</small></div></div>
+ <div class="brand"><img src="pikachu_cute.png"><div><strong>YUNO NOTE</strong><small>MIYAZAKI MEMORY TRIP</small></div></div>
  <button id="settingsBtn" class="iconbtn">⚙</button>
 </header>
 
@@ -106,34 +166,37 @@ dialog{width:min(92vw,430px);max-height:90vh;border:0;border-radius:27px;padding
    <p id="homeBody" data-copy>この3日間が、ゆのさんにとって
 特別な思い出になりますように。</p></div>
   <span class="flower f1">✦</span><span class="flower f2">🌸</span><span class="flower f3">🌼</span>
-  <div class="palm">🌴</div><img class="hero-pika" src="pikachu.png">
+  <div class="palm">🌴</div><img class="hero-pika" src="pikachu_cute.png">
   <div class="daycard"><div id="dayDate" class="date" data-copy>DAY 1
-11.21</div><h2><span id="dayTitle" data-copy>青島</span><small id="daySub" data-copy>AOSHIMA</small></h2><div class="dayphoto">⛩</div></div>
+11.21</div><h2><span id="dayTitle" data-copy>青島</span><small id="daySub" data-copy>AOSHIMA</small></h2><img class="dayphoto" src="aoshima_illustration.png" alt="青島のイラスト"></div>
  </div></div>
  <div class="content">
-  <div class="progress card"><div style="flex:1"><div class="progress-text"><strong id="progressTitle" data-copy>ポケふたの冒険</strong><span>見つけた数　<b id="count">0 / 9</b></span></div><div id="track" class="track"></div></div><img class="piplup" src="piplup.png"></div>
+  <div class="progress card"><div style="flex:1"><div class="progress-text"><strong id="progressTitle" data-copy>ポケふたの冒険</strong><span>見つけた数　<b id="count">0 / 9</b></span></div><div id="track" class="track"></div></div><img class="piplup" src="piplup_cute.png"></div>
   <div class="quick">
    <button data-go="dex"><i>◉</i><strong>図鑑</strong><small>ポケふた</small></button>
    <button data-go="map"><i>🗺️</i><strong>マップ</strong><small>旅の地図</small></button>
    <button data-go="album"><i>📷</i><strong>アルバム</strong><small>思い出</small></button>
    <button data-go="letter"><i>💌</i><strong>手紙</strong><small>ゆのさんへ</small></button>
   </div>
-  <div class="mission card"><strong id="missionTitle" data-copy>今日のミッション</strong><p id="missionBody" data-copy>最初のポケふたを見つけて、ふたりの冒険を始めよう！</p><img class="eevee" src="eevee.png"></div>
-  <div class="letter-home card"><img src="pikachu.png"><div><strong id="homeLetterTitle" data-copy>成矢から、最後に手紙があります。</strong><p id="homeLetterBody" data-copy>9つそろった瞬間に、自動で届きます。</p></div><button id="homeLetterBtn" class="secondary">あと9つ</button></div>
+  <div class="mission card"><strong id="missionTitle" data-copy>今日のミッション</strong><p id="missionBody" data-copy>最初のポケふたを見つけて、ふたりの冒険を始めよう！</p><img class="eevee" src="eevee_cute.png"></div>
+  <div class="letter-home card"><img src="pikachu_cute.png"><div><strong id="homeLetterTitle" data-copy>成矢から、最後に手紙があります。</strong><p id="homeLetterBody" data-copy>9つそろった瞬間に、自動で届きます。</p></div><button id="homeLetterBtn" class="secondary">あと9つ</button></div>
  </div>
 </section>
 
 <section id="dex" class="view hidden section">
  <div class="sectionhead"><h2 id="dexTitle" data-copy>図鑑</h2><p id="dexSub" data-copy>ポケふたコレクション</p></div>
- <div class="dex-top"><div><span>🔴 見つけた数 </span><b id="dexCount">0 / 9</b></div><img src="pikachu.png"></div>
+ <div class="dex-top"><div><span>🔴 見つけた数 </span><b id="dexCount">0 / 9</b></div><img src="pikachu_cute.png"></div>
  <div id="dexGrid" class="dexgrid"></div>
- <div class="dex-helper card"><img src="piplup.png"><p><b id="dexHelperTitle" data-copy>ポケふたを見つけると、ポケモンが図鑑に登録されるよ！</b><br><span id="dexHelperBody" data-copy>未取得のデザインとポケモンは現地までシークレット。</span></p></div>
+ <div class="dex-helper card"><img src="piplup_cute.png"><p><b id="dexHelperTitle" data-copy>ポケふたを見つけると、ポケモンが図鑑に登録されるよ！</b><br><span id="dexHelperBody" data-copy>未取得のデザインとポケモンは現地までシークレット。</span></p></div>
 </section>
 
 <section id="map" class="view hidden section">
  <div class="sectionhead"><h2 id="mapTitle" data-copy>マップ</h2><p id="mapSub" data-copy>ポケふたマップ</p></div>
- <div class="map-wrap"><img class="map-image" src="miyazaki_map.png" alt="宮崎県ポケふたマップ"><div class="map-note"><span>地図のピンは下のリストから開けます</span><span>日向灘</span></div></div>
- <div id="mapList" class="map-list"></div>
+ <div class="map-wrap interactive-map">
+  <img class="map-image" src="miyazaki_map_interactive.png" alt="宮崎県ポケふたマップ">
+  <div id="mapHotspots" class="map-hotspots" aria-label="ポケふたの場所"></div>
+  <div class="map-note"><span>モンスターボールをタップして図鑑を開こう！</span><span>日向灘</span></div>
+ </div>
 </section>
 
 <section id="album" class="view hidden section">
@@ -153,10 +216,10 @@ dialog{width:min(92vw,430px);max-height:90vh;border:0;border-radius:27px;padding
 </nav>
 
 <dialog id="spotDialog"><button class="close" data-close="spotDialog">×</button><div id="spotBody"></div></dialog>
-<dialog id="arrivalDialog"><div class="arrival"><div class="pair"><img src="pikachu.png"><img src="piplup.png"></div><div id="arrivalKicker" class="kicker" data-copy>SPECIAL LETTER</div><h2 id="arrivalTitle" data-copy>ゆのさんへ。
+<dialog id="arrivalDialog"><div class="arrival"><div class="pair"><img src="pikachu_cute.png"><img src="piplup_cute.png"></div><div id="arrivalKicker" class="kicker" data-copy>SPECIAL LETTER</div><h2 id="arrivalTitle" data-copy>ゆのさんへ。
 成矢からお手紙です。</h2><p id="arrivalBody" data-copy>9つのポケふたを一緒に見つけてくれてありがとう。
 最後に、伝えたいことがあります。</p><button id="openFinalLetter" class="primary">手紙を受け取る</button></div></dialog>
-<dialog id="letterDialog"><button class="close" data-close="letterDialog">×</button><div class="modal"><div style="display:flex;justify-content:center"><img src="pikachu.png" style="width:95px"><img src="piplup.png" style="width:95px"></div><div class="sub">A LETTER FOR YUNO</div><h2>ゆのさんへ</h2><p id="letterText" style="white-space:pre-line;line-height:2;font-family:'Kiwi Maru';font-size:11px"></p><p style="text-align:right">成矢より</p></div></dialog>
+<dialog id="letterDialog"><button class="close" data-close="letterDialog">×</button><div class="modal"><div style="display:flex;justify-content:center"><img src="pikachu_cute.png" style="width:95px"><img src="piplup_cute.png" style="width:95px"></div><div class="sub">A LETTER FOR YUNO</div><h2>ゆのさんへ</h2><p id="letterText" style="white-space:pre-line;line-height:2;font-family:'Kiwi Maru';font-size:11px"></p><p style="text-align:right">成矢より</p></div></dialog>
 <dialog id="settingsDialog"><button class="close" data-close="settingsDialog">×</button><div class="modal settings"><div class="sub">PRIVATE SETTINGS</div><h2>成矢専用設定</h2>
  <div class="tabs"><button class="active" data-tab="copy">言葉</button><button data-tab="spot">ポケふた</button><button data-tab="system">動作</button></div>
  <div id="copyPanel"><div id="copyEditor" class="copy-editor"></div><button id="saveCopy" class="primary" style="width:100%;margin-top:10px">言葉を保存</button></div>
@@ -164,7 +227,8 @@ dialog{width:min(92vw,430px);max-height:90vh;border:0;border-radius:27px;padding
  <div id="systemPanel" class="hidden"><div class="actions"><button id="toggleTest" class="secondary">テストモード切替</button><button id="reset" class="danger">進捗リセット</button></div></div>
 </div></dialog>
 
-<div id="discovery" class="discovery"><div><div style="font-size:21px">✦ 🌸 ✦</div><div class="kicker">NEW POKÉFUTA DISCOVERED</div><img id="discoveryImage"><h2 id="discoveryTitle"></h2><p id="discoveryMessage"></p><button id="closeDiscovery" class="primary">図鑑に登録する</button></div></div>
+<div id="discovery" class="discovery"><div><div class="discovery-pair"><img src="pikachu_cute.png" alt="ピカチュウ"><img src="piplup_cute.png" alt="ポッチャマ"></div>
+    <div style="font-size:21px">✦ 🌸 ✦</div><div class="kicker">NEW POKÉFUTA DISCOVERED</div><img id="discoveryImage" class="modalimage"><h2 id="discoveryTitle"></h2><p id="discoveryMessage"></p><img id="discoveryCharacter" class="discovery-character" src="pikachu_cute.png" alt=""><button id="closeDiscovery" class="primary">図鑑に登録する</button></div></div>
 <div id="toast" class="toast"></div>
 
 <script>
@@ -190,7 +254,7 @@ const LETTER=`ゆのさん、宮崎まで来てくれてありがとう。
 これからも、ゆのさんと一緒にたくさんの思い出を作っていきたい。`;
 const DEFAULT_TEXTS={openingKicker:"YUNO NOTE / MIYAZAKI 2026",openingTitle:"ゆのさんへ。\n宮崎の旅を贈ります。",openingBody:"景色と笑顔と、ふたりだけの思い出を。\nポケふたを探しながら、一緒に集めに行こう。",startBtn:"冒険をはじめる",homeKicker:"WELCOME TO MIYAZAKI",homeTitle:"ゆのさん、\n宮崎へようこそ。",homeBody:"この3日間が、ゆのさんにとって\n特別な思い出になりますように。",dayDate:"DAY 1\n11.21",dayTitle:"青島",daySub:"AOSHIMA",progressTitle:"ポケふたの冒険",missionTitle:"今日のミッション",missionBody:"最初のポケふたを見つけて、ふたりの冒険を始めよう！",homeLetterTitle:"成矢から、最後に手紙があります。",homeLetterBody:"9つそろった瞬間に、自動で届きます。",dexTitle:"図鑑",dexSub:"ポケふたコレクション",dexHelperTitle:"ポケふたを見つけると、ポケモンが図鑑に登録されるよ！",dexHelperBody:"未取得のデザインとポケモンは現地までシークレット。",mapTitle:"マップ",mapSub:"ポケふたマップ",albumTitle:"アルバム",albumSub:"ふたりだけの思い出",letterTitle:"手紙",letterSub:"ゆのさんへ",letterCardTitle:"最後に開く手紙",letterCardBody:"すべてのポケふたを見つけたら、成矢からの手紙が開きます。",arrivalKicker:"SPECIAL LETTER",arrivalTitle:"ゆのさんへ。\n成矢からお手紙です。",arrivalBody:"9つのポケふたを一緒に見つけてくれてありがとう。\n最後に、伝えたいことがあります。",footerCopy:"SEIYA × YUNO / MIYAZAKI 2026"};
 const FIELDS=[["openingKicker","オープニング小見出し"],["openingTitle","オープニングタイトル"],["openingBody","オープニング本文"],["startBtn","開始ボタン"],["homeKicker","ホーム小見出し"],["homeTitle","ホームタイトル"],["homeBody","ホーム本文"],["dayDate","日付"],["dayTitle","旅先"],["daySub","旅先英字"],["progressTitle","進捗タイトル"],["missionTitle","ミッションタイトル"],["missionBody","ミッション本文"],["homeLetterTitle","ホーム手紙案内"],["homeLetterBody","ホーム手紙補足"],["dexTitle","図鑑タイトル"],["dexSub","図鑑補足"],["dexHelperTitle","図鑑案内"],["dexHelperBody","図鑑案内補足"],["mapTitle","マップタイトル"],["mapSub","マップ補足"],["albumTitle","アルバムタイトル"],["albumSub","アルバム補足"],["letterTitle","手紙タイトル"],["letterSub","手紙補足"],["letterCardTitle","手紙カードタイトル"],["letterCardBody","手紙カード本文"],["arrivalKicker","手紙到着小見出し"],["arrivalTitle","手紙到着タイトル"],["arrivalBody","手紙到着本文"],["footerCopy","フッター"]];
-const KEY="yuno-note-final-exact-v1",OLD=["yuno-note-ver1-complete","yuno-note-refined-v2","yuno-note-final-v1"];
+const KEY="yuno-note-final-polished-v2",OLD=["yuno-note-final-exact-v1","yuno-note-ver1-complete","yuno-note-refined-v2","yuno-note-final-v1"];
 let stored=null;for(const k of [KEY,...OLD]){try{stored=JSON.parse(localStorage.getItem(k)||"null");if(stored)break}catch{}}
 let state=stored||{stamps:{},spots:SPOTS,letter:LETTER,test:false,texts:{...DEFAULT_TEXTS},finalSeen:false};
 state.spots=state.spots?.length===9?state.spots:SPOTS;state.texts={...DEFAULT_TEXTS,...(state.texts||{})};state.finalSeen=!!state.finalSeen;
@@ -203,8 +267,16 @@ function go(id){document.querySelectorAll(".view").forEach(x=>x.classList.add("h
 function render(){
  copy();const got=Object.keys(state.stamps).length,total=9;$("count").textContent=`${got} / ${total}`;$("dexCount").textContent=`${got} / ${total}`;
  $("track").innerHTML=state.spots.map(s=>`<span class="ball ${state.stamps[s.id]?"on":""}"></span>`).join("");
+ const hotspotPositions={
+ aoshima:[47.2,77.3],shintomi:[51.2,65.8],takanabe:[52.1,59.9],
+ kawaminami:[53.3,53.7],tsuno:[56.1,46.8],hyuga:[60.2,39.1],
+ kadogawa:[63.5,31.1],hinokage:[57.7,20.4],takachiho:[49.8,13.1]
+};
+$("mapHotspots").innerHTML=state.spots.map((s,i)=>{
+ const pos=hotspotPositions[s.id]||[50,50];
+ return `<button class="map-hotspot ${state.stamps[s.id]?"found":""}" style="left:${pos[0]}%;top:${pos[1]}%" onclick="openSpot('${s.id}')" aria-label="${String(i+1).padStart(2,"0")} ${s.name}を開く"></button>`;
+}).join("");
  $("dexGrid").innerHTML=state.spots.map((s,i)=>{const g=state.stamps[s.id];return `<div class="dexitem"><button onclick="openSpot('${s.id}')"><div class="dexball">${g?`<img src="${s.image}" referrerpolicy="no-referrer">`:""}</div><span class="spark">✦</span><small>${String(i+1).padStart(3,"0")}</small><strong>${s.name}</strong></button></div>`}).join("");
- $("mapList").innerHTML=state.spots.map((s,i)=>`<div class="map-row card"><span class="mini ${state.stamps[s.id]?"on":""}"></span><div><strong>${String(i+1).padStart(2,"0")} ${s.name}</strong><small>${s.area}</small></div><button class="secondary" onclick="openSpot('${s.id}')">見る</button></div>`).join("");
  const photos=Object.entries(state.stamps).filter(([_,v])=>v.photo).map(([id,v])=>({name:state.spots.find(s=>s.id===id).name,photo:v.photo}));
  $("albumGrid").innerHTML=photos.length?photos.map(x=>`<div class="polaroid"><img src="${x.photo}"><p>${x.name}<br>SEIYA × YUNO</p></div>`).join(""):`<div class="empty card">まだ写真はありません。<br>ポケふたを見つけたあと、思い出写真を残せます。</div>`;
  $("letterBtn").textContent=got===total?"最後の手紙を見る":`あと${total-got}つで開きます`;$("homeLetterBtn").textContent=got===total?"手紙を見る":`あと${total-got}つ`;
@@ -212,7 +284,11 @@ function render(){
 }
 function openSpot(id,d=null){const s=state.spots.find(x=>x.id===id),g=state.stamps[id];$("spotBody").innerHTML=`<div class="modal"><div class="sub">${String(state.spots.indexOf(s)+1).padStart(3,"0")} / ${s.area}</div>${g?`<img class="modalimage" src="${s.image}" referrerpolicy="no-referrer">`:`<div class="mystery">？</div>`}<h2>${s.name}</h2><div class="sub">${g?s.pokemon:"どんなポケモンかは見つけてからのお楽しみ"}</div><div class="modal-mission"><small>MISSION FOR YUNO</small>${s.mission}</div>${d!==null?`<p style="text-align:center;font-size:9px;color:var(--soft)">現在地から ${d<1?Math.round(d*1000)+"m":d.toFixed(1)+"km"}</p>`:""}${g?.photo?`<img src="${g.photo}" style="width:100%;border-radius:17px;margin-bottom:10px">`:""}<div class="actions"><button class="primary" onclick="check('${id}')">${g?"現在地を確認":"このポケふたを見つける"}</button>${g?`<label class="secondary" style="text-align:center">思い出写真を追加<input hidden type="file" accept="image/*" onchange="photo('${id}',this)"></label>`:""}</div></div>`;$("spotDialog").showModal()}
 function check(id){const s=state.spots.find(x=>x.id===id);if(state.test){claim(s);return}if(!navigator.geolocation){toast("位置情報に対応していません");return}navigator.geolocation.getCurrentPosition(p=>{const d=dist(p.coords.latitude,p.coords.longitude,s.lat,s.lng);d<=.15?claim(s):(openSpot(id,d),toast("まだ少し遠いみたい"))},()=>toast("位置情報を許可してね"),{enableHighAccuracy:true,timeout:12000})}
-function claim(s){const first=!state.stamps[s.id];state.stamps[s.id]=state.stamps[s.id]||{time:new Date().toISOString()};save();render();$("spotDialog").close();if(first){$("discoveryImage").src=s.image;$("discoveryTitle").textContent=s.name+"を発見！";$("discoveryMessage").textContent=s.message;$("discovery").classList.add("show")}else toast("取得済みです")}
+function claim(s){const first=!state.stamps[s.id];state.stamps[s.id]=state.stamps[s.id]||{time:new Date().toISOString()};save();render();$("spotDialog").close();if(first){$("discoveryImage").src=s.image;$("discoveryTitle").textContent=s.name+"を発見！";$("discoveryMessage").textContent=s.message;
+ const cute=["pikachu_cute.png","eevee_cute.png","piplup_cute.png"];
+ $("discoveryCharacter").src=cute[state.spots.indexOf(s)%cute.length];
+ $("discoveryCharacter").alt="旅を彩るポケモン";
+ $("discovery").classList.add("show")}else toast("取得済みです")}
 function photo(id,input){const f=input.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{state.stamps[id].photo=r.result;save();render();$("spotDialog").close();openSpot(id);toast("思い出写真を保存しました")};r.readAsDataURL(f)}
 function editor(){$("copyEditor").innerHTML=FIELDS.map(([k,l])=>`<div class="field"><label>${l}</label><textarea data-copy-input="${k}"></textarea></div>`).join("");document.querySelectorAll("[data-copy-input]").forEach(e=>e.value=state.texts[e.dataset.copyInput])}
 document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>$(b.dataset.close).close());
