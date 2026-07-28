@@ -3,477 +3,172 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#fbf8f2">
+<meta name="theme-color" content="#fffaf3">
 <title>YUNO NOTE｜宮崎ポケふたの旅</title>
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="icon.svg">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
 :root{
- --bg:#fbf8f2;--paper:#fffdf9;--paper2:#f6efe4;--ink:#3a2c27;--muted:#8a776e;
- --line:#eadfd2;--gold:#bb854b;--gold2:#d7b078;--red:#d75d47;--green:#859b72;
- --shadow:0 12px 32px rgba(87,62,43,.10);--r:24px;
+ --cream:#fffaf3;--paper:#fffdf9;--beige:#f7ecdc;--line:#ead8c3;
+ --brown:#543528;--soft:#927d70;--accent:#c57037;--red:#e65e47;
+ --gold:#edc36f;--shadow:0 12px 30px rgba(104,73,44,.10);--radius:25px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:linear-gradient(180deg,#fffdf9,#f8f2e8 70%,#fffaf3);color:var(--ink);
- font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;min-height:100vh}
-button,input,textarea,select{font:inherit}.hidden{display:none!important}
-button{cursor:pointer}.app{max-width:720px;margin:auto;padding-bottom:102px}
-.topbar{position:sticky;top:0;z-index:50;height:66px;padding:10px 17px;display:flex;align-items:center;justify-content:space-between;
- background:rgba(255,253,249,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(218,201,183,.55)}
-.brand{display:flex;gap:10px;align-items:center}
-.brandmark{width:38px;height:38px;border-radius:50%;border:2px solid #d8b684;position:relative;background:#fff}
-.brandmark:before{content:"";position:absolute;left:0;right:0;top:17px;height:2px;background:#d8b684}
-.brandmark:after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:#fff;border:2px solid #d8b684;left:12px;top:12px}
-.brand strong{font-family:Georgia,"Yu Mincho",serif;letter-spacing:.18em;font-size:15px}
-.brand small{display:block;color:var(--muted);font-size:8px;letter-spacing:.18em;margin-top:2px}
-.iconbtn{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--ink);box-shadow:0 6px 16px rgba(80,58,42,.08)}
-.hero{margin:16px;border:1px solid #ead9c6;border-radius:32px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
-.hero-photo{min-height:420px;padding:36px 26px 23px;position:relative;display:flex;flex-direction:column;justify-content:space-between;
- background:
- linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,252,246,.04) 42%,rgba(251,247,239,.96) 100%),
- radial-gradient(circle at 78% 18%,rgba(255,255,255,.9),transparent 18%),
- linear-gradient(160deg,#dbe9ef 0%,#f4ead8 52%,#d1c09d 100%)}
-.hero-photo:before{content:"";position:absolute;left:-3%;right:-3%;bottom:70px;height:105px;opacity:.55;
- background:
- radial-gradient(ellipse at 18% 100%,#a7b78d 0 12%,transparent 13%),
- radial-gradient(ellipse at 65% 100%,#9eaf88 0 14%,transparent 15%),
- linear-gradient(175deg,transparent 0 40%,#8db7c2 41% 52%,#dfd0b2 53% 66%,#b8a37d 67% 100%);
- clip-path:polygon(0 45%,10% 38%,18% 48%,30% 33%,42% 50%,53% 35%,67% 43%,82% 28%,100% 42%,100% 100%,0 100%)}
-.hero-photo:after{content:"";position:absolute;right:32px;bottom:94px;width:8px;height:128px;background:#72664e;border-radius:50% 50% 10px 10px;transform:rotate(2deg);
- box-shadow:-15px -92px 0 14px #7d9469,15px -85px 0 17px #8fa175,0 -112px 0 20px #748e66}
-.hero-copy{position:relative;z-index:2;max-width:470px}
-.kicker{color:#aa7a4d;font-size:9px;letter-spacing:.24em;font-weight:800}
-.hero h1{font-family:Georgia,"Yu Mincho",serif;font-size:clamp(40px,10vw,60px);font-weight:500;line-height:1.2;margin:22px 0 14px;letter-spacing:.08em}
-.hero p{font-family:"Yu Mincho",serif;line-height:2;font-size:13px;margin:0;max-width:390px}
-.daycard{position:relative;z-index:3;margin-top:170px;border:1px solid rgba(223,204,182,.86);background:rgba(255,253,248,.92);backdrop-filter:blur(10px);
- border-radius:22px;padding:16px 18px;display:flex;align-items:center;gap:15px;box-shadow:0 10px 28px rgba(98,71,48,.12)}
-.daycard .date{font-size:9px;letter-spacing:.16em;color:var(--muted);line-height:1.7}
-.daycard h2{font-family:Georgia,"Yu Mincho",serif;font-size:27px;font-weight:500;margin:0}
-.daycard h2 small{display:block;font-size:9px;letter-spacing:.2em;color:#aa7a4d;margin-top:5px}
-.aoshima-dot{margin-left:auto;width:70px;height:70px;border-radius:50%;background:linear-gradient(#acd3dc 0 49%,#e9d4ad 50%);position:relative;overflow:hidden;border:4px solid #fff;box-shadow:0 5px 14px rgba(92,67,49,.12)}
-.aoshima-dot:before{content:"⛩";font-size:36px;position:absolute;left:17px;top:18px}
-.content{padding:0 16px}
-.progress-card,.mission-card,.paper-card{background:rgba(255,253,249,.92);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
-.progress-card{padding:18px;margin-bottom:12px}
-.row{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.label{font-family:"Yu Mincho",serif;font-size:14px}.label small{display:block;color:var(--muted);font-family:inherit;font-size:10px;margin-top:3px}
-.count{font-weight:800;color:#6b4c38}
-.stamp-track{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;margin-top:13px}
-.trackball{aspect-ratio:1;border-radius:50%;border:2px solid #ded4c7;position:relative;background:#f5f0e8}
-.trackball:before{content:"";position:absolute;left:0;right:0;top:calc(50% - 1px);height:2px;background:#ded4c7}
-.trackball:after{content:"";position:absolute;width:6px;height:6px;border:2px solid #ded4c7;background:#fff;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
-.trackball.on{background:#e48b72;border-color:#c75943}.trackball.on:before{background:#fff}.trackball.on:after{border-color:#fff}
-.quicknav{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:12px 0}
-.quicknav button{border:1px solid var(--line);background:#fffdf9;border-radius:17px;padding:13px 3px 10px;box-shadow:0 8px 18px rgba(79,58,43,.07);color:var(--ink)}
-.quicknav .qicon{font-size:22px;display:block;margin-bottom:6px}.quicknav strong{font-size:10px}.quicknav small{display:block;font-size:8px;color:var(--muted);margin-top:3px}
-.mission-card{padding:17px 18px;display:flex;align-items:center;gap:14px}
-.mission-card strong{font-family:"Yu Mincho",serif;font-size:14px}.mission-card p{margin:5px 0 0;font-size:11px;line-height:1.7;color:var(--muted)}
-.poke-accent{margin-left:auto;width:50px;height:50px;border-radius:50%;background:#f6ecdc;display:grid;place-items:center;position:relative}
-.poke-accent:before{content:"";width:24px;height:24px;border-radius:50%;background:linear-gradient(#ef765e 0 48%,#fff 49%);border:2px solid #7d6555;box-shadow:inset 0 -1px #ddd}
-.poke-accent:after{content:"";position:absolute;width:7px;height:7px;background:#fff;border:2px solid #7d6555;border-radius:50%}
-.section{padding-top:28px}.sectionhead{text-align:center;margin-bottom:18px}.sectionhead h2{font-family:"Yu Mincho",serif;font-size:22px;font-weight:500;margin:0}.sectionhead p{font-size:10px;color:var(--muted);letter-spacing:.08em;margin:6px 0 0}
-.tabbar{display:flex;border-bottom:1px solid var(--line);margin-bottom:18px}.tabbar button{flex:1;border:0;background:none;padding:12px;font-weight:700;color:var(--muted);position:relative}.tabbar button.active{color:#915d35}.tabbar button.active:after{content:"";position:absolute;height:2px;left:24%;right:24%;bottom:-1px;background:#ba7948}
-.dexgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 13px}
-.dexitem{text-align:center}.dexball{width:86px;max-width:100%;aspect-ratio:1;border-radius:50%;margin:auto;position:relative;overflow:hidden;background:#eee7dd;border:1px solid #e8ded1}
-.dexball:before{content:"";position:absolute;left:0;right:0;top:calc(50% - 2px);height:4px;background:#ded3c6}
-.dexball:after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:#f8f4ed;border:4px solid #ded3c6;left:50%;top:50%;transform:translate(-50%,-50%)}
-.dexball img{width:100%;height:100%;object-fit:cover;position:relative;z-index:2}
-.dexitem small{display:block;font-size:9px;color:#b18155;letter-spacing:.12em;margin-top:9px}.dexitem strong{font-family:"Yu Mincho",serif;font-size:13px}.dexitem button{border:0;background:transparent;padding:0;width:100%;color:inherit}
-.mapcard{height:455px;border:1px solid var(--line);border-radius:24px;background:
- linear-gradient(rgba(255,255,255,.72),rgba(255,255,255,.72)),
- radial-gradient(circle at 28% 28%,#d7e9e9 0 5%,transparent 6%),
- linear-gradient(145deg,#e5efe7,#f2e7d4);position:relative;overflow:hidden}
-.mapshape{position:absolute;left:24%;top:8%;width:47%;height:78%;background:#efe5cf;border:1px solid #d9c8a9;clip-path:polygon(64% 0,84% 9%,78% 24%,92% 34%,73% 50%,79% 66%,57% 100%,35% 84%,18% 70%,5% 45%,25% 28%,39% 10%)}
-.pin{position:absolute;width:34px;height:34px;border-radius:50%;background:#fff;border:2px solid #9f8b78;box-shadow:0 5px 10px rgba(70,51,38,.18)}
-.pin:before{content:"";position:absolute;inset:6px;border-radius:50%;background:linear-gradient(#555 0 45%,#fff 46%);border:1px solid #555}
-.pin:after{content:"";position:absolute;width:5px;height:5px;border:1px solid #555;background:#fff;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
-.pin.on{border-color:#e05c45}.pin.on:before{background:linear-gradient(#e35f48 0 45%,#fff 46%);border-color:#b83e2c}
-.pin span{position:absolute;left:36px;top:8px;font-size:9px;color:#8e735f;font-weight:800;white-space:nowrap}
-.album{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.polaroid{background:#fff;padding:8px 8px 16px;border:1px solid #eee1d4;box-shadow:0 8px 22px rgba(76,56,43,.09);transform:rotate(-1deg)}.polaroid:nth-child(even){transform:rotate(1deg)}.polaroid img{width:100%;aspect-ratio:1;object-fit:cover}.polaroid p{text-align:center;font-family:"Yu Mincho",serif;font-size:12px;margin:10px 0 0}
-.empty{padding:28px;text-align:center;color:var(--muted);font-size:12px;line-height:1.8;grid-column:1/-1}
-.lettercard{padding:26px;background:linear-gradient(145deg,#fffdf9,#f6ecdf);border:1px solid #eadac8;border-radius:24px;position:relative;overflow:hidden}
-.lettercard:after{content:"✿";position:absolute;right:20px;top:12px;font-size:58px;color:#d6b89f;opacity:.4}.lettercard h2{font-family:"Yu Mincho",serif;font-weight:500;margin:0 0 8px}.lettercard p{font-size:12px;color:var(--muted);line-height:1.8}.primary{border:0;background:#9b653b;color:#fff;border-radius:999px;padding:13px 18px;font-weight:800}.secondary{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:13px 18px;font-weight:800}.danger{border:0;background:#f9e2de;color:#a94235;border-radius:999px;padding:13px 18px;font-weight:800}
-.bottomnav{position:fixed;z-index:70;bottom:0;left:50%;transform:translateX(-50%);width:min(720px,100%);display:grid;grid-template-columns:repeat(5,1fr);padding:8px 6px calc(8px + env(safe-area-inset-bottom));
- background:rgba(255,253,249,.95);backdrop-filter:blur(18px);border-top:1px solid var(--line)}
-.bottomnav button{border:0;background:none;color:#937c6c;font-size:8px;padding:4px}.bottomnav i{font-style:normal;display:block;font-size:20px;margin-bottom:2px}.bottomnav button.active{color:#aa6537;font-weight:800}
-dialog{width:min(94vw,520px);max-height:92vh;border:0;border-radius:28px;padding:0;box-shadow:0 30px 80px rgba(57,39,27,.28);background:#fffdf9}
-dialog::backdrop{background:rgba(60,43,31,.55);backdrop-filter:blur(7px)}.close{position:absolute;z-index:4;right:12px;top:12px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff}
-.modal{padding:24px}.modal h2{font-family:"Yu Mincho",serif;font-size:30px;font-weight:500;margin:16px 0 4px}.sub{font-size:10px;color:#a37b59;letter-spacing:.08em}
-.mystery,.modalimage{width:100%;aspect-ratio:1;border-radius:50%;max-width:290px;margin:12px auto;display:grid;place-items:center}
-.mystery{background:#eee7dd;color:#aa917d;font-size:68px;position:relative}.mystery:after{content:"";position:absolute;width:66%;height:1px;background:#ded3c6;top:50%}
-.modalimage{object-fit:contain;background:#f5efe6;border:8px solid #fff;box-shadow:0 10px 30px rgba(72,52,38,.14)}
-.mission{padding:16px;border-radius:17px;background:#f7eddd;border:1px solid #ead5b8;font-size:12px;line-height:1.8;margin:17px 0}.mission small{display:block;font-size:8px;letter-spacing:.16em;color:#ad7c48;font-weight:800}
-.actions{display:grid;gap:10px}.discovery{position:fixed;inset:0;z-index:300;background:radial-gradient(circle at 50% 28%,#fff8db 0 12%,transparent 28%),linear-gradient(#fffaf0,#f1dcae);display:grid;place-items:center;padding:22px;opacity:0;pointer-events:none;transition:.35s;text-align:center}.discovery.show{opacity:1;pointer-events:auto}
-.discovery img{width:min(78vw,330px);aspect-ratio:1;object-fit:contain;border-radius:50%;background:#fff;border:12px solid #fff;box-shadow:0 18px 45px rgba(106,71,35,.2);animation:pop 1s cubic-bezier(.2,.9,.2,1)}
-.discovery h2{font-family:"Yu Mincho",serif;font-size:33px;font-weight:500;margin:18px 0 4px}.discovery p{line-height:1.8;color:#7f654e;max-width:360px}
-@keyframes pop{0%{transform:scale(.5) rotate(-12deg);opacity:0}70%{transform:scale(1.08) rotate(3deg);opacity:1}100%{transform:scale(1)}}
-.opening{position:fixed;inset:0;z-index:400;background:linear-gradient(#fffdf9,#f5ecdf);display:grid;place-items:center;text-align:center;padding:28px;transition:.6s}.opening.hide{opacity:0;pointer-events:none}.opening h1{font-family:"Yu Mincho",serif;font-size:39px;font-weight:500;line-height:1.5}.opening p{font-family:"Yu Mincho",serif;line-height:2;color:var(--muted)}.opening .brandmark{margin:auto;width:58px;height:58px}.opening button{margin-top:25px}
-.toast{position:fixed;z-index:500;bottom:90px;left:50%;transform:translate(-50%,120px);padding:12px 18px;border-radius:999px;background:#4f3b31;color:#fff;font-size:12px;transition:.25s;white-space:nowrap}.toast.show{transform:translate(-50%,0)}
-.settings textarea,.settings select{width:100%;border:1px solid var(--line);border-radius:14px;background:#fff;padding:12px;margin-top:7px}.settings textarea{min-height:92px;resize:vertical}
-@media(min-width:680px){.dexgrid{grid-template-columns:repeat(5,1fr)}.album{grid-template-columns:repeat(3,1fr)}}
-
-/* ===== refined final version ===== */
+body{margin:0;color:var(--brown);background:linear-gradient(180deg,#fffdf9,#fbf3e7);
+ font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN",sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}
 [data-copy]{white-space:pre-line}
-.hero-pikachu{position:absolute;z-index:4;right:14px;bottom:55px;width:112px;filter:drop-shadow(0 10px 12px rgba(94,62,30,.17));animation:floatPoke 3.6s ease-in-out infinite}
-.mission-pokemon{margin-left:auto;width:68px;height:68px;object-fit:contain;filter:drop-shadow(0 7px 9px rgba(76,58,44,.12))}
-.dex-helper{display:flex;align-items:center;gap:11px;margin-top:22px;padding:14px 16px;border-radius:18px;background:#fff8e9;border:1px solid #edddc3;color:#765a43;font-size:11px;line-height:1.65}
-.dex-helper img{width:60px;height:60px;object-fit:contain}
-.letter-home{margin-top:12px;padding:18px;display:flex;gap:14px;align-items:center;background:linear-gradient(145deg,#fffdf9,#f7ecdf);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
-.letter-home .envelope{width:58px;height:46px;border:2px solid #c99a6b;border-radius:8px;position:relative;background:#fff}
-.letter-home .envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(32deg,transparent 49%,#c99a6b 50% 52%,transparent 53%),linear-gradient(-32deg,transparent 49%,#c99a6b 50% 52%,transparent 53%)}
-.letter-home strong{font-family:"Yu Mincho",serif;font-size:15px}.letter-home p{margin:4px 0 0;color:var(--muted);font-size:10px;line-height:1.6}.letter-home button{margin-left:auto;white-space:nowrap}
-@keyframes floatPoke{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
-
-.mapcard{height:610px;background:linear-gradient(180deg,#f2f7f5,#fbf5e9);border-color:#e7d9c7}
-.miyazaki-svg{position:absolute;inset:18px 8px 45px;width:calc(100% - 16px);height:calc(100% - 63px)}
-.map-ocean-label{position:absolute;right:10px;top:48%;writing-mode:vertical-rl;letter-spacing:.24em;color:#9ab0b5;font-family:"Yu Mincho",serif;font-size:11px}
-.map-credit{position:absolute;left:15px;bottom:12px;color:#a39384;font-size:8px}
-.map-legend{position:absolute;right:15px;bottom:10px;display:flex;gap:9px;color:#8b7768;font-size:8px;align-items:center}
-.legenddot{width:10px;height:10px;border-radius:50%;border:2px solid #9f8b78;background:#fff}.legenddot.on{border-color:#df614a;background:#f5b3a6}
-.pin{width:31px;height:31px;transform:translate(-50%,-50%);z-index:5}
-.pin span{left:29px;top:6px;padding:2px 5px;border-radius:7px;background:rgba(255,253,249,.88);box-shadow:0 2px 6px rgba(67,49,36,.08)}
-.pin:hover{z-index:9}
-
-.copy-editor{display:grid;gap:12px;margin-top:12px}
-.copy-field{padding:12px;border-radius:16px;background:#faf5ed;border:1px solid var(--line)}
-.copy-field label{display:block;color:#8b6a51;font-size:10px;font-weight:800;margin-bottom:7px}
-.copy-field textarea,.copy-field input{width:100%;border:1px solid #e1d4c6;border-radius:12px;background:#fff;padding:10px;color:var(--ink)}
-.copy-field textarea{min-height:76px;resize:vertical}
-.settings-tabs{display:flex;gap:6px;margin:4px 0 14px}.settings-tabs button{flex:1;border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px;font-size:10px}.settings-tabs button.active{background:#9b653b;color:#fff;border-color:#9b653b}
-.settings-panel.hidden{display:none!important}
-.final-arrival{padding:38px 24px;text-align:center;background:linear-gradient(180deg,#fffdf9,#f4e7d5);min-height:560px;display:grid;place-items:center}
-.final-arrival img{width:150px;height:150px;object-fit:contain;filter:drop-shadow(0 12px 15px rgba(87,61,38,.14))}
-.final-arrival h2{font-family:"Yu Mincho",serif;font-size:32px;font-weight:500;line-height:1.5;margin:10px 0}
-.final-arrival p{color:var(--muted);line-height:1.9;font-size:12px}
-.ending-pokemon{display:flex;justify-content:center;gap:2px;margin-bottom:10px}.ending-pokemon img{width:105px;height:105px;object-fit:contain}
-.pokemon-note{font-size:8px;color:#b3a598;text-align:center;margin-top:22px;line-height:1.6}
-
-
-/* ===== YUNO NOTE Ver.1.0 / kawaii final design ===== */
-:root{
- --bg:#fffaf3;--paper:#fffdf9;--paper2:#f9f0e4;--ink:#4b3025;--muted:#907a6e;
- --line:#ead8c5;--gold:#c78a4c;--gold2:#e9c891;--red:#e2634c;--green:#8ba273;
- --pink:#eab1ad;--blue:#a9d9e7;--yellow:#f5d16d;--shadow:0 11px 28px rgba(99,66,38,.10);
-}
-body{font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",sans-serif;letter-spacing:.015em}
-.hero h1,.sectionhead h2,.modal h2,.lettercard h2,.final-arrival h2,.daycard h2{
- font-family:"Kiwi Maru","Yu Mincho",serif!important;
-}
-.brand strong{font-family:"Kiwi Maru",serif;letter-spacing:.22em}
-.kicker{font-family:"Zen Maru Gothic",sans-serif}
-.topbar{box-shadow:0 5px 18px rgba(104,72,47,.05)}
-.hero,.progress-card,.mission-card,.letter-home,.paper-card,.quicknav button,.lettercard{
- box-shadow:0 10px 24px rgba(110,76,46,.085);
-}
-.hero{border-color:#ead6c1}
-.hero-photo{
- min-height:430px;
- background:
- linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,253,248,.08) 42%,rgba(255,250,242,.98) 100%),
- radial-gradient(circle at 72% 14%,rgba(255,255,255,.95),transparent 19%),
- linear-gradient(160deg,#dff1f6 0%,#f9eedc 52%,#d8c39d 100%);
-}
-.hero-flower{position:absolute;z-index:5;font-size:22px;filter:drop-shadow(0 4px 6px rgba(106,69,36,.12));animation:flowerFloat 4s ease-in-out infinite}
-.hero-flower.f1{left:25px;top:110px}.hero-flower.f2{right:132px;top:168px;animation-delay:.7s}.hero-flower.f3{right:27px;bottom:18px;animation-delay:1.1s}
-@keyframes flowerFloat{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-6px) rotate(4deg)}}
-.hero-pikachu{
- right:23px!important;bottom:121px!important;width:104px!important;
- filter:drop-shadow(0 10px 13px rgba(89,59,28,.18));
-}
-.daycard{margin-top:170px;padding-right:92px}
-.aoshima-dot{position:absolute;right:15px}
-.daycard-flower{position:absolute;font-size:17px;z-index:3}
-.daycard-flower.a{left:18px;bottom:8px}.daycard-flower.b{right:84px;top:12px}
-.mission-card{position:relative;overflow:hidden;padding-right:86px}
-.mission-card:after{content:"✿";position:absolute;right:67px;bottom:-7px;font-size:31px;color:#efbeb2;opacity:.62}
-.mission-pokemon{position:absolute;right:8px;bottom:0;width:74px!important;height:74px!important}
-.progress-card{position:relative;overflow:hidden}
-.progress-card:after{content:"✦";position:absolute;right:12px;top:10px;color:#e9c37c;font-size:17px}
-.quicknav button{position:relative;overflow:hidden;transition:.2s}
-.quicknav button:after{content:"";position:absolute;width:35px;height:35px;border-radius:50%;background:rgba(242,209,158,.14);right:-12px;bottom:-15px}
-.quicknav button:active{transform:scale(.97)}
-.qicon{font-size:23px!important}
-.dexgrid{gap:25px 14px}
-.dexball{
- background:radial-gradient(circle at 36% 32%,#fffdf8,#eee3d5);
- box-shadow:0 8px 17px rgba(104,72,46,.08);
-}
-.dexball:before{height:2px;background:#dbc7b0}
-.dexball:after{border-color:#dbc7b0}
-.dexitem{position:relative}
-.dexitem:after{content:"✦";position:absolute;right:5px;top:63px;color:#efc56f;font-size:14px}
-.dexitem:nth-child(3n+2):after{content:"✿";color:#eab3ad}
-.dex-helper{background:linear-gradient(145deg,#fff9ea,#fff1d9);position:relative;overflow:hidden}
-.dex-helper:after{content:"✿ ✦";position:absolute;right:12px;top:8px;color:#e6b98c}
-.mapcard{border-radius:28px;overflow:hidden;background:#edf7f7}
-.map-title-cute{position:absolute;left:18px;top:15px;font-size:10px;color:#8da6a8;z-index:4}
-.map-decoration{position:absolute;z-index:3;pointer-events:none}
-.map-decoration.compass{left:17px;top:28px;font-size:44px;color:#b59063}
-.map-decoration.cloud{right:12px;top:48px;font-size:34px}
-.map-decoration.palm1{left:48px;top:150px;font-size:30px}.map-decoration.palm2{right:73px;top:260px;font-size:28px}
-.map-decoration.star1{left:22px;bottom:75px;font-size:22px}.map-decoration.star2{right:41px;bottom:94px;font-size:20px}
-.map-pokemon{position:absolute;z-index:7;object-fit:contain;filter:drop-shadow(0 8px 10px rgba(77,54,34,.14));pointer-events:none}
-.map-pokemon.pika{right:17px;bottom:70px;width:82px}.map-pokemon.piplup{left:12px;bottom:32px;width:76px}
-.miyazaki-svg{inset:17px 15px 42px;width:calc(100% - 30px);height:calc(100% - 59px)}
-.pin{width:30px;height:30px;box-shadow:0 5px 10px rgba(70,51,38,.16)}
-.pin span{font-size:8px;font-family:"Zen Maru Gothic";font-weight:700}
-.polaroid{border-radius:3px}.polaroid p{font-family:"Kiwi Maru"}
-.lettercard{overflow:visible}
-.lettercard:before{content:"🌸";position:absolute;right:18px;top:-15px;font-size:42px;z-index:3}
-.lettercard:after{content:"✦";right:60px;top:18px;font-size:24px;color:#f1c56e;opacity:.9}
-.final-arrival{position:relative;overflow:hidden}
-.final-arrival:before{content:"🎏";position:absolute;left:15px;top:15px;font-size:46px}
-.final-arrival:after{content:"✿  ✦  ✿";position:absolute;right:18px;bottom:18px;color:#e7aeab;font-size:24px}
-.ending-pokemon img{animation:pokeBounce 2.8s ease-in-out infinite}.ending-pokemon img:nth-child(2){animation-delay:.55s}
-@keyframes pokeBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.bottomnav button{font-family:"Zen Maru Gothic";font-weight:500}.bottomnav button.active{color:#c36735}
-.opening{background:
- radial-gradient(circle at 83% 15%,rgba(255,255,255,.95),transparent 18%),
- linear-gradient(180deg,#fffdf9,#f9eddd)}
-.opening:before{content:"✿";position:absolute;left:12%;top:12%;font-size:44px;color:#e8aca7}
-.opening:after{content:"✦";position:absolute;right:14%;bottom:15%;font-size:42px;color:#edc978}
-.opening-pokemon{display:flex;justify-content:center;align-items:end;gap:0;margin-bottom:-9px}
-.opening-pokemon img{width:105px;height:105px;object-fit:contain;filter:drop-shadow(0 8px 9px rgba(92,61,35,.12))}
-.opening-pokemon img:nth-child(2){width:88px;height:88px}
-.modal{position:relative}.modal:after{content:"✿";position:absolute;right:18px;top:55px;color:#e8b4ad;font-size:25px}
-.discovery{background:
- radial-gradient(circle at 50% 27%,#fffde9 0 14%,transparent 32%),
- linear-gradient(180deg,#fffaf1,#f4dcae)}
-.discovery:before,.discovery:after{position:absolute;font-size:42px}
-.discovery:before{content:"✦";left:13%;top:18%;color:#f0c45f}.discovery:after{content:"✿";right:13%;bottom:15%;color:#eab0a9}
-@media(max-width:420px){
- .hero-pikachu{width:91px!important;right:12px!important;bottom:123px!important}
- .daycard{padding-right:78px}.aoshima-dot{width:62px;height:62px}
- .mapcard{height:570px}.map-pokemon.pika{width:70px}.map-pokemon.piplup{width:65px}
-}
-
+.app{max-width:470px;margin:auto;min-height:100vh;padding-bottom:85px;background:rgba(255,253,249,.68)}
+.topbar{height:66px;display:flex;align-items:center;justify-content:space-between;padding:9px 17px;
+ position:sticky;top:0;z-index:50;background:rgba(255,253,249,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(229,210,190,.7)}
+.brand{display:flex;align-items:center;gap:9px}.brand img{width:44px;height:44px;object-fit:contain}
+.brand strong{display:block;font-family:"Kiwi Maru";font-size:15px;letter-spacing:.2em;font-weight:500}
+.brand small{display:block;color:var(--soft);font-size:7px;letter-spacing:.2em;margin-top:2px}
+.iconbtn,.backbtn{width:39px;height:39px;border-radius:50%;border:1px solid var(--line);background:white;box-shadow:0 5px 14px rgba(90,62,40,.08)}
+.view{animation:fade .35s ease}@keyframes fade{from{opacity:0;transform:translateY(6px)}}
+.hero{margin:13px;border:1px solid #ead7c1;border-radius:30px;overflow:hidden;background:white;box-shadow:var(--shadow)}
+.hero-scene{height:438px;position:relative;padding:26px 22px;background:
+ linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,250,241,.05) 45%,rgba(255,248,237,.98) 100%),
+ radial-gradient(circle at 80% 12%,#fff 0 13%,transparent 27%),
+ linear-gradient(160deg,#dff0f5,#f8ead2 58%,#cbb68f)}
+.hero-scene:before{content:"";position:absolute;left:0;right:0;bottom:105px;height:145px;background:
+ linear-gradient(173deg,transparent 0 34%,#a8cfda 35% 47%,#e6d1aa 48% 61%,#9d8b67 62%);
+ clip-path:polygon(0 38%,15% 44%,26% 36%,43% 48%,62% 31%,75% 39%,100% 24%,100% 100%,0 100%);opacity:.75}
+.palm{position:absolute;right:22px;bottom:140px;font-size:70px;filter:drop-shadow(0 8px 7px rgba(65,58,38,.12))}
+.hero-copy{position:relative;z-index:3}.kicker{font-size:8px;color:#ad7747;letter-spacing:.23em;font-weight:700}
+.hero h1{font-family:"Kiwi Maru";font-size:35px;font-weight:500;line-height:1.42;letter-spacing:.08em;margin:16px 0 10px}
+.hero p{font-family:"Kiwi Maru";font-size:11px;line-height:1.95;margin:0}
+.hero-pika{position:absolute;z-index:5;width:102px;right:45px;bottom:96px;filter:drop-shadow(0 9px 10px rgba(77,54,34,.18))}
+.flower{position:absolute;z-index:5;font-size:20px}.f1{left:22px;top:94px}.f2{right:126px;top:156px}.f3{right:14px;bottom:111px}
+.daycard{position:absolute;z-index:6;left:13px;right:13px;bottom:14px;height:100px;border:1px solid #ead7c1;background:rgba(255,253,248,.95);
+ border-radius:22px;padding:18px;display:flex;align-items:center;gap:18px;box-shadow:0 9px 24px rgba(98,69,43,.11)}
+.daycard .date{font-size:9px;letter-spacing:.12em;line-height:1.65}.daycard h2{font-family:"Kiwi Maru";font-size:26px;font-weight:500;margin:0}
+.daycard h2 small{display:block;font-size:9px;letter-spacing:.18em;color:#a7744f;margin-top:5px}
+.dayphoto{margin-left:auto;width:68px;height:68px;border-radius:50%;background:linear-gradient(#83cddd 0 48%,#f0d3a3 49%);display:grid;place-items:center;font-size:35px;border:4px solid white}
+.content{padding:0 13px}.card{background:rgba(255,253,249,.94);border:1px solid var(--line);border-radius:21px;box-shadow:var(--shadow)}
+.progress{padding:16px 17px;margin-bottom:11px;display:flex;align-items:center;gap:12px}.progress-text strong{font-family:"Kiwi Maru";font-size:13px}.progress-text span{display:block;font-size:16px;margin-top:3px}.progress .piplup{margin-left:auto;width:66px;height:66px;object-fit:contain}
+.track{display:grid;grid-template-columns:repeat(9,1fr);gap:5px;margin-top:10px}.ball{aspect-ratio:1;border-radius:50%;border:2px solid #d9c6b1;position:relative;background:#fffaf3}
+.ball:before{content:"";position:absolute;left:0;right:0;top:calc(50% - 1px);height:2px;background:#d9c6b1}.ball:after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;border-radius:50%;background:white;border:2px solid #d9c6b1;transform:translate(-50%,-50%)}
+.ball.on{background:#ed806b;border-color:#c9503c}.ball.on:before{background:white}.ball.on:after{border-color:white}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:11px 0}.quick button{border:1px solid var(--line);background:#fffdf9;border-radius:17px;padding:12px 3px 9px;box-shadow:0 8px 18px rgba(83,58,39,.07);color:var(--brown)}
+.quick i{font-style:normal;display:block;font-size:24px}.quick strong{font-size:10px}.quick small{display:block;font-size:7px;color:var(--soft);margin-top:3px}
+.mission{min-height:98px;padding:17px 90px 17px 17px;position:relative}.mission strong{font-family:"Kiwi Maru";font-size:13px}.mission p{font-size:10px;line-height:1.7;margin:5px 0 0}.mission .eevee{position:absolute;right:5px;bottom:0;width:82px;height:82px;object-fit:contain}
+.letter-home{padding:15px;margin-top:11px;display:flex;align-items:center;gap:10px}.letter-home img{width:55px;height:55px;object-fit:contain}.letter-home strong{font-size:12px}.letter-home p{font-size:8px;color:var(--soft);margin:3px 0 0}.letter-home button{margin-left:auto}
+.section{padding:20px 13px}.sectionhead{text-align:center;margin-bottom:17px}.sectionhead h2{font-family:"Kiwi Maru";font-size:23px;font-weight:500;margin:0}.sectionhead p{font-size:9px;margin:4px;color:var(--soft)}
+.dex-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.dex-top img{width:70px;height:70px;object-fit:contain}
+.dexgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:23px 12px}.dexitem{text-align:center;position:relative}.dexitem button{width:100%;border:0;background:none;color:inherit;padding:0}
+.dexball{width:84px;max-width:100%;aspect-ratio:1;margin:auto;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fffdf9,#eee3d4);box-shadow:0 7px 15px rgba(89,62,41,.08);position:relative;overflow:hidden}
+.dexball:before{content:"";position:absolute;left:0;right:0;top:calc(50% - 1px);height:2px;background:#dbc6ad}.dexball:after{content:"";position:absolute;width:15px;height:15px;border-radius:50%;background:#fff;border:4px solid #dbc6ad;left:50%;top:50%;transform:translate(-50%,-50%)}
+.dexball img{position:relative;z-index:2;width:100%;height:100%;object-fit:cover}.dexitem small{display:block;color:#b27e52;font-size:8px;letter-spacing:.12em;margin-top:8px}.dexitem strong{font-family:"Kiwi Maru";font-size:12px}.spark{position:absolute;right:3px;top:61px;color:#ecc46e}
+.dex-helper{margin-top:22px;padding:15px;display:flex;gap:10px;align-items:center;background:#fff4df}.dex-helper img{width:64px;height:64px;object-fit:contain}.dex-helper p{font-size:9px;line-height:1.7;margin:0}
+.map-wrap{overflow:hidden;border-radius:25px;border:1px solid var(--line);background:white;box-shadow:var(--shadow)}.map-image{display:block;width:100%;height:auto}.map-note{padding:11px 14px;font-size:8px;color:var(--soft);display:flex;justify-content:space-between}
+.map-list{display:grid;gap:8px;margin-top:11px}.map-row{display:flex;align-items:center;gap:10px;padding:11px 13px}.map-row .mini{width:30px;height:30px;border-radius:50%;border:2px solid #9e8976;position:relative}.map-row .mini.on{border-color:var(--red);background:#ffe4df}.map-row strong{font-size:11px}.map-row small{display:block;color:var(--soft);font-size:8px}.map-row button{margin-left:auto}
+.album{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.polaroid{background:white;padding:7px 7px 14px;border:1px solid #eaded0;box-shadow:0 8px 18px rgba(79,57,42,.09);transform:rotate(-1deg)}.polaroid:nth-child(even){transform:rotate(1deg)}.polaroid img{width:100%;aspect-ratio:1;object-fit:cover}.polaroid p{text-align:center;font-family:"Kiwi Maru";font-size:10px;margin:8px 0 0}.empty{text-align:center;padding:30px;font-size:10px;line-height:1.8;color:var(--soft);grid-column:1/-1}
+.lettercard{padding:25px;position:relative}.lettercard:after{content:"🌸";position:absolute;right:15px;top:-17px;font-size:42px}.lettercard h2{font-family:"Kiwi Maru";font-size:20px;font-weight:500}.lettercard p{font-size:10px;line-height:1.8;color:var(--soft)}
+.primary,.secondary,.danger{border-radius:999px;padding:11px 15px;font-weight:700;font-size:10px}.primary{border:0;background:#aa6a3b;color:white}.secondary{border:1px solid var(--line);background:white;color:var(--brown)}.danger{border:0;background:#f8ded8;color:#a34537}
+.bottomnav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(470px,100%);z-index:70;display:grid;grid-template-columns:repeat(5,1fr);padding:7px 5px calc(7px + env(safe-area-inset-bottom));background:rgba(255,253,249,.96);backdrop-filter:blur(18px);border-top:1px solid var(--line)}
+.bottomnav button{border:0;background:none;color:#987e6e;font-size:7px;padding:3px}.bottomnav i{display:block;font-style:normal;font-size:19px}.bottomnav .active{color:var(--accent);font-weight:700}
+dialog{width:min(92vw,430px);max-height:90vh;border:0;border-radius:27px;padding:0;background:#fffaf3;box-shadow:0 28px 70px rgba(64,43,28,.3)}dialog::backdrop{background:rgba(67,47,34,.58);backdrop-filter:blur(7px)}
+.close{position:absolute;z-index:4;right:11px;top:11px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:white}.modal{padding:24px}.modal h2{font-family:"Kiwi Maru";font-size:28px;font-weight:500;margin:13px 0 4px}.sub{font-size:8px;color:#a67850;letter-spacing:.12em}
+.mystery,.modalimage{width:250px;max-width:100%;aspect-ratio:1;border-radius:50%;margin:13px auto;display:grid;place-items:center}.mystery{font-size:61px;color:#ab927d;background:#eee4d7}.modalimage{object-fit:contain;background:white;border:9px solid white;box-shadow:0 11px 28px rgba(74,52,36,.14)}
+.modal-mission{padding:15px;border:1px solid #ead4b7;border-radius:16px;background:#faedd9;font-size:10px;line-height:1.7;margin:15px 0}.modal-mission small{display:block;font-size:7px;color:#aa7645;letter-spacing:.16em;font-weight:700}
+.actions{display:grid;gap:9px}
+.discovery{position:fixed;inset:0;z-index:300;background:radial-gradient(circle at 50% 25%,#fffde3,transparent 28%),linear-gradient(#fffaf0,#f1d6a1);display:grid;place-items:center;text-align:center;padding:20px;opacity:0;pointer-events:none;transition:.35s}.discovery.show{opacity:1;pointer-events:auto}.discovery img{width:min(76vw,315px);aspect-ratio:1;object-fit:contain;background:white;border:11px solid white;border-radius:50%;box-shadow:0 17px 42px rgba(98,65,34,.2);animation:pop .9s cubic-bezier(.2,.9,.2,1)}@keyframes pop{from{opacity:0;transform:scale(.55) rotate(-10deg)}}.discovery h2{font-family:"Kiwi Maru";font-size:30px;font-weight:500;margin:14px 0 4px}.discovery p{font-size:10px;line-height:1.8;color:#7e654f}
+.opening{position:fixed;inset:0;z-index:400;background:linear-gradient(#fffdf9,#f8ecdc);display:grid;place-items:center;text-align:center;padding:25px;transition:.55s}.opening.hide{opacity:0;pointer-events:none}.opening-pokemon{display:flex;justify-content:center;align-items:end}.opening-pokemon img{width:105px;height:105px;object-fit:contain}.opening-pokemon img:last-child{width:85px;height:85px}.opening h1{font-family:"Kiwi Maru";font-size:33px;font-weight:500;line-height:1.5}.opening p{font-family:"Kiwi Maru";font-size:11px;line-height:2;color:var(--soft)}
+.arrival{text-align:center;padding:32px 22px;background:linear-gradient(#fffdf9,#f5e5d0)}.arrival .pair{display:flex;justify-content:center}.arrival .pair img{width:112px;height:112px;object-fit:contain}.arrival h2{font-family:"Kiwi Maru";font-size:28px;font-weight:500;line-height:1.5}.arrival p{font-size:10px;line-height:1.9;color:var(--soft)}
+.settings textarea,.settings input,.settings select{width:100%;border:1px solid var(--line);border-radius:12px;background:white;padding:9px;margin-top:5px}.settings textarea{min-height:68px}.tabs{display:flex;gap:5px;margin-bottom:12px}.tabs button{flex:1;border:1px solid var(--line);background:white;border-radius:999px;padding:8px;font-size:9px}.tabs .active{background:#a76a3e;color:white}.copy-editor{display:grid;gap:8px}.field{padding:9px;border-radius:13px;background:#faf1e6}.field label{font-size:8px;color:#966d50;font-weight:700}.toast{position:fixed;z-index:500;bottom:84px;left:50%;transform:translate(-50%,120px);background:#563b2e;color:white;border-radius:999px;padding:10px 15px;font-size:9px;transition:.25s;white-space:nowrap}.toast.show{transform:translate(-50%,0)}
 </style>
 </head>
 <body>
-<div id="opening" class="opening">
- <div>
-  <div class="opening-pokemon">
-   <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="ピカチュウ" referrerpolicy="no-referrer">
-   <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png" alt="イーブイ" referrerpolicy="no-referrer">
-  </div>
-  <div class="brandmark"></div>
-  <div id="openingKicker" class="kicker" data-copy style="margin-top:18px">YUNO NOTE / MIYAZAKI 2026</div>
-  <h1 id="openingTitle" data-copy>ゆのさんへ。
+<div id="opening" class="opening"><div>
+ <div class="opening-pokemon"><img src="pikachu.png"><img src="eevee.png"></div>
+ <div id="openingKicker" class="kicker" data-copy>YUNO NOTE / MIYAZAKI 2026</div>
+ <h1 id="openingTitle" data-copy>ゆのさんへ。
 宮崎の旅を贈ります。</h1>
-  <p id="openingBody" data-copy>景色と笑顔と、ふたりだけの思い出を。
+ <p id="openingBody" data-copy>景色と笑顔と、ふたりだけの思い出を。
 ポケふたを探しながら、一緒に集めに行こう。</p>
-  <button id="startBtn" class="primary" data-copy>冒険をはじめる</button>
- </div>
-</div>
+ <button id="startBtn" class="primary" data-copy>冒険をはじめる</button>
+</div></div>
 
 <div class="app">
 <header class="topbar">
- <div class="brand"><div class="brandmark"></div><div><strong>YUNO NOTE</strong><small>MIYAZAKI MEMORY TRIP</small></div></div>
- <button id="settingsBtn" class="iconbtn" aria-label="設定">⚙</button>
+ <div class="brand"><img src="pikachu.png"><div><strong>YUNO NOTE</strong><small>MIYAZAKI MEMORY TRIP</small></div></div>
+ <button id="settingsBtn" class="iconbtn">⚙</button>
 </header>
 
 <section id="home" class="view">
- <div class="hero">
-  <div class="hero-photo">
-   <span class="hero-flower f1">🌸</span><span class="hero-flower f2">✿</span><span class="hero-flower f3">🌼</span><div class="hero-copy">
-    <div id="homeKicker" class="kicker" data-copy>WELCOME TO MIYAZAKI</div>
-    <h1 id="homeTitle" data-copy>ゆのさん、
+ <div class="hero"><div class="hero-scene">
+  <div class="hero-copy"><div id="homeKicker" class="kicker" data-copy>WELCOME TO MIYAZAKI</div>
+   <h1 id="homeTitle" data-copy>ゆのさん、
 宮崎へようこそ。</h1>
-    <p id="homeBody" data-copy>この3日間が、ゆのさんにとって
-「また宮崎に来たい」と思える時間になりますように。</p>
-   </div>
-   <img class="hero-pikachu" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="ピカチュウ" referrerpolicy="no-referrer"><div class="daycard"><span class="daycard-flower a">🌸</span><span class="daycard-flower b">✿</span>
-    <div id="dayDate" class="date" data-copy>DAY 1
-11.21</div>
-    <h2><span id="dayTitle" data-copy>青島</span><small id="daySub" data-copy>AOSHIMA</small></h2>
-    <div class="aoshima-dot"></div>
-   </div>
-  </div>
- </div>
+   <p id="homeBody" data-copy>この3日間が、ゆのさんにとって
+特別な思い出になりますように。</p></div>
+  <span class="flower f1">✦</span><span class="flower f2">🌸</span><span class="flower f3">🌼</span>
+  <div class="palm">🌴</div><img class="hero-pika" src="pikachu.png">
+  <div class="daycard"><div id="dayDate" class="date" data-copy>DAY 1
+11.21</div><h2><span id="dayTitle" data-copy>青島</span><small id="daySub" data-copy>AOSHIMA</small></h2><div class="dayphoto">⛩</div></div>
+ </div></div>
  <div class="content">
-  <div class="progress-card">
-   <div class="row"><div class="label"><span id="progressTitle" data-copy>ポケふたの冒険</span><small id="progressSub" data-copy>ふたりで見つけた数</small></div><div id="count" class="count">0 / 9</div></div>
-   <div id="track" class="stamp-track"></div>
+  <div class="progress card"><div style="flex:1"><div class="progress-text"><strong id="progressTitle" data-copy>ポケふたの冒険</strong><span>見つけた数　<b id="count">0 / 9</b></span></div><div id="track" class="track"></div></div><img class="piplup" src="piplup.png"></div>
+  <div class="quick">
+   <button data-go="dex"><i>◉</i><strong>図鑑</strong><small>ポケふた</small></button>
+   <button data-go="map"><i>🗺️</i><strong>マップ</strong><small>旅の地図</small></button>
+   <button data-go="album"><i>📷</i><strong>アルバム</strong><small>思い出</small></button>
+   <button data-go="letter"><i>💌</i><strong>手紙</strong><small>ゆのさんへ</small></button>
   </div>
-  <div class="quicknav">
-   <button data-go="dex"><span class="qicon">◉</span><strong>図鑑</strong><small>ポケふた</small></button>
-   <button data-go="map"><span class="qicon">♧</span><strong>マップ</strong><small>旅の場所</small></button>
-   <button data-go="album"><span class="qicon">▣</span><strong>アルバム</strong><small>思い出</small></button>
-   <button data-go="letter"><span class="qicon">✉</span><strong>手紙</strong><small>ゆのさんへ</small></button>
-  </div>
-  <div class="mission-card">
-   <div><strong id="missionTitle" data-copy>今日のミッション</strong><p id="missionBody" data-copy>最初のポケふたを見つけて、ふたりの冒険を始めよう。</p></div>
-   <img class="mission-pokemon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png" alt="ポッチャマ" referrerpolicy="no-referrer">
-  </div>
-
-  <div class="letter-home">
-   <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png" alt="イーブイ" referrerpolicy="no-referrer" style="width:62px;height:62px;object-fit:contain;filter:drop-shadow(0 7px 8px rgba(78,54,34,.12))">
-   <div><strong id="homeLetterTitle" data-copy>成矢から、最後に手紙があります。</strong><p id="homeLetterBody" data-copy>9つのポケふたがそろった瞬間に、自動で届きます。</p></div>
-   <button id="homeLetterBtn" class="secondary">まだ秘密</button>
-  </div>
+  <div class="mission card"><strong id="missionTitle" data-copy>今日のミッション</strong><p id="missionBody" data-copy>最初のポケふたを見つけて、ふたりの冒険を始めよう！</p><img class="eevee" src="eevee.png"></div>
+  <div class="letter-home card"><img src="pikachu.png"><div><strong id="homeLetterTitle" data-copy>成矢から、最後に手紙があります。</strong><p id="homeLetterBody" data-copy>9つそろった瞬間に、自動で届きます。</p></div><button id="homeLetterBtn" class="secondary">あと9つ</button></div>
  </div>
 </section>
 
-<section id="dex" class="view hidden content section">
+<section id="dex" class="view hidden section">
  <div class="sectionhead"><h2 id="dexTitle" data-copy>図鑑</h2><p id="dexSub" data-copy>ポケふたコレクション</p></div>
- <div class="progress-card"><div class="row"><div class="label">見つけた数</div><div id="dexCount" class="count">0 / 9</div></div></div>
+ <div class="dex-top"><div><span>🔴 見つけた数 </span><b id="dexCount">0 / 9</b></div><img src="pikachu.png"></div>
  <div id="dexGrid" class="dexgrid"></div>
- <div class="dex-helper">
-  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png" alt="イーブイ" referrerpolicy="no-referrer">
-  <div><strong id="dexHelperTitle" data-copy>ポケふたを見つけるたび、図鑑にポケモンが現れます。</strong><br><span id="dexHelperBody" data-copy>未取得のデザインとポケモンは、現地に着くまでシークレット。</span></div>
- </div>
-
+ <div class="dex-helper card"><img src="piplup.png"><p><b id="dexHelperTitle" data-copy>ポケふたを見つけると、ポケモンが図鑑に登録されるよ！</b><br><span id="dexHelperBody" data-copy>未取得のデザインとポケモンは現地までシークレット。</span></p></div>
 </section>
 
-<section id="map" class="view hidden content section">
- <div class="sectionhead"><h2 id="mapTitle" data-copy>マップ</h2><p id="mapSub" data-copy>宮崎を北へ進むポケふたの旅</p></div>
- <div class="tabbar"><button class="active">地図</button><button data-go="dex">リスト</button></div>
- <div id="mapCard" class="mapcard">
- <div class="map-title-cute">MIYAZAKI POKÉFUTA MAP</div>
- <div class="map-decoration compass">✧</div>
- <div class="map-decoration cloud">☁</div>
- <div class="map-decoration palm1">🌴</div>
- <div class="map-decoration palm2">🌴</div>
- <div class="map-decoration star1">☆</div>
- <div class="map-decoration star2">✦</div>
- <svg class="miyazaki-svg" viewBox="0 0 360 560" aria-label="宮崎県イラストマップ">
-  <defs>
-   <linearGradient id="landCute" x1="0" y1="0" x2="1" y2="1">
-    <stop stop-color="#f5ebd2"/><stop offset=".55" stop-color="#eee0be"/><stop offset="1" stop-color="#e6d1a7"/>
-   </linearGradient>
-   <pattern id="wave" width="28" height="14" patternUnits="userSpaceOnUse">
-    <path d="M0 7 Q7 1 14 7 T28 7" fill="none" stroke="#b9dce2" stroke-width="1" opacity=".55"/>
-   </pattern>
-   <pattern id="mountainPattern" width="45" height="35" patternUnits="userSpaceOnUse">
-    <path d="M2 31 L15 10 L25 24 L33 14 L43 31" fill="#bac7a0" opacity=".32" stroke="#91a179" stroke-width="1"/>
-   </pattern>
-  </defs>
-  <rect width="360" height="560" fill="url(#wave)" opacity=".35"/>
-  <!-- Miyazaki outline simplified from prefectural proportions -->
-  <path id="miyazakiLand" d="
-   M215 20
-   C230 8 250 10 264 23
-   C281 17 301 26 309 43
-   C318 60 307 75 314 91
-   C321 108 310 123 302 137
-   C311 153 304 170 294 183
-   C304 200 296 218 285 231
-   C295 248 286 266 277 280
-   C286 298 280 318 269 333
-   C280 350 272 370 262 384
-   C273 401 266 421 255 437
-   C264 454 255 473 244 487
-   C252 505 241 527 225 542
-   C211 551 198 542 194 525
-   C190 508 175 497 161 488
-   C145 478 126 470 108 462
-   C90 454 77 440 72 422
-   C67 404 74 389 84 376
-   C72 361 68 342 77 326
-   C65 309 65 289 75 273
-   C64 256 63 236 74 219
-   C64 202 65 181 77 165
-   C68 148 72 129 87 117
-   C81 99 93 82 109 75
-   C125 69 137 77 150 67
-   C162 56 171 40 188 41
-   C198 37 203 27 215 20 Z"
-   fill="url(#landCute)" stroke="#c5aa79" stroke-width="2.2"/>
-  <path d="M215 20
-   C230 8 250 10 264 23 C281 17 301 26 309 43 C318 60 307 75 314 91
-   C321 108 310 123 302 137 C311 153 304 170 294 183 C304 200 296 218 285 231
-   C295 248 286 266 277 280 C286 298 280 318 269 333 C280 350 272 370 262 384
-   C273 401 266 421 255 437 C264 454 255 473 244 487 C252 505 241 527 225 542"
-   fill="none" stroke="#8eb7bc" stroke-width="5" opacity=".8"/>
-  <path d="M90 410 C130 393 183 394 262 384 M75 273 C125 281 185 266 285 231 M77 165 C132 178 197 158 302 137 M150 67 C184 91 234 94 314 91"
-   fill="none" stroke="#d7c6a6" stroke-width="1" stroke-dasharray="4 5"/>
-  <path d="M82 105 H180 V260 H80 Z" fill="url(#mountainPattern)" opacity=".78"/>
-  <path d="M118 410 H205 V488 H107 Z" fill="url(#mountainPattern)" opacity=".48"/>
-  <g font-family="Zen Maru Gothic, sans-serif" fill="#806951">
-   <text x="216" y="56" font-size="10">高千穂</text>
-   <text x="268" y="123" font-size="10">延岡</text>
-   <text x="256" y="217" font-size="10">日向</text>
-   <text x="251" y="358" font-size="10">宮崎</text>
-   <text x="229" y="427" font-size="9">青島</text>
-   <text x="218" y="489" font-size="9">日南</text>
-   <text x="102" y="444" font-size="9">都城</text>
-   <text x="92" y="202" font-size="8" fill="#9c8872">九州山地</text>
-  </g>
-  <g fill="#87a274" opacity=".9">
-   <path d="M130 130 l13 24 h-26z"/><path d="M156 153 l15 27 h-30z"/>
-   <path d="M121 337 l15 26 h-30z"/><path d="M173 390 l14 26 h-28z"/>
-  </g>
- </svg>
- <div class="map-ocean-label">日向灘</div>
- <img class="map-pokemon pika" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="ピカチュウ" referrerpolicy="no-referrer">
- <img class="map-pokemon piplup" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png" alt="ポッチャマ" referrerpolicy="no-referrer">
- <div class="map-credit">宮崎県の地形と各市町の位置関係をもとにした旅のイラストマップ</div>
- <div class="map-legend"><span class="legenddot"></span>未取得 <span class="legenddot on"></span>取得済み</div>
-</div>
+<section id="map" class="view hidden section">
+ <div class="sectionhead"><h2 id="mapTitle" data-copy>マップ</h2><p id="mapSub" data-copy>ポケふたマップ</p></div>
+ <div class="map-wrap"><img class="map-image" src="miyazaki_map.png" alt="宮崎県ポケふたマップ"><div class="map-note"><span>地図のピンは下のリストから開けます</span><span>日向灘</span></div></div>
+ <div id="mapList" class="map-list"></div>
 </section>
 
-<section id="album" class="view hidden content section">
+<section id="album" class="view hidden section">
  <div class="sectionhead"><h2 id="albumTitle" data-copy>アルバム</h2><p id="albumSub" data-copy>ふたりだけの思い出</p></div>
  <div id="albumGrid" class="album"></div>
 </section>
 
-<section id="letter" class="view hidden content section">
+<section id="letter" class="view hidden section">
  <div class="sectionhead"><h2 id="letterTitle" data-copy>手紙</h2><p id="letterSub" data-copy>ゆのさんへ</p></div>
- <div class="lettercard">
-  <h2 id="letterCardTitle" data-copy>最後に開く手紙</h2>
-  <p id="letterCardBody" data-copy>すべてのポケふたを見つけたら、成矢からの手紙が開きます。</p>
-  <button id="letterBtn" class="primary">あと9つで開きます</button>
- </div>
+ <div class="lettercard card"><h2 id="letterCardTitle" data-copy>最後に開く手紙</h2><p id="letterCardBody" data-copy>すべてのポケふたを見つけたら、成矢からの手紙が開きます。</p><button id="letterBtn" class="primary">あと9つで開きます</button></div>
 </section>
-
-<footer id="footerCopy" data-copy style="text-align:center;padding:34px;color:#a38e80;font-size:9px;letter-spacing:.16em">SEIYA × YUNO / MIYAZAKI 2026</footer>
+<footer id="footerCopy" data-copy style="text-align:center;padding:31px;color:#a28c7e;font-size:8px;letter-spacing:.15em">SEIYA × YUNO / MIYAZAKI 2026</footer>
 </div>
 
 <nav class="bottomnav">
- <button class="active" data-go="home"><i>⌂</i>ホーム</button>
- <button data-go="dex"><i>◉</i>ずかん</button>
- <button data-go="map"><i>♧</i>マップ</button>
- <button data-go="album"><i>▣</i>アルバム</button>
- <button data-go="letter"><i>☰</i>メニュー</button>
+ <button class="active" data-go="home"><i>⌂</i>ホーム</button><button data-go="dex"><i>◉</i>ずかん</button><button data-go="map"><i>🗺</i>マップ</button><button data-go="album"><i>📷</i>アルバム</button><button data-go="letter"><i>☰</i>メニュー</button>
 </nav>
 
 <dialog id="spotDialog"><button class="close" data-close="spotDialog">×</button><div id="spotBody"></div></dialog>
+<dialog id="arrivalDialog"><div class="arrival"><div class="pair"><img src="pikachu.png"><img src="piplup.png"></div><div id="arrivalKicker" class="kicker" data-copy>SPECIAL LETTER</div><h2 id="arrivalTitle" data-copy>ゆのさんへ。
+成矢からお手紙です。</h2><p id="arrivalBody" data-copy>9つのポケふたを一緒に見つけてくれてありがとう。
+最後に、伝えたいことがあります。</p><button id="openFinalLetter" class="primary">手紙を受け取る</button></div></dialog>
+<dialog id="letterDialog"><button class="close" data-close="letterDialog">×</button><div class="modal"><div style="display:flex;justify-content:center"><img src="pikachu.png" style="width:95px"><img src="piplup.png" style="width:95px"></div><div class="sub">A LETTER FOR YUNO</div><h2>ゆのさんへ</h2><p id="letterText" style="white-space:pre-line;line-height:2;font-family:'Kiwi Maru';font-size:11px"></p><p style="text-align:right">成矢より</p></div></dialog>
+<dialog id="settingsDialog"><button class="close" data-close="settingsDialog">×</button><div class="modal settings"><div class="sub">PRIVATE SETTINGS</div><h2>成矢専用設定</h2>
+ <div class="tabs"><button class="active" data-tab="copy">言葉</button><button data-tab="spot">ポケふた</button><button data-tab="system">動作</button></div>
+ <div id="copyPanel"><div id="copyEditor" class="copy-editor"></div><button id="saveCopy" class="primary" style="width:100%;margin-top:10px">言葉を保存</button></div>
+ <div id="spotPanel" class="hidden"><label>スポット<select id="spotSelect"></select></label><label>ミッション<textarea id="missionInput"></textarea></label><label>取得後メッセージ<textarea id="messageInput"></textarea></label><label>最後の手紙<textarea id="letterInput"></textarea></label><button id="saveSettings" class="primary" style="width:100%;margin-top:9px">内容を保存</button></div>
+ <div id="systemPanel" class="hidden"><div class="actions"><button id="toggleTest" class="secondary">テストモード切替</button><button id="reset" class="danger">進捗リセット</button></div></div>
+</div></dialog>
 
-<dialog id="arrivalDialog"><div class="final-arrival"><div>
- <div class="ending-pokemon">
-  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="ピカチュウ" referrerpolicy="no-referrer">
-  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png" alt="ポッチャマ" referrerpolicy="no-referrer">
- </div>
- <div id="arrivalKicker" class="kicker" data-copy>SPECIAL LETTER</div>
- <h2 id="arrivalTitle" data-copy>ゆのさんへ。
-成矢からお手紙です。</h2>
- <p id="arrivalBody" data-copy>9つのポケふたを一緒に見つけてくれてありがとう。
-最後に、伝えたいことがあります。</p>
- <button id="openFinalLetter" class="primary">手紙を受け取る</button>
- </div></div></dialog>
-
-<dialog id="letterDialog"><button class="close" data-close="letterDialog">×</button><div class="modal"><div class="ending-pokemon"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="ピカチュウ" referrerpolicy="no-referrer"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/393.png" alt="ポッチャマ" referrerpolicy="no-referrer"></div><div class="sub">A LETTER FOR YUNO</div><h2>ゆのさんへ</h2><p id="letterText" style="white-space:pre-line;line-height:2;font-family:'Yu Mincho',serif"></p><p style="text-align:right">成矢より</p></div></dialog>
-<dialog id="settingsDialog"><button class="close" data-close="settingsDialog">×</button><div class="modal settings">
- <div class="sub">PRIVATE SETTINGS</div><h2>成矢専用設定</h2>
- <div class="settings-tabs"><button class="active" data-settings-tab="copy">言葉</button><button data-settings-tab="spot">ポケふた</button><button data-settings-tab="system">動作</button></div>
- <div id="copyPanel" class="settings-panel"><p style="font-size:11px;color:var(--muted);line-height:1.7">アプリ内の主要な言葉を、成矢らしい表現へ変更できます。</p><div id="copyEditor" class="copy-editor"></div><button id="saveCopy" class="primary" style="width:100%;margin-top:14px">言葉をすべて保存</button></div>
- <div id="spotPanel" class="settings-panel hidden">
-  <label>スポット<select id="spotSelect"></select></label>
-  <label>ミッション<textarea id="missionInput"></textarea></label>
-  <label>取得後メッセージ<textarea id="messageInput"></textarea></label>
-  <label>最後の手紙<textarea id="letterInput"></textarea></label>
-  <button id="saveSettings" class="primary" style="width:100%;margin-top:12px">内容を保存</button>
- </div>
- <div id="systemPanel" class="settings-panel hidden"><div class="actions"><button id="toggleTest" class="secondary">テストモード切替</button><button id="reset" class="danger">進捗をリセット</button></div><p style="font-size:10px;color:var(--muted);line-height:1.7">本番前にテストモードをOFFにしてください。</p></div>
- </div></dialog>
-
-<div id="discovery" class="discovery"><div><div style="font-size:22px;margin-bottom:5px">✦ 🌸 ✦</div><div class="kicker">NEW POKÉFUTA DISCOVERED</div><img id="discoveryImage" alt=""><h2 id="discoveryTitle"></h2><p id="discoveryMessage"></p><button id="closeDiscovery" class="primary">図鑑に登録する</button></div></div>
+<div id="discovery" class="discovery"><div><div style="font-size:21px">✦ 🌸 ✦</div><div class="kicker">NEW POKÉFUTA DISCOVERED</div><img id="discoveryImage"><h2 id="discoveryTitle"></h2><p id="discoveryMessage"></p><button id="closeDiscovery" class="primary">図鑑に登録する</button></div></div>
 <div id="toast" class="toast"></div>
 
 <script>
-const DEFAULT_SPOTS=[
+const SPOTS=[
 {id:"aoshima",name:"青島",area:"宮崎市",lat:31.807505,lng:131.457839,pokemon:"ナッシー＆ポワルン",image:"https://local.pokemon.jp/img/p/manhole/4df805be8a64d2c988d992788be19a9b_l.png",mission:"ゆのさん、海を背景に今回最初のツーショットを撮ろう。",message:"ゆのさんと始めた、最初の宮崎の思い出。"},
 {id:"shintomi",name:"新富町",area:"新富町",lat:32.071055,lng:131.512198,pokemon:"アローラナッシー＆マクノシタ",image:"https://local.pokemon.jp/img/p/manhole/73c6c49f8aa194dcb52da6808758de16_l.png",mission:"ゆのさんが今回の宮崎旅行で楽しみにしていることを教えて。",message:"ゆのさんの楽しみを、これからも一緒に増やしたい。"},
 {id:"takanabe",name:"高鍋町",area:"高鍋町",lat:32.115956,lng:131.532841,pokemon:"アローラナッシー＆アローラライチュウ",image:"https://local.pokemon.jp/img/p/manhole/7020590767375a1d51a3bb6af9b37edf_l.png",mission:"ゆのさんの好きなところを、成矢からひとつ伝える。",message:"ゆのさんに言葉で伝えたいことは、まだまだたくさんある。"},
@@ -493,134 +188,45 @@ const LETTER=`ゆのさん、宮崎まで来てくれてありがとう。
 そして、また僕と一緒に宮崎へ来たいと思ってもらえたら、もっと嬉しいです。
 
 これからも、ゆのさんと一緒にたくさんの思い出を作っていきたい。`;
-const DEFAULT_TEXTS={
- openingKicker:"YUNO NOTE / MIYAZAKI 2026",
- openingTitle:"ゆのさんへ。\n宮崎の旅を贈ります。",
- openingBody:"景色と笑顔と、ふたりだけの思い出を。\nポケふたを探しながら、一緒に集めに行こう。",
- startBtn:"冒険をはじめる",
- homeKicker:"WELCOME TO MIYAZAKI",
- homeTitle:"ゆのさん、\n宮崎へようこそ。",
- homeBody:"この3日間が、ゆのさんにとって\n「また宮崎に来たい」と思える時間になりますように。",
- dayDate:"DAY 1\n11.21",dayTitle:"青島",daySub:"AOSHIMA",
- progressTitle:"ポケふたの冒険",progressSub:"ふたりで見つけた数",
- missionTitle:"今日のミッション",missionBody:"最初のポケふたを見つけて、ふたりの冒険を始めよう。",
- homeLetterTitle:"成矢から、最後に手紙があります。",
- homeLetterBody:"9つのポケふたがそろった瞬間に、自動で届きます。",
- dexTitle:"図鑑",dexSub:"ポケふたコレクション",
- mapTitle:"マップ",mapSub:"宮崎を北へ進むポケふたの旅",
- albumTitle:"アルバム",albumSub:"ふたりだけの思い出",
- letterTitle:"手紙",letterSub:"ゆのさんへ",
- letterCardTitle:"最後に開く手紙",letterCardBody:"すべてのポケふたを見つけたら、成矢からの手紙が開きます。",
- arrivalKicker:"SPECIAL LETTER",arrivalTitle:"ゆのさんへ。\n成矢からお手紙です。",
- arrivalBody:"9つのポケふたを一緒に見つけてくれてありがとう。\n最後に、伝えたいことがあります。",
- dexHelperTitle:"ポケふたを見つけるたび、図鑑にポケモンが現れます。",
- dexHelperBody:"未取得のデザインとポケモンは、現地に着くまでシークレット。",
- footerCopy:"SEIYA × YUNO / MIYAZAKI 2026"
-};
-const TEXT_FIELDS=[
- ["openingKicker","オープニング：小見出し"],["openingTitle","オープニング：タイトル"],["openingBody","オープニング：本文"],["startBtn","オープニング：ボタン"],
- ["homeKicker","ホーム：小見出し"],["homeTitle","ホーム：歓迎タイトル"],["homeBody","ホーム：歓迎文"],
- ["dayDate","ホーム：日付"],["dayTitle","ホーム：旅先名"],["daySub","ホーム：旅先英字"],
- ["progressTitle","ホーム：進捗タイトル"],["progressSub","ホーム：進捗補足"],
- ["missionTitle","ホーム：ミッションタイトル"],["missionBody","ホーム：ミッション本文"],
- ["homeLetterTitle","ホーム：手紙のお知らせ"],["homeLetterBody","ホーム：手紙の補足"],
- ["dexTitle","図鑑：タイトル"],["dexSub","図鑑：補足"],["mapTitle","マップ：タイトル"],["mapSub","マップ：補足"],
- ["albumTitle","アルバム：タイトル"],["albumSub","アルバム：補足"],["letterTitle","手紙：タイトル"],["letterSub","手紙：補足"],
- ["letterCardTitle","手紙カード：タイトル"],["letterCardBody","手紙カード：本文"],
- ["arrivalKicker","手紙到着：小見出し"],["arrivalTitle","手紙到着：タイトル"],["arrivalBody","手紙到着：本文"],
- ["dexHelperTitle","図鑑：案内タイトル"],["dexHelperBody","図鑑：案内本文"],["footerCopy","フッター"]
-];
-const KEY="yuno-note-ver1-complete";
-const oldKeys=["yuno-note-refined-v2","yuno-note-final-v1","yuno-miyazaki-v2-complete","yuno-note-miyazaki-v3","yuno-miyazaki-v2"];
-let stored=null;
-for(const k of [KEY,...oldKeys]){try{stored=JSON.parse(localStorage.getItem(k)||"null");if(stored)break}catch{}}
-let state=stored||{stamps:{},spots:DEFAULT_SPOTS,letter:LETTER,test:false,texts:{...DEFAULT_TEXTS},finalSeen:false};
-state.texts={...DEFAULT_TEXTS,...(state.texts||{})};
-if(typeof state.finalSeen!=="boolean")state.finalSeen=false;
-if(!state.spots||state.spots.length!==9)state.spots=DEFAULT_SPOTS;
-const $=id=>document.getElementById(id), rad=x=>x*Math.PI/180;
+const DEFAULT_TEXTS={openingKicker:"YUNO NOTE / MIYAZAKI 2026",openingTitle:"ゆのさんへ。\n宮崎の旅を贈ります。",openingBody:"景色と笑顔と、ふたりだけの思い出を。\nポケふたを探しながら、一緒に集めに行こう。",startBtn:"冒険をはじめる",homeKicker:"WELCOME TO MIYAZAKI",homeTitle:"ゆのさん、\n宮崎へようこそ。",homeBody:"この3日間が、ゆのさんにとって\n特別な思い出になりますように。",dayDate:"DAY 1\n11.21",dayTitle:"青島",daySub:"AOSHIMA",progressTitle:"ポケふたの冒険",missionTitle:"今日のミッション",missionBody:"最初のポケふたを見つけて、ふたりの冒険を始めよう！",homeLetterTitle:"成矢から、最後に手紙があります。",homeLetterBody:"9つそろった瞬間に、自動で届きます。",dexTitle:"図鑑",dexSub:"ポケふたコレクション",dexHelperTitle:"ポケふたを見つけると、ポケモンが図鑑に登録されるよ！",dexHelperBody:"未取得のデザインとポケモンは現地までシークレット。",mapTitle:"マップ",mapSub:"ポケふたマップ",albumTitle:"アルバム",albumSub:"ふたりだけの思い出",letterTitle:"手紙",letterSub:"ゆのさんへ",letterCardTitle:"最後に開く手紙",letterCardBody:"すべてのポケふたを見つけたら、成矢からの手紙が開きます。",arrivalKicker:"SPECIAL LETTER",arrivalTitle:"ゆのさんへ。\n成矢からお手紙です。",arrivalBody:"9つのポケふたを一緒に見つけてくれてありがとう。\n最後に、伝えたいことがあります。",footerCopy:"SEIYA × YUNO / MIYAZAKI 2026"};
+const FIELDS=[["openingKicker","オープニング小見出し"],["openingTitle","オープニングタイトル"],["openingBody","オープニング本文"],["startBtn","開始ボタン"],["homeKicker","ホーム小見出し"],["homeTitle","ホームタイトル"],["homeBody","ホーム本文"],["dayDate","日付"],["dayTitle","旅先"],["daySub","旅先英字"],["progressTitle","進捗タイトル"],["missionTitle","ミッションタイトル"],["missionBody","ミッション本文"],["homeLetterTitle","ホーム手紙案内"],["homeLetterBody","ホーム手紙補足"],["dexTitle","図鑑タイトル"],["dexSub","図鑑補足"],["dexHelperTitle","図鑑案内"],["dexHelperBody","図鑑案内補足"],["mapTitle","マップタイトル"],["mapSub","マップ補足"],["albumTitle","アルバムタイトル"],["albumSub","アルバム補足"],["letterTitle","手紙タイトル"],["letterSub","手紙補足"],["letterCardTitle","手紙カードタイトル"],["letterCardBody","手紙カード本文"],["arrivalKicker","手紙到着小見出し"],["arrivalTitle","手紙到着タイトル"],["arrivalBody","手紙到着本文"],["footerCopy","フッター"]];
+const KEY="yuno-note-final-exact-v1",OLD=["yuno-note-ver1-complete","yuno-note-refined-v2","yuno-note-final-v1"];
+let stored=null;for(const k of [KEY,...OLD]){try{stored=JSON.parse(localStorage.getItem(k)||"null");if(stored)break}catch{}}
+let state=stored||{stamps:{},spots:SPOTS,letter:LETTER,test:false,texts:{...DEFAULT_TEXTS},finalSeen:false};
+state.spots=state.spots?.length===9?state.spots:SPOTS;state.texts={...DEFAULT_TEXTS,...(state.texts||{})};state.finalSeen=!!state.finalSeen;
+const $=id=>document.getElementById(id),rad=x=>x*Math.PI/180;
 function save(){localStorage.setItem(KEY,JSON.stringify(state))}
-function distance(a,b,c,d){const R=6371,x=rad(c-a),y=rad(d-b),q=Math.sin(x/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(y/2)**2;return 2*R*Math.asin(Math.sqrt(q))}
-function toast(t){$("toast").textContent=t;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),1900)}
-function renderCopy(){
- Object.entries(state.texts).forEach(([k,v])=>{const e=$(k);if(e)e.textContent=v});
-}
-function buildCopyEditor(){
- $("copyEditor").innerHTML=TEXT_FIELDS.map(([key,label])=>`<div class="copy-field"><label>${label}</label><textarea data-copy-input="${key}"></textarea></div>`).join("");
- document.querySelectorAll("[data-copy-input]").forEach(e=>e.value=state.texts[e.dataset.copyInput]||"");
-}
-function openLetterArrival(){
- state.finalSeen=true;save();$("arrivalDialog").showModal();
-}
-
-function go(id){document.querySelectorAll(".view").forEach(v=>v.classList.add("hidden"));$(id).classList.remove("hidden");document.querySelectorAll("[data-go]").forEach(b=>b.classList.toggle("active",b.dataset.go===id));window.scrollTo({top:0,behavior:"smooth"})}
+function dist(a,b,c,d){const R=6371,x=rad(c-a),y=rad(d-b),q=Math.sin(x/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(y/2)**2;return 2*R*Math.asin(Math.sqrt(q))}
+function toast(t){$("toast").textContent=t;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),1800)}
+function copy(){Object.entries(state.texts).forEach(([k,v])=>{if($(k))$(k).textContent=v})}
+function go(id){document.querySelectorAll(".view").forEach(x=>x.classList.add("hidden"));$(id).classList.remove("hidden");document.querySelectorAll("[data-go]").forEach(x=>x.classList.toggle("active",x.dataset.go===id));scrollTo({top:0,behavior:"smooth"})}
 function render(){
- renderCopy();
- const total=state.spots.length,got=Object.keys(state.stamps).length;
- $("count").textContent=`${got} / ${total}`;$("dexCount").textContent=`${got} / ${total}`;
- $("track").innerHTML=state.spots.map(s=>`<div class="trackball ${state.stamps[s.id]?"on":""}"></div>`).join("");
- $("dexGrid").innerHTML=state.spots.map((s,i)=>{const g=state.stamps[s.id];return `<div class="dexitem"><button onclick="openSpot('${s.id}')"><div class="dexball">${g?`<img src="${s.image}" alt="${s.name}" referrerpolicy="no-referrer">`:""}</div><small>${String(i+1).padStart(3,"0")}</small><strong>${s.name}</strong></button></div>`}).join("");
- $("mapCard").querySelectorAll(".pin").forEach(x=>x.remove());
- const mapPositions={
-  aoshima:[64,78],shintomi:[67,63],takanabe:[68,57],kawaminami:[69,51],
-  tsuno:[70,45],hyuga:[72,36],kadogawa:[74,29],hinokage:[64,20],takachiho:[55,14]
- };
- state.spots.forEach((s,i)=>{
-  const pos=mapPositions[s.id]||[60,50];
-  const pin=document.createElement("button");pin.className="pin "+(state.stamps[s.id]?"on":"");
-  pin.style.left=pos[0]+"%";pin.style.top=pos[1]+"%";
-  pin.innerHTML=`<span>${String(i+1).padStart(2,"0")} ${s.name}</span>`;
-  pin.onclick=()=>openSpot(s.id);$("mapCard").appendChild(pin)
- });
+ copy();const got=Object.keys(state.stamps).length,total=9;$("count").textContent=`${got} / ${total}`;$("dexCount").textContent=`${got} / ${total}`;
+ $("track").innerHTML=state.spots.map(s=>`<span class="ball ${state.stamps[s.id]?"on":""}"></span>`).join("");
+ $("dexGrid").innerHTML=state.spots.map((s,i)=>{const g=state.stamps[s.id];return `<div class="dexitem"><button onclick="openSpot('${s.id}')"><div class="dexball">${g?`<img src="${s.image}" referrerpolicy="no-referrer">`:""}</div><span class="spark">✦</span><small>${String(i+1).padStart(3,"0")}</small><strong>${s.name}</strong></button></div>`}).join("");
+ $("mapList").innerHTML=state.spots.map((s,i)=>`<div class="map-row card"><span class="mini ${state.stamps[s.id]?"on":""}"></span><div><strong>${String(i+1).padStart(2,"0")} ${s.name}</strong><small>${s.area}</small></div><button class="secondary" onclick="openSpot('${s.id}')">見る</button></div>`).join("");
  const photos=Object.entries(state.stamps).filter(([_,v])=>v.photo).map(([id,v])=>({name:state.spots.find(s=>s.id===id).name,photo:v.photo}));
- $("albumGrid").innerHTML=photos.length?photos.map(p=>`<div class="polaroid"><img src="${p.photo}"><p>${p.name}<br>SEIYA × YUNO</p></div>`).join(""):`<div class="empty paper-card">まだ写真はありません。<br>ポケふたを見つけたあと、思い出写真を残せます。</div>`;
- $("letterBtn").textContent=got===total?"最後の手紙を見る":`あと${total-got}つで開きます`;
- $("homeLetterBtn").textContent=got===total?"手紙を見る":`あと${total-got}つ`;
- $("homeLetterBtn").className=got===total?"primary":"secondary";
- $("homeLetterBtn").onclick=got===total?()=>{$("letterText").textContent=state.letter;$("letterDialog").showModal()}:()=>toast("9つそろったら自動で届くよ");
- $("letterBtn").onclick=got===total?()=>{$("letterText").textContent=state.letter;$("letterDialog").showModal()}:()=>toast("すべて見つけたら開くよ");
+ $("albumGrid").innerHTML=photos.length?photos.map(x=>`<div class="polaroid"><img src="${x.photo}"><p>${x.name}<br>SEIYA × YUNO</p></div>`).join(""):`<div class="empty card">まだ写真はありません。<br>ポケふたを見つけたあと、思い出写真を残せます。</div>`;
+ $("letterBtn").textContent=got===total?"最後の手紙を見る":`あと${total-got}つで開きます`;$("homeLetterBtn").textContent=got===total?"手紙を見る":`あと${total-got}つ`;
+ const open=()=>{$("letterText").textContent=state.letter;$("letterDialog").showModal()};$("letterBtn").onclick=got===total?open:()=>toast("すべて見つけたら開くよ");$("homeLetterBtn").onclick=got===total?open:()=>toast("9つそろったら自動で届くよ");
 }
-function openSpot(id,d=null){
- const s=state.spots.find(x=>x.id===id),g=state.stamps[id];
- $("spotBody").innerHTML=`<div class="modal"><div class="sub">${String(state.spots.indexOf(s)+1).padStart(3,"0")} / ${s.area}</div>
- ${g?`<img class="modalimage" src="${s.image}" alt="${s.name}" referrerpolicy="no-referrer">`:`<div class="mystery">？</div>`}
- <h2>${s.name}</h2>
- <div class="sub">${g?s.pokemon:"ポケモンは見つけてからのお楽しみ"}</div>
- <div class="mission"><small>MISSION FOR YUNO</small>${s.mission}</div>
- ${d!==null?`<p style="text-align:center;color:var(--muted);font-size:12px">現在地から ${d<1?Math.round(d*1000)+"m":d.toFixed(1)+"km"}</p>`:""}
- ${g?.photo?`<img src="${g.photo}" style="width:100%;border-radius:18px;margin:4px 0 14px">`:""}
- <div class="actions"><button class="primary" onclick="checkSpot('${id}')">${g?"現在地を確認":"このポケふたを見つける"}</button>
- ${g?`<label class="secondary" style="text-align:center">思い出写真を追加<input hidden type="file" accept="image/*" onchange="addPhoto('${id}',this)"></label>`:""}</div></div>`;
- $("spotDialog").showModal()
-}
-function checkSpot(id){const s=state.spots.find(x=>x.id===id);if(state.test){claim(s);return}
- if(!navigator.geolocation){toast("位置情報に対応していない端末です");return}
- navigator.geolocation.getCurrentPosition(p=>{const d=distance(p.coords.latitude,p.coords.longitude,s.lat,s.lng);d<=.15?claim(s):(openSpot(id,d),toast("まだ少し遠いみたい"))},()=>toast("位置情報を許可してね"),{enableHighAccuracy:true,timeout:12000})
-}
-function claim(s){const first=!state.stamps[s.id];state.stamps[s.id]=state.stamps[s.id]||{time:new Date().toISOString()};save();render();$("spotDialog").close();if(first){$("discoveryImage").src=s.image;$("discoveryTitle").textContent=s.name+"を発見！";$("discoveryMessage").textContent=s.message;$("discovery").classList.add("show")}else{toast("取得済みです")}}
-function addPhoto(id,input){const f=input.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{state.stamps[id]=state.stamps[id]||{time:new Date().toISOString()};state.stamps[id].photo=r.result;save();render();$("spotDialog").close();openSpot(id);toast("思い出写真を保存しました")};r.readAsDataURL(f)}
-document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
-document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>$(b.dataset.close).close());
-$("startBtn").onclick=()=>{$("opening").classList.add("hide");setTimeout(()=>$("opening").classList.add("hidden"),650)};
-$("closeDiscovery").onclick=()=>{$("discovery").classList.remove("show");const got=Object.keys(state.stamps).length;if(got===state.spots.length&&!state.finalSeen){setTimeout(openLetterArrival,450)}else{go("dex")}};
+function openSpot(id,d=null){const s=state.spots.find(x=>x.id===id),g=state.stamps[id];$("spotBody").innerHTML=`<div class="modal"><div class="sub">${String(state.spots.indexOf(s)+1).padStart(3,"0")} / ${s.area}</div>${g?`<img class="modalimage" src="${s.image}" referrerpolicy="no-referrer">`:`<div class="mystery">？</div>`}<h2>${s.name}</h2><div class="sub">${g?s.pokemon:"どんなポケモンかは見つけてからのお楽しみ"}</div><div class="modal-mission"><small>MISSION FOR YUNO</small>${s.mission}</div>${d!==null?`<p style="text-align:center;font-size:9px;color:var(--soft)">現在地から ${d<1?Math.round(d*1000)+"m":d.toFixed(1)+"km"}</p>`:""}${g?.photo?`<img src="${g.photo}" style="width:100%;border-radius:17px;margin-bottom:10px">`:""}<div class="actions"><button class="primary" onclick="check('${id}')">${g?"現在地を確認":"このポケふたを見つける"}</button>${g?`<label class="secondary" style="text-align:center">思い出写真を追加<input hidden type="file" accept="image/*" onchange="photo('${id}',this)"></label>`:""}</div></div>`;$("spotDialog").showModal()}
+function check(id){const s=state.spots.find(x=>x.id===id);if(state.test){claim(s);return}if(!navigator.geolocation){toast("位置情報に対応していません");return}navigator.geolocation.getCurrentPosition(p=>{const d=dist(p.coords.latitude,p.coords.longitude,s.lat,s.lng);d<=.15?claim(s):(openSpot(id,d),toast("まだ少し遠いみたい"))},()=>toast("位置情報を許可してね"),{enableHighAccuracy:true,timeout:12000})}
+function claim(s){const first=!state.stamps[s.id];state.stamps[s.id]=state.stamps[s.id]||{time:new Date().toISOString()};save();render();$("spotDialog").close();if(first){$("discoveryImage").src=s.image;$("discoveryTitle").textContent=s.name+"を発見！";$("discoveryMessage").textContent=s.message;$("discovery").classList.add("show")}else toast("取得済みです")}
+function photo(id,input){const f=input.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{state.stamps[id].photo=r.result;save();render();$("spotDialog").close();openSpot(id);toast("思い出写真を保存しました")};r.readAsDataURL(f)}
+function editor(){$("copyEditor").innerHTML=FIELDS.map(([k,l])=>`<div class="field"><label>${l}</label><textarea data-copy-input="${k}"></textarea></div>`).join("");document.querySelectorAll("[data-copy-input]").forEach(e=>e.value=state.texts[e.dataset.copyInput])}
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>$(b.dataset.close).close());
+$("startBtn").onclick=()=>{$("opening").classList.add("hide");setTimeout(()=>$("opening").classList.add("hidden"),600)};
+$("closeDiscovery").onclick=()=>{$("discovery").classList.remove("show");if(Object.keys(state.stamps).length===9&&!state.finalSeen){state.finalSeen=true;save();setTimeout(()=>$("arrivalDialog").showModal(),350)}else go("dex")};
 $("openFinalLetter").onclick=()=>{$("arrivalDialog").close();$("letterText").textContent=state.letter;$("letterDialog").showModal()};
-$("settingsBtn").onclick=()=>{buildCopyEditor();$("spotSelect").innerHTML=state.spots.map(x=>`<option value="${x.id}">${x.name}</option>`).join("");const s=state.spots[0];$("missionInput").value=s.mission;$("messageInput").value=s.message;$("letterInput").value=state.letter;$("settingsDialog").showModal()};
-
-document.querySelectorAll("[data-settings-tab]").forEach(b=>b.onclick=()=>{
- document.querySelectorAll("[data-settings-tab]").forEach(x=>x.classList.toggle("active",x===b));
- ["copy","spot","system"].forEach(x=>$(x+"Panel").classList.toggle("hidden",x!==b.dataset.settingsTab));
-});
-$("saveCopy").onclick=()=>{
- document.querySelectorAll("[data-copy-input]").forEach(e=>state.texts[e.dataset.copyInput]=e.value);
- save();render();toast("アプリの言葉を保存しました");
-};
-
+$("settingsBtn").onclick=()=>{editor();$("spotSelect").innerHTML=state.spots.map(x=>`<option value="${x.id}">${x.name}</option>`).join("");let s=state.spots[0];$("missionInput").value=s.mission;$("messageInput").value=s.message;$("letterInput").value=state.letter;$("settingsDialog").showModal()};
+document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-tab]").forEach(x=>x.classList.toggle("active",x===b));["copy","spot","system"].forEach(x=>$(x+"Panel").classList.toggle("hidden",x!==b.dataset.tab))});
+$("saveCopy").onclick=()=>{document.querySelectorAll("[data-copy-input]").forEach(e=>state.texts[e.dataset.copyInput]=e.value);save();render();toast("言葉を保存しました")};
 $("spotSelect").onchange=()=>{const s=state.spots.find(x=>x.id===$("spotSelect").value);$("missionInput").value=s.mission;$("messageInput").value=s.message};
-$("saveSettings").onclick=()=>{const s=state.spots.find(x=>x.id===$("spotSelect").value);s.mission=$("missionInput").value;s.message=$("messageInput").value;state.letter=$("letterInput").value;save();render();toast("保存しました")};
+$("saveSettings").onclick=()=>{const s=state.spots.find(x=>x.id===$("spotSelect").value);s.mission=$("missionInput").value;s.message=$("messageInput").value;state.letter=$("letterInput").value;save();render();toast("内容を保存しました")};
 $("toggleTest").onclick=()=>{state.test=!state.test;save();toast(state.test?"テストモードON":"テストモードOFF")};
 $("reset").onclick=()=>{if(confirm("進捗をリセットしますか？")){state.stamps={};state.finalSeen=false;save();render();toast("リセットしました")}};
-if("serviceWorker"in navigator&&location.protocol.startsWith("http"))addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js").catch(()=>{}));
-render();
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js").catch(()=>{}));render();
 </script>
 </body>
 </html>

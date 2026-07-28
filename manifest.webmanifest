@@ -1,10 +1,10 @@
 {
-  "name": "YUNO NOTE｜宮崎ポケふたの旅 Ver.1.0",
+  "name": "YUNO NOTE｜宮崎ポケふたの旅",
   "short_name": "YUNO NOTE",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#fbf8f2",
-  "theme_color": "#fbf8f2",
+  "background_color": "#fffaf3",
+  "theme_color": "#fffaf3",
   "icons": [
     {
       "src": "icon.svg",
