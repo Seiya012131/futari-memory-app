@@ -2,204 +2,230 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#eef7f5">
-<title>YUNO NOTE｜宮崎の小さな冒険</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fbf8f2">
+<title>YUNO NOTE｜宮崎ポケふたの旅</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <style>
 :root{
- --ink:#223031;--soft:#6d7f80;--cream:#f8f4eb;--mint:#dfeee9;--sea:#8fc9c2;
- --deep:#315f60;--gold:#d8ae5e;--rose:#e7c4b8;--glass:rgba(255,255,255,.66);
+ --bg:#fbf8f2;--paper:#fffdf9;--paper2:#f6efe4;--ink:#3a2c27;--muted:#8a776e;
+ --line:#eadfd2;--gold:#bb854b;--gold2:#d7b078;--red:#d75d47;--green:#859b72;
+ --shadow:0 12px 32px rgba(87,62,43,.10);--r:24px;
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{
- margin:0;font-family:system-ui,-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;
- color:var(--ink);background:linear-gradient(180deg,#eef7f5 0,#f8f4eb 48%,#edf0ec 100%);
- min-height:100vh;
-}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#fffdf9,#f8f2e8 70%,#fffaf3);color:var(--ink);
+ font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;min-height:100vh}
 button,input,textarea,select{font:inherit}.hidden{display:none!important}
-.app{max-width:840px;margin:auto;padding-bottom:110px}
-.glass{background:var(--glass);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.8);box-shadow:0 18px 50px rgba(65,87,84,.12)}
-.top{
- position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;
- padding:14px 17px;background:rgba(245,249,247,.76);backdrop-filter:blur(18px);border-bottom:1px solid rgba(73,105,101,.08)
-}
-.logo{font-weight:900;letter-spacing:.06em}.logo small{display:block;font-size:9px;letter-spacing:.2em;color:var(--soft)}
-.iconbtn{border:0;background:rgba(255,255,255,.8);border-radius:14px;padding:10px 12px}
-.hero{padding:28px 17px 12px}
-.hero-card{
- min-height:440px;border-radius:34px;overflow:hidden;position:relative;padding:32px 25px;color:white;
+button{cursor:pointer}.app{max-width:720px;margin:auto;padding-bottom:102px}
+.topbar{position:sticky;top:0;z-index:50;height:66px;padding:10px 17px;display:flex;align-items:center;justify-content:space-between;
+ background:rgba(255,253,249,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(218,201,183,.55)}
+.brand{display:flex;gap:10px;align-items:center}
+.brandmark{width:38px;height:38px;border-radius:50%;border:2px solid #d8b684;position:relative;background:#fff}
+.brandmark:before{content:"";position:absolute;left:0;right:0;top:17px;height:2px;background:#d8b684}
+.brandmark:after{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:#fff;border:2px solid #d8b684;left:12px;top:12px}
+.brand strong{font-family:Georgia,"Yu Mincho",serif;letter-spacing:.18em;font-size:15px}
+.brand small{display:block;color:var(--muted);font-size:8px;letter-spacing:.18em;margin-top:2px}
+.iconbtn{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--ink);box-shadow:0 6px 16px rgba(80,58,42,.08)}
+.hero{margin:16px;border:1px solid #ead9c6;border-radius:32px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+.hero-photo{min-height:420px;padding:36px 26px 23px;position:relative;display:flex;flex-direction:column;justify-content:space-between;
  background:
- linear-gradient(180deg,rgba(10,48,52,.05),rgba(20,55,58,.58)),
- radial-gradient(circle at 75% 20%,rgba(255,237,184,.8),transparent 18%),
- linear-gradient(145deg,#99d4ce,#4f8f92 55%,#2f6165);
- box-shadow:0 24px 70px rgba(35,74,76,.23)
-}
-.hero-card:before{
- content:"";position:absolute;inset:auto -80px -150px auto;width:330px;height:330px;border-radius:50%;
- background:rgba(255,255,255,.08);border:35px solid rgba(255,255,255,.06)
-}
-.eyebrow{font-size:10px;letter-spacing:.24em;font-weight:800;opacity:.8}
-.hero h1{font-family:Georgia,"Yu Mincho",serif;font-size:clamp(44px,11vw,72px);line-height:1.05;margin:18px 0 15px;font-weight:500}
-.hero p{line-height:1.9;max-width:460px;margin:0;opacity:.95}
-.hero-badge{position:absolute;left:25px;bottom:24px;padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.16);backdrop-filter:blur(10px);font-size:11px;font-weight:900;letter-spacing:.11em}
-main{padding:0 17px}
-.welcome{margin-top:18px;padding:20px;border-radius:25px}
-.welcome h2{font-family:Georgia,"Yu Mincho",serif;font-size:29px;font-weight:500;margin:0 0 8px}
-.welcome p{margin:0;line-height:1.8;color:var(--soft)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:15px 0 25px}
-.stat{padding:18px 12px;border-radius:22px;text-align:center}.stat strong{display:block;font-family:Georgia,serif;font-size:28px}.stat span{font-size:10px;color:var(--soft)}
-.today{margin:10px 0 28px}.section-title{display:flex;justify-content:space-between;align-items:end;margin:0 3px 13px}
-.section-title h2{font-family:Georgia,"Yu Mincho",serif;font-weight:500;font-size:27px;margin:0}.section-title span{font-size:10px;color:var(--soft);letter-spacing:.12em}
-.today-card{border-radius:28px;padding:21px;display:grid;grid-template-columns:1fr auto;gap:15px}
-.day{font-size:11px;letter-spacing:.18em;color:var(--deep);font-weight:900}.today-card h3{font-size:30px;margin:7px 0 8px}.today-card p{margin:0;color:var(--soft);line-height:1.7}.weather{font-size:48px}
-.progress-wrap{margin-top:18px}.ring{width:130px;height:130px;border-radius:50%;display:grid;place-items:center;margin:auto;background:conic-gradient(var(--gold) 0deg,#e9ece7 0deg);position:relative}.ring:after{content:"";position:absolute;inset:14px;border-radius:50%;background:#f8f7f2}.ring-content{position:relative;z-index:2;text-align:center}.ring-content strong{font-size:31px}.ring-content small{display:block;color:var(--soft)}
-.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:22px 0}.tab{border:0;border-radius:16px;padding:12px 6px;background:rgba(255,255,255,.7);color:var(--soft);font-size:11px;font-weight:900}.tab.active{background:var(--deep);color:#fff}
-.story-list{display:grid;gap:13px}.story{
- border-radius:26px;padding:14px;display:grid;grid-template-columns:86px 1fr auto;gap:14px;align-items:center;
- background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.85);box-shadow:0 12px 32px rgba(57,78,74,.08)
-}
-.thumb{width:86px;height:86px;border-radius:22px;background:linear-gradient(145deg,#dce9e6,#9dc7c2);position:relative;overflow:hidden}
-.thumb img{width:100%;height:100%;object-fit:cover}
-.thumb.locked{background:
- radial-gradient(circle at 70% 24%,rgba(255,255,255,.55),transparent 18%),
- linear-gradient(145deg,#dce9e6,#93bbb6)}
-.thumb.locked:before{content:"？";position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.92);font-family:Georgia,serif;font-size:34px}
-.thumb.locked:after{content:"UNDISCOVERED";position:absolute;left:0;right:0;bottom:9px;text-align:center;color:rgba(255,255,255,.78);font-size:7px;font-weight:900;letter-spacing:.14em}
-.story small{font-size:10px;letter-spacing:.12em;color:var(--soft)}.story h3{margin:4px 0 6px}.story p{font-size:11px;line-height:1.55;color:var(--soft);margin:0}.story button{border:0;border-radius:14px;padding:10px;background:#edf5f2;color:var(--deep);font-weight:900}
-.album{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.polaroid{background:#fff;padding:10px 10px 18px;border-radius:7px;box-shadow:0 12px 30px rgba(58,65,60,.12);transform:rotate(-1deg)}.polaroid:nth-child(even){transform:rotate(1.5deg)}.polaroid img{width:100%;aspect-ratio:1;object-fit:cover}.polaroid p{font-family:"Comic Sans MS","Yu Gothic",sans-serif;text-align:center;margin:12px 0 0;color:#5b6462}
-.badges{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.badge{padding:20px;border-radius:24px;text-align:center;background:rgba(255,255,255,.75);filter:grayscale(1);opacity:.55}.badge.on{filter:none;opacity:1;border:1px solid rgba(216,174,94,.45)}.badge .bicon{font-size:38px}.badge h3{margin:8px 0 5px}.badge p{font-size:10px;color:var(--soft);margin:0;line-height:1.5}
-.letter-card{margin-top:28px;padding:24px;border-radius:28px;background:linear-gradient(145deg,#f8efe8,#fdfbf6);border:1px solid #edd9ce;position:relative;overflow:hidden}.letter-card:after{content:"Y";position:absolute;right:-10px;bottom:-50px;font-family:Georgia,serif;font-size:150px;color:rgba(231,196,184,.27)}.letter-card h2{font-family:Georgia,"Yu Mincho",serif;font-weight:500;margin:0 0 8px}.letter-card p{color:var(--soft);line-height:1.8}.letter-card button{border:0;border-radius:16px;padding:13px 17px;background:var(--deep);color:#fff;font-weight:900}
-.footer{text-align:center;color:#8b9793;font-size:9px;padding:25px}
-dialog{width:min(94vw,560px);border:0;border-radius:30px;padding:0;box-shadow:0 30px 90px rgba(28,54,54,.32)}dialog::backdrop{background:rgba(21,39,39,.65);backdrop-filter:blur(8px)}
-.close{position:absolute;right:12px;top:12px;border:0;border-radius:50%;width:40px;height:40px;background:#fff;z-index:5;font-size:21px}
-.modal{padding:24px}.modal-image{width:100%;aspect-ratio:4/3;object-fit:contain;background:#e8efec;border-radius:24px}
-.mystery-image{width:100%;aspect-ratio:4/3;border-radius:24px;display:grid;place-items:center;text-align:center;
- background:radial-gradient(circle at 68% 24%,rgba(255,255,255,.72),transparent 18%),linear-gradient(145deg,#dce9e6,#8db8b3);
- color:white;position:relative;overflow:hidden}
-.mystery-image:after{content:"";position:absolute;width:190px;height:190px;border-radius:50%;border:28px solid rgba(255,255,255,.08);right:-60px;bottom:-75px}
-.mystery-mark{font-family:Georgia,serif;font-size:76px;line-height:1}
-.mystery-label{font-size:9px;font-weight:900;letter-spacing:.2em;opacity:.8;margin-top:7px}.modal h2{font-family:Georgia,"Yu Mincho",serif;font-weight:500;font-size:34px;margin:18px 0 4px}.modal .sub{color:var(--soft);font-size:11px}.mission{margin:18px 0;padding:16px;border-radius:18px;background:#f4eee2;border:1px solid #ead8b8;line-height:1.7}.mission small{display:block;font-size:9px;letter-spacing:.18em;color:#9c7a3b;font-weight:900}.actions{display:grid;gap:10px}.primary,.secondary,.danger{border:0;border-radius:16px;padding:13px;font-weight:900}.primary{background:var(--deep);color:white}.secondary{background:#edf5f2;color:var(--deep)}.danger{background:#fff0ed;color:#a44b43}
-.opening{position:fixed;inset:0;z-index:200;background:linear-gradient(180deg,#eff8f5,#f8f2e8);display:grid;place-items:center;padding:28px;text-align:center;transition:.8s}.opening.hide{opacity:0;pointer-events:none}.opening-inner{max-width:430px}.opening .line{width:1px;height:78px;background:#8fb2ac;margin:0 auto 24px}.opening h1{font-family:Georgia,"Yu Mincho",serif;font-weight:500;font-size:42px;line-height:1.25;margin:0 0 20px}.opening p{color:var(--soft);line-height:2;margin:0}.opening button{margin-top:27px;border:0;border-radius:999px;padding:15px 24px;background:var(--deep);color:#fff;font-weight:900}
-.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,120px);background:#203839;color:#fff;padding:12px 18px;border-radius:999px;z-index:300;transition:.3s;white-space:nowrap}.toast.show{transform:translate(-50%,0)}
-@media(min-width:680px){.story-list{grid-template-columns:repeat(2,1fr)}.album{grid-template-columns:repeat(3,1fr)}.badges{grid-template-columns:repeat(3,1fr)}}
-
-/* YUNO NOTE refined experience */
-.logo{font-family:Georgia,"Yu Mincho",serif;font-size:16px}.logo small{font-family:system-ui,-apple-system,"Yu Gothic",sans-serif}
-.hero-card{isolation:isolate;background:linear-gradient(180deg,rgba(17,57,58,.02),rgba(18,56,58,.62)),radial-gradient(circle at 78% 18%,rgba(255,238,192,.88),transparent 16%),linear-gradient(145deg,#9cd7cf 0%,#5e9ea0 52%,#315f60 100%)}
-.hero-card:after{content:"";position:absolute;inset:0;z-index:-1;opacity:.3;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(180deg,black,transparent 80%)}
-.hero h1{letter-spacing:.01em;text-shadow:0 4px 25px rgba(0,0,0,.12)}.hero-badge{border:1px solid rgba(255,255,255,.28)}
-.welcome{position:relative;overflow:hidden}.welcome:after{content:"YUNO";position:absolute;right:-4px;bottom:-22px;font-family:Georgia,serif;font-size:78px;color:rgba(49,95,96,.05);letter-spacing:.08em}
-.story,.stat,.polaroid{transition:transform .22s ease,box-shadow .22s ease}.story:active,.stat:active,.polaroid:active{transform:scale(.98)}
-.chapter-progress{display:flex;gap:5px;margin-top:12px}.chapter-progress span{height:4px;flex:1;border-radius:99px;background:rgba(255,255,255,.22)}.chapter-progress span.on{background:#f2d79c}
-.discovery-screen{position:fixed;inset:0;z-index:250;background:radial-gradient(circle at 50% 30%,rgba(255,242,195,.95),transparent 18%),linear-gradient(180deg,#173f42,#315f60 62%,#d8ae5e);display:grid;place-items:center;padding:24px;color:white;text-align:center;opacity:0;pointer-events:none;transition:.45s}.discovery-screen.show{opacity:1;pointer-events:auto}.discovery-card{max-width:420px;width:100%}.discovery-lid{width:min(76vw,310px);aspect-ratio:1;margin:0 auto 22px;border-radius:50%;background:#fff;padding:12px;box-shadow:0 25px 70px rgba(0,0,0,.3);transform:scale(.65) rotate(-10deg);opacity:0}.discovery-screen.show .discovery-lid{animation:revealLid 1.15s .15s cubic-bezier(.2,.9,.2,1) forwards}.discovery-lid img{width:100%;height:100%;object-fit:contain}.discovery-screen h2{font-family:Georgia,"Yu Mincho",serif;font-weight:500;font-size:37px;margin:8px 0}.discovery-screen p{line-height:1.8;opacity:.9}@keyframes revealLid{0%{transform:scale(.55) rotate(-16deg);opacity:0;filter:brightness(2)}65%{transform:scale(1.08) rotate(3deg);opacity:1;filter:brightness(1.25)}100%{transform:scale(1);opacity:1;filter:none}}
-.sparkles{position:absolute;inset:0;pointer-events:none;overflow:hidden}.sparkles i{position:absolute;top:48%;left:50%;font-style:normal;animation:spark 1.6s ease-out forwards}@keyframes spark{to{transform:translate(var(--x),var(--y)) scale(.2) rotate(180deg);opacity:0}}
-.ending-hero{min-height:78vh;padding:48px 24px;background:radial-gradient(circle at 50% 12%,rgba(255,239,187,.75),transparent 18%),linear-gradient(180deg,#234f52 0%,#315f60 56%,#d8ae5e 100%);color:#fff;text-align:center}.ending-hero h2{font-family:Georgia,"Yu Mincho",serif;font-size:36px;font-weight:500;line-height:1.35}.ending-hero p{line-height:2;white-space:pre-line}.memory-counter{font-size:10px;letter-spacing:.2em;opacity:.75}.empty-state{grid-column:1/-1;padding:32px;border-radius:24px;text-align:center;color:var(--soft)}
-
+ linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,252,246,.04) 42%,rgba(251,247,239,.96) 100%),
+ radial-gradient(circle at 78% 18%,rgba(255,255,255,.9),transparent 18%),
+ linear-gradient(160deg,#dbe9ef 0%,#f4ead8 52%,#d1c09d 100%)}
+.hero-photo:before{content:"";position:absolute;left:-3%;right:-3%;bottom:70px;height:105px;opacity:.55;
+ background:
+ radial-gradient(ellipse at 18% 100%,#a7b78d 0 12%,transparent 13%),
+ radial-gradient(ellipse at 65% 100%,#9eaf88 0 14%,transparent 15%),
+ linear-gradient(175deg,transparent 0 40%,#8db7c2 41% 52%,#dfd0b2 53% 66%,#b8a37d 67% 100%);
+ clip-path:polygon(0 45%,10% 38%,18% 48%,30% 33%,42% 50%,53% 35%,67% 43%,82% 28%,100% 42%,100% 100%,0 100%)}
+.hero-photo:after{content:"";position:absolute;right:32px;bottom:94px;width:8px;height:128px;background:#72664e;border-radius:50% 50% 10px 10px;transform:rotate(2deg);
+ box-shadow:-15px -92px 0 14px #7d9469,15px -85px 0 17px #8fa175,0 -112px 0 20px #748e66}
+.hero-copy{position:relative;z-index:2;max-width:470px}
+.kicker{color:#aa7a4d;font-size:9px;letter-spacing:.24em;font-weight:800}
+.hero h1{font-family:Georgia,"Yu Mincho",serif;font-size:clamp(40px,10vw,60px);font-weight:500;line-height:1.2;margin:22px 0 14px;letter-spacing:.08em}
+.hero p{font-family:"Yu Mincho",serif;line-height:2;font-size:13px;margin:0;max-width:390px}
+.daycard{position:relative;z-index:3;margin-top:170px;border:1px solid rgba(223,204,182,.86);background:rgba(255,253,248,.92);backdrop-filter:blur(10px);
+ border-radius:22px;padding:16px 18px;display:flex;align-items:center;gap:15px;box-shadow:0 10px 28px rgba(98,71,48,.12)}
+.daycard .date{font-size:9px;letter-spacing:.16em;color:var(--muted);line-height:1.7}
+.daycard h2{font-family:Georgia,"Yu Mincho",serif;font-size:27px;font-weight:500;margin:0}
+.daycard h2 small{display:block;font-size:9px;letter-spacing:.2em;color:#aa7a4d;margin-top:5px}
+.aoshima-dot{margin-left:auto;width:70px;height:70px;border-radius:50%;background:linear-gradient(#acd3dc 0 49%,#e9d4ad 50%);position:relative;overflow:hidden;border:4px solid #fff;box-shadow:0 5px 14px rgba(92,67,49,.12)}
+.aoshima-dot:before{content:"⛩";font-size:36px;position:absolute;left:17px;top:18px}
+.content{padding:0 16px}
+.progress-card,.mission-card,.paper-card{background:rgba(255,253,249,.92);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
+.progress-card{padding:18px;margin-bottom:12px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.label{font-family:"Yu Mincho",serif;font-size:14px}.label small{display:block;color:var(--muted);font-family:inherit;font-size:10px;margin-top:3px}
+.count{font-weight:800;color:#6b4c38}
+.stamp-track{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;margin-top:13px}
+.trackball{aspect-ratio:1;border-radius:50%;border:2px solid #ded4c7;position:relative;background:#f5f0e8}
+.trackball:before{content:"";position:absolute;left:0;right:0;top:calc(50% - 1px);height:2px;background:#ded4c7}
+.trackball:after{content:"";position:absolute;width:6px;height:6px;border:2px solid #ded4c7;background:#fff;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
+.trackball.on{background:#e48b72;border-color:#c75943}.trackball.on:before{background:#fff}.trackball.on:after{border-color:#fff}
+.quicknav{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:12px 0}
+.quicknav button{border:1px solid var(--line);background:#fffdf9;border-radius:17px;padding:13px 3px 10px;box-shadow:0 8px 18px rgba(79,58,43,.07);color:var(--ink)}
+.quicknav .qicon{font-size:22px;display:block;margin-bottom:6px}.quicknav strong{font-size:10px}.quicknav small{display:block;font-size:8px;color:var(--muted);margin-top:3px}
+.mission-card{padding:17px 18px;display:flex;align-items:center;gap:14px}
+.mission-card strong{font-family:"Yu Mincho",serif;font-size:14px}.mission-card p{margin:5px 0 0;font-size:11px;line-height:1.7;color:var(--muted)}
+.poke-accent{margin-left:auto;width:50px;height:50px;border-radius:50%;background:#f6ecdc;display:grid;place-items:center;position:relative}
+.poke-accent:before{content:"";width:24px;height:24px;border-radius:50%;background:linear-gradient(#ef765e 0 48%,#fff 49%);border:2px solid #7d6555;box-shadow:inset 0 -1px #ddd}
+.poke-accent:after{content:"";position:absolute;width:7px;height:7px;background:#fff;border:2px solid #7d6555;border-radius:50%}
+.section{padding-top:28px}.sectionhead{text-align:center;margin-bottom:18px}.sectionhead h2{font-family:"Yu Mincho",serif;font-size:22px;font-weight:500;margin:0}.sectionhead p{font-size:10px;color:var(--muted);letter-spacing:.08em;margin:6px 0 0}
+.tabbar{display:flex;border-bottom:1px solid var(--line);margin-bottom:18px}.tabbar button{flex:1;border:0;background:none;padding:12px;font-weight:700;color:var(--muted);position:relative}.tabbar button.active{color:#915d35}.tabbar button.active:after{content:"";position:absolute;height:2px;left:24%;right:24%;bottom:-1px;background:#ba7948}
+.dexgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 13px}
+.dexitem{text-align:center}.dexball{width:86px;max-width:100%;aspect-ratio:1;border-radius:50%;margin:auto;position:relative;overflow:hidden;background:#eee7dd;border:1px solid #e8ded1}
+.dexball:before{content:"";position:absolute;left:0;right:0;top:calc(50% - 2px);height:4px;background:#ded3c6}
+.dexball:after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:#f8f4ed;border:4px solid #ded3c6;left:50%;top:50%;transform:translate(-50%,-50%)}
+.dexball img{width:100%;height:100%;object-fit:cover;position:relative;z-index:2}
+.dexitem small{display:block;font-size:9px;color:#b18155;letter-spacing:.12em;margin-top:9px}.dexitem strong{font-family:"Yu Mincho",serif;font-size:13px}.dexitem button{border:0;background:transparent;padding:0;width:100%;color:inherit}
+.mapcard{height:455px;border:1px solid var(--line);border-radius:24px;background:
+ linear-gradient(rgba(255,255,255,.72),rgba(255,255,255,.72)),
+ radial-gradient(circle at 28% 28%,#d7e9e9 0 5%,transparent 6%),
+ linear-gradient(145deg,#e5efe7,#f2e7d4);position:relative;overflow:hidden}
+.mapshape{position:absolute;left:24%;top:8%;width:47%;height:78%;background:#efe5cf;border:1px solid #d9c8a9;clip-path:polygon(64% 0,84% 9%,78% 24%,92% 34%,73% 50%,79% 66%,57% 100%,35% 84%,18% 70%,5% 45%,25% 28%,39% 10%)}
+.pin{position:absolute;width:34px;height:34px;border-radius:50%;background:#fff;border:2px solid #9f8b78;box-shadow:0 5px 10px rgba(70,51,38,.18)}
+.pin:before{content:"";position:absolute;inset:6px;border-radius:50%;background:linear-gradient(#555 0 45%,#fff 46%);border:1px solid #555}
+.pin:after{content:"";position:absolute;width:5px;height:5px;border:1px solid #555;background:#fff;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
+.pin.on{border-color:#e05c45}.pin.on:before{background:linear-gradient(#e35f48 0 45%,#fff 46%);border-color:#b83e2c}
+.pin span{position:absolute;left:36px;top:8px;font-size:9px;color:#8e735f;font-weight:800;white-space:nowrap}
+.album{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.polaroid{background:#fff;padding:8px 8px 16px;border:1px solid #eee1d4;box-shadow:0 8px 22px rgba(76,56,43,.09);transform:rotate(-1deg)}.polaroid:nth-child(even){transform:rotate(1deg)}.polaroid img{width:100%;aspect-ratio:1;object-fit:cover}.polaroid p{text-align:center;font-family:"Yu Mincho",serif;font-size:12px;margin:10px 0 0}
+.empty{padding:28px;text-align:center;color:var(--muted);font-size:12px;line-height:1.8;grid-column:1/-1}
+.lettercard{padding:26px;background:linear-gradient(145deg,#fffdf9,#f6ecdf);border:1px solid #eadac8;border-radius:24px;position:relative;overflow:hidden}
+.lettercard:after{content:"✿";position:absolute;right:20px;top:12px;font-size:58px;color:#d6b89f;opacity:.4}.lettercard h2{font-family:"Yu Mincho",serif;font-weight:500;margin:0 0 8px}.lettercard p{font-size:12px;color:var(--muted);line-height:1.8}.primary{border:0;background:#9b653b;color:#fff;border-radius:999px;padding:13px 18px;font-weight:800}.secondary{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:13px 18px;font-weight:800}.danger{border:0;background:#f9e2de;color:#a94235;border-radius:999px;padding:13px 18px;font-weight:800}
+.bottomnav{position:fixed;z-index:70;bottom:0;left:50%;transform:translateX(-50%);width:min(720px,100%);display:grid;grid-template-columns:repeat(5,1fr);padding:8px 6px calc(8px + env(safe-area-inset-bottom));
+ background:rgba(255,253,249,.95);backdrop-filter:blur(18px);border-top:1px solid var(--line)}
+.bottomnav button{border:0;background:none;color:#937c6c;font-size:8px;padding:4px}.bottomnav i{font-style:normal;display:block;font-size:20px;margin-bottom:2px}.bottomnav button.active{color:#aa6537;font-weight:800}
+dialog{width:min(94vw,520px);max-height:92vh;border:0;border-radius:28px;padding:0;box-shadow:0 30px 80px rgba(57,39,27,.28);background:#fffdf9}
+dialog::backdrop{background:rgba(60,43,31,.55);backdrop-filter:blur(7px)}.close{position:absolute;z-index:4;right:12px;top:12px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff}
+.modal{padding:24px}.modal h2{font-family:"Yu Mincho",serif;font-size:30px;font-weight:500;margin:16px 0 4px}.sub{font-size:10px;color:#a37b59;letter-spacing:.08em}
+.mystery,.modalimage{width:100%;aspect-ratio:1;border-radius:50%;max-width:290px;margin:12px auto;display:grid;place-items:center}
+.mystery{background:#eee7dd;color:#aa917d;font-size:68px;position:relative}.mystery:after{content:"";position:absolute;width:66%;height:1px;background:#ded3c6;top:50%}
+.modalimage{object-fit:contain;background:#f5efe6;border:8px solid #fff;box-shadow:0 10px 30px rgba(72,52,38,.14)}
+.mission{padding:16px;border-radius:17px;background:#f7eddd;border:1px solid #ead5b8;font-size:12px;line-height:1.8;margin:17px 0}.mission small{display:block;font-size:8px;letter-spacing:.16em;color:#ad7c48;font-weight:800}
+.actions{display:grid;gap:10px}.discovery{position:fixed;inset:0;z-index:300;background:radial-gradient(circle at 50% 28%,#fff8db 0 12%,transparent 28%),linear-gradient(#fffaf0,#f1dcae);display:grid;place-items:center;padding:22px;opacity:0;pointer-events:none;transition:.35s;text-align:center}.discovery.show{opacity:1;pointer-events:auto}
+.discovery img{width:min(78vw,330px);aspect-ratio:1;object-fit:contain;border-radius:50%;background:#fff;border:12px solid #fff;box-shadow:0 18px 45px rgba(106,71,35,.2);animation:pop 1s cubic-bezier(.2,.9,.2,1)}
+.discovery h2{font-family:"Yu Mincho",serif;font-size:33px;font-weight:500;margin:18px 0 4px}.discovery p{line-height:1.8;color:#7f654e;max-width:360px}
+@keyframes pop{0%{transform:scale(.5) rotate(-12deg);opacity:0}70%{transform:scale(1.08) rotate(3deg);opacity:1}100%{transform:scale(1)}}
+.opening{position:fixed;inset:0;z-index:400;background:linear-gradient(#fffdf9,#f5ecdf);display:grid;place-items:center;text-align:center;padding:28px;transition:.6s}.opening.hide{opacity:0;pointer-events:none}.opening h1{font-family:"Yu Mincho",serif;font-size:39px;font-weight:500;line-height:1.5}.opening p{font-family:"Yu Mincho",serif;line-height:2;color:var(--muted)}.opening .brandmark{margin:auto;width:58px;height:58px}.opening button{margin-top:25px}
+.toast{position:fixed;z-index:500;bottom:90px;left:50%;transform:translate(-50%,120px);padding:12px 18px;border-radius:999px;background:#4f3b31;color:#fff;font-size:12px;transition:.25s;white-space:nowrap}.toast.show{transform:translate(-50%,0)}
+.settings textarea,.settings select{width:100%;border:1px solid var(--line);border-radius:14px;background:#fff;padding:12px;margin-top:7px}.settings textarea{min-height:92px;resize:vertical}
+@media(min-width:680px){.dexgrid{grid-template-columns:repeat(5,1fr)}.album{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
 <div id="opening" class="opening">
- <div class="opening-inner">
-  <div class="line"></div>
-  <div class="eyebrow" style="color:#6b8580">YUNO NOTE / MIYAZAKI 2026</div>
+ <div>
+  <div class="brandmark"></div>
+  <div class="kicker" style="margin-top:18px">YUNO NOTE / MIYAZAKI 2026</div>
   <h1>ゆのさんへ。<br>宮崎の旅を贈ります。</h1>
-  <p>ゆのさんに宮崎を楽しんでもらいたくて、<br>この旅のためだけに作りました。<br><br>景色と笑顔と、ふたりだけの思い出を<br>一緒に集めに行こう。</p>
-  <button id="startBtn">ゆのさんと宮崎をはじめる</button>
+  <p>景色と笑顔と、ふたりだけの思い出を。<br>ポケふたを探しながら、一緒に集めに行こう。</p>
+  <button id="startBtn" class="primary">冒険をはじめる</button>
  </div>
 </div>
 
 <div class="app">
-<header class="top"><div class="logo">YUNO NOTE<small>MIYAZAKI PRIVATE ADVENTURE</small></div><button id="settingsBtn" class="iconbtn">⚙️</button></header>
-<section class="hero">
- <div class="hero-card">
-  <div class="eyebrow">WELCOME TO MIYAZAKI, YUNO</div>
-  <h1>ゆのさん、<br>宮崎へようこそ。</h1>
-  <p>この3日間が、ゆのさんにとって「また宮崎に来たい」と思える時間になりますように。</p>
-  <div class="hero-badge">SEIYA × YUNO / MEMORY TRIP</div><div id="chapterProgress" class="chapter-progress"></div>
+<header class="topbar">
+ <div class="brand"><div class="brandmark"></div><div><strong>YUNO NOTE</strong><small>MIYAZAKI MEMORY TRIP</small></div></div>
+ <button id="settingsBtn" class="iconbtn" aria-label="設定">⚙</button>
+</header>
+
+<section id="home" class="view">
+ <div class="hero">
+  <div class="hero-photo">
+   <div class="hero-copy">
+    <div class="kicker">WELCOME TO MIYAZAKI</div>
+    <h1>ゆのさん、<br>宮崎へようこそ。</h1>
+    <p>この3日間が、ゆのさんにとって<br>「また宮崎に来たい」と思える時間になりますように。</p>
+   </div>
+   <div class="daycard">
+    <div class="date">DAY 1<br>11.21</div>
+    <h2>青島<small>AOSHIMA</small></h2>
+    <div class="aoshima-dot"></div>
+   </div>
+  </div>
  </div>
-</section>
-<main>
-<section class="welcome glass">
- <h2>ゆのさん、今日はどんな思い出を作ろう。</h2>
- <p>ゆのさんに見てほしい景色、食べてほしいもの、そして一緒に笑いたい時間を詰め込みました。</p>
-</section>
-<section class="stats">
- <div class="stat glass"><strong>9</strong><span>見つけたい景色</span></div>
- <div class="stat glass"><strong>6</strong><span>食べてほしいもの</span></div>
- <div class="stat glass"><strong>∞</strong><span>笑ってほしい回数</span></div>
-</section>
-<section class="today">
- <div class="section-title"><h2>今日の旅</h2><span>DAY 1 / AOSHIMA</span></div>
- <div class="today-card glass">
-  <div><div class="day">NOVEMBER 21</div><h3>青島から始めよう</h3><p>海と空を見ながら、最初のポケふたと思い出写真を探しに行こう。</p></div><div class="weather">🌤️</div>
- </div>
- <div class="progress-wrap">
-  <div id="ring" class="ring"><div class="ring-content"><strong id="progressText">0/9</strong><small>MEMORIES</small></div></div>
- </div>
-</section>
-<nav class="tabs">
- <button class="tab active" data-tab="journey">旅</button>
- <button class="tab" data-tab="album">写真</button>
- <button class="tab" data-tab="badge">称号</button>
- <button class="tab" data-tab="letter">手紙</button>
-</nav>
-
-<section id="journeyTab" class="tabpane">
- <div class="section-title"><h2>ゆのさんと巡る場所</h2><span>POKE LID JOURNEY</span></div>
- <div id="storyList" class="story-list"></div>
-</section>
-
-<section id="albumTab" class="tabpane hidden">
- <div class="section-title"><h2>ゆのさんとの写真</h2><span>POLAROID MEMORIES</span></div>
- <div id="album" class="album"></div>
-</section>
-
-<section id="badgeTab" class="tabpane hidden">
- <div class="section-title"><h2>ふたりの称号</h2><span>ADVENTURE BADGES</span></div>
- <div id="badges" class="badges"></div>
-</section>
-
-<section id="letterTab" class="tabpane hidden">
- <div class="letter-card">
-  <h2>ゆのさんへ。</h2>
-  <p>この旅の最後に読んでほしい言葉があります。9つの思い出が集まったら、手紙が開きます。</p>
-  <button id="letterBtn">まだ秘密にしておく</button>
+ <div class="content">
+  <div class="progress-card">
+   <div class="row"><div class="label">ポケふたの冒険<small>ふたりで見つけた数</small></div><div id="count" class="count">0 / 9</div></div>
+   <div id="track" class="stamp-track"></div>
+  </div>
+  <div class="quicknav">
+   <button data-go="dex"><span class="qicon">◉</span><strong>図鑑</strong><small>ポケふた</small></button>
+   <button data-go="map"><span class="qicon">♧</span><strong>マップ</strong><small>旅の場所</small></button>
+   <button data-go="album"><span class="qicon">▣</span><strong>アルバム</strong><small>思い出</small></button>
+   <button data-go="letter"><span class="qicon">✉</span><strong>手紙</strong><small>ゆのさんへ</small></button>
+  </div>
+  <div class="mission-card">
+   <div><strong>今日のミッション</strong><p>最初のポケふたを見つけて、ふたりの冒険を始めよう。</p></div>
+   <div class="poke-accent"></div>
+  </div>
  </div>
 </section>
 
-<p class="footer">ゆのさんのために作った、ふたりだけの宮崎冒険アプリ。</p>
-</main>
+<section id="dex" class="view hidden content section">
+ <div class="sectionhead"><h2>図鑑</h2><p>ポケふたコレクション</p></div>
+ <div class="progress-card"><div class="row"><div class="label">見つけた数</div><div id="dexCount" class="count">0 / 9</div></div></div>
+ <div id="dexGrid" class="dexgrid"></div>
+</section>
+
+<section id="map" class="view hidden content section">
+ <div class="sectionhead"><h2>マップ</h2><p>ポケふたマップ</p></div>
+ <div class="tabbar"><button class="active">地図</button><button data-go="dex">リスト</button></div>
+ <div id="mapCard" class="mapcard"><div class="mapshape"></div></div>
+</section>
+
+<section id="album" class="view hidden content section">
+ <div class="sectionhead"><h2>アルバム</h2><p>ふたりだけの思い出</p></div>
+ <div id="albumGrid" class="album"></div>
+</section>
+
+<section id="letter" class="view hidden content section">
+ <div class="sectionhead"><h2>手紙</h2><p>ゆのさんへ</p></div>
+ <div class="lettercard">
+  <h2>最後に開く手紙</h2>
+  <p>すべてのポケふたを見つけたら、成矢からの手紙が開きます。</p>
+  <button id="letterBtn" class="primary">あと9つで開きます</button>
+ </div>
+</section>
+
+<footer style="text-align:center;padding:34px;color:#a38e80;font-size:9px;letter-spacing:.16em">SEIYA × YUNO / MIYAZAKI 2026</footer>
 </div>
 
+<nav class="bottomnav">
+ <button class="active" data-go="home"><i>⌂</i>ホーム</button>
+ <button data-go="dex"><i>◉</i>ずかん</button>
+ <button data-go="map"><i>♧</i>マップ</button>
+ <button data-go="album"><i>▣</i>アルバム</button>
+ <button data-go="letter"><i>☰</i>メニュー</button>
+</nav>
+
 <dialog id="spotDialog"><button class="close" data-close="spotDialog">×</button><div id="spotBody"></div></dialog>
-<dialog id="settingsDialog"><button class="close" data-close="settingsDialog">×</button><div class="modal">
- <h2>成矢専用設定</h2><p class="sub">旅行前の最終調整用</p>
- <label>編集する場所</label><select id="spotSelect"></select>
- <label>ゆのさんへのミッション</label><textarea id="missionInput"></textarea>
- <label>取得後の言葉</label><textarea id="messageInput"></textarea>
- <label>最後の手紙</label><textarea id="letterInput"></textarea>
- <div class="actions"><button id="saveSettings" class="primary">保存する</button><button id="toggleTest" class="secondary">テストモード</button><button id="reset" class="danger">進捗をリセット</button></div>
-</div></dialog>
-<dialog id="letterDialog"><button class="close" data-close="letterDialog">×</button><div class="modal">
- <div class="eyebrow" style="color:#8a7162">A LETTER FOR YUNO</div>
- <h2>ゆのさんへ。</h2>
- <p id="letterText" style="line-height:2;color:#5e6c69;white-space:pre-line"></p>
- <p style="text-align:right;margin-top:24px"><strong>成矢より</strong></p>
-</div></dialog>
-<div id="discoveryScreen" class="discovery-screen"><div id="sparkles" class="sparkles"></div><div class="discovery-card"><div class="memory-counter">NEW MEMORY DISCOVERED</div><div class="discovery-lid"><img id="discoveryImage" alt=""></div><h2 id="discoveryTitle"></h2><p id="discoveryMessage"></p><button id="closeDiscovery" class="primary" style="width:100%;margin-top:16px;background:white;color:#315f60">思い出に残す</button></div></div><dialog id="endingDialog"><button class="close" data-close="endingDialog">×</button><div class="ending-hero"><div class="eyebrow">YUNO NOTE / JOURNEY COMPLETE</div><h2>ゆのさんと、<br>9つの思い出を集めました。</h2><p id="endingLetter"></p><p style="text-align:right;margin-top:28px"><strong>成矢より</strong></p></div></dialog><div id="toast" class="toast"></div>
+<dialog id="letterDialog"><button class="close" data-close="letterDialog">×</button><div class="modal"><div class="sub">A LETTER FOR YUNO</div><h2>ゆのさんへ</h2><p id="letterText" style="white-space:pre-line;line-height:2;font-family:'Yu Mincho',serif"></p><p style="text-align:right">成矢より</p></div></dialog>
+<dialog id="settingsDialog"><button class="close" data-close="settingsDialog">×</button><div class="modal settings">
+ <div class="sub">PRIVATE SETTINGS</div><h2>成矢専用設定</h2>
+ <label>スポット<select id="spotSelect"></select></label>
+ <label>ミッション<textarea id="missionInput"></textarea></label>
+ <label>取得後メッセージ<textarea id="messageInput"></textarea></label>
+ <label>最後の手紙<textarea id="letterInput"></textarea></label>
+ <div class="actions"><button id="saveSettings" class="primary">保存する</button><button id="toggleTest" class="secondary">テストモード切替</button><button id="reset" class="danger">進捗をリセット</button></div>
+ </div></dialog>
+
+<div id="discovery" class="discovery"><div><div class="kicker">NEW POKÉFUTA DISCOVERED</div><img id="discoveryImage" alt=""><h2 id="discoveryTitle"></h2><p id="discoveryMessage"></p><button id="closeDiscovery" class="primary">図鑑に登録する</button></div></div>
+<div id="toast" class="toast"></div>
 
 <script>
-const SPOTS=[
+const DEFAULT_SPOTS=[
 {id:"aoshima",name:"青島",area:"宮崎市",lat:31.807505,lng:131.457839,pokemon:"ナッシー＆ポワルン",image:"https://local.pokemon.jp/img/p/manhole/4df805be8a64d2c988d992788be19a9b_l.png",mission:"ゆのさん、海を背景に今回最初のツーショットを撮ろう。",message:"ゆのさんと始めた、最初の宮崎の思い出。"},
-{id:"shintomi",name:"新富",area:"新富町",lat:32.071055,lng:131.512198,pokemon:"アローラナッシー＆マクノシタ",image:"https://local.pokemon.jp/img/p/manhole/73c6c49f8aa194dcb52da6808758de16_l.png",mission:"ゆのさんが今回の宮崎旅行で楽しみにしていることを教えて。",message:"ゆのさんの楽しみを、これからも一緒に増やしたい。"},
-{id:"takanabe",name:"高鍋",area:"高鍋町",lat:32.115956,lng:131.532841,pokemon:"アローラナッシー＆アローラライチュウ",image:"https://local.pokemon.jp/img/p/manhole/7020590767375a1d51a3bb6af9b37edf_l.png",mission:"ゆのさんの好きなところを、成矢からひとつ伝える。",message:"ゆのさんに言葉で伝えたいことは、まだまだたくさんある。"},
-{id:"kawaminami",name:"川南",area:"川南町",lat:32.191491,lng:131.528984,pokemon:"ナッシー＆ヌマクロー",image:"https://local.pokemon.jp/img/p/manhole/3da8c4d33f82dbd65c7092f4080c88ab_l.png",mission:"ゆのさんが見つけた『宮崎らしい景色』を一枚残そう。",message:"ゆのさんの目に映った宮崎も、大切な思い出。"},
-{id:"tsuno",name:"都農",area:"都農町",lat:32.2609016,lng:131.5575768,pokemon:"アローラナッシー＆ブイゼル",image:"https://local.pokemon.jp/img/p/manhole/249dfc49428f58aff38f37c46131982e_l.png",mission:"今日ここまでで、ゆのさんが一番笑った出来事を話そう。",message:"ゆのさんの笑顔が、この旅で一番見たい景色。"},
-{id:"hyuga",name:"日向",area:"日向市",lat:32.4253924,lng:131.6277364,pokemon:"ナッシー＆オドリドリ",image:"https://local.pokemon.jp/img/p/manhole/cce5f8178d3186bff628ad5efe8e9962_l.png",mission:"ゆのさんと、また一緒に見たいと思える記念写真を撮ろう。",message:"またゆのさんと見たい宮崎の景色が増えた。"},
-{id:"kadogawa",name:"門川",area:"門川町",lat:32.487021,lng:131.676733,pokemon:"アローラナッシー＆マケンカニ",image:"https://local.pokemon.jp/img/p/manhole/1d1261134ec64c046aacae63dba74c6f_l.png",mission:"ゆのさんが旅で意外だったことを、ひとつ聞いてみよう。",message:"ゆのさんとなら、思いがけないことも楽しい。"},
-{id:"hinokage",name:"日之影",area:"日之影町",lat:32.660643,lng:131.388639,pokemon:"ナッシー＆レジスチル",image:"https://local.pokemon.jp/img/p/manhole/dbe8fa0ecdf59974cf1c01b55f7f089b_l.png",mission:"ゆのさんと、この旅行を思い出す一曲を選ぼう。",message:"この曲を聴いたら、ゆのさんと今日を思い出したい。"},
-{id:"takachiho",name:"高千穂",area:"高千穂町",lat:32.707748,lng:131.305889,pokemon:"ナッシー＆レジギガス",image:"https://local.pokemon.jp/img/p/manhole/ba1ab8ae9af98b080f9ed1d867cb75c9_l.png",mission:"ゆのさんに、この旅で一番心に残ったことと、次に一緒に行きたい場所を聞こう。",message:"ゆのさん、ここまで一緒に来てくれてありがとう。"}];
+{id:"shintomi",name:"新富町",area:"新富町",lat:32.071055,lng:131.512198,pokemon:"アローラナッシー＆マクノシタ",image:"https://local.pokemon.jp/img/p/manhole/73c6c49f8aa194dcb52da6808758de16_l.png",mission:"ゆのさんが今回の宮崎旅行で楽しみにしていることを教えて。",message:"ゆのさんの楽しみを、これからも一緒に増やしたい。"},
+{id:"takanabe",name:"高鍋町",area:"高鍋町",lat:32.115956,lng:131.532841,pokemon:"アローラナッシー＆アローラライチュウ",image:"https://local.pokemon.jp/img/p/manhole/7020590767375a1d51a3bb6af9b37edf_l.png",mission:"ゆのさんの好きなところを、成矢からひとつ伝える。",message:"ゆのさんに言葉で伝えたいことは、まだまだたくさんある。"},
+{id:"kawaminami",name:"川南町",area:"川南町",lat:32.191491,lng:131.528984,pokemon:"ナッシー＆ヌマクロー",image:"https://local.pokemon.jp/img/p/manhole/3da8c4d33f82dbd65c7092f4080c88ab_l.png",mission:"ゆのさんが見つけた『宮崎らしい景色』を一枚残そう。",message:"ゆのさんの目に映った宮崎も、大切な思い出。"},
+{id:"tsuno",name:"都農町",area:"都農町",lat:32.2609016,lng:131.5575768,pokemon:"アローラナッシー＆ブイゼル",image:"https://local.pokemon.jp/img/p/manhole/249dfc49428f58aff38f37c46131982e_l.png",mission:"今日ここまでで、ゆのさんが一番笑った出来事を話そう。",message:"ゆのさんの笑顔が、この旅で一番見たい景色。"},
+{id:"hyuga",name:"日向市",area:"日向市",lat:32.4253924,lng:131.6277364,pokemon:"ナッシー＆オドリドリ",image:"https://local.pokemon.jp/img/p/manhole/cce5f8178d3186bff628ad5efe8e9962_l.png",mission:"ゆのさんと、また一緒に見たいと思える記念写真を撮ろう。",message:"またゆのさんと見たい宮崎の景色が増えた。"},
+{id:"kadogawa",name:"門川町",area:"門川町",lat:32.487021,lng:131.676733,pokemon:"アローラナッシー＆マケンカニ",image:"https://local.pokemon.jp/img/p/manhole/1d1261134ec64c046aacae63dba74c6f_l.png",mission:"ゆのさんが旅で意外だったことを、ひとつ聞いてみよう。",message:"ゆのさんとなら、思いがけないことも楽しい。"},
+{id:"hinokage",name:"日之影町",area:"日之影町",lat:32.660643,lng:131.388639,pokemon:"ナッシー＆レジスチル",image:"https://local.pokemon.jp/img/p/manhole/dbe8fa0ecdf59974cf1c01b55f7f089b_l.png",mission:"ゆのさんと、この旅行を思い出す一曲を選ぼう。",message:"この曲を聴いたら、ゆのさんと今日を思い出したい。"},
+{id:"takachiho",name:"高千穂町",area:"高千穂町",lat:32.707748,lng:131.305889,pokemon:"ナッシー＆レジギガス",image:"https://local.pokemon.jp/img/p/manhole/ba1ab8ae9af98b080f9ed1d867cb75c9_l.png",mission:"ゆのさんに、この旅で一番心に残ったことと、次に一緒に行きたい場所を聞こう。",message:"ゆのさん、ここまで一緒に来てくれてありがとう。"}];
 const LETTER=`ゆのさん、宮崎まで来てくれてありがとう。
 
 ゆのさんに宮崎を楽しんでもらいたくて、この旅と、この小さな冒険を作りました。
@@ -210,45 +236,59 @@ const LETTER=`ゆのさん、宮崎まで来てくれてありがとう。
 そして、また僕と一緒に宮崎へ来たいと思ってもらえたら、もっと嬉しいです。
 
 これからも、ゆのさんと一緒にたくさんの思い出を作っていきたい。`;
-const KEY="yuno-miyazaki-v2-complete";
-let state=JSON.parse(localStorage.getItem(KEY)||"null")||{stamps:{},spots:SPOTS,letter:LETTER,test:false};
-const $=id=>document.getElementById(id);const rad=x=>x*Math.PI/180;
-function dist(a,b,c,d){const R=6371,x=rad(c-a),y=rad(d-b),q=Math.sin(x/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(y/2)**2;return 2*R*Math.asin(Math.sqrt(q))}
+const KEY="yuno-note-final-v1";
+const oldKeys=["yuno-miyazaki-v2-complete","yuno-note-miyazaki-v3","yuno-miyazaki-v2"];
+let stored=null;
+for(const k of [KEY,...oldKeys]){try{stored=JSON.parse(localStorage.getItem(k)||"null");if(stored)break}catch{}}
+let state=stored||{stamps:{},spots:DEFAULT_SPOTS,letter:LETTER,test:false};
+if(!state.spots||state.spots.length!==9)state.spots=DEFAULT_SPOTS;
+const $=id=>document.getElementById(id), rad=x=>x*Math.PI/180;
 function save(){localStorage.setItem(KEY,JSON.stringify(state))}
-function toast(t){$("toast").textContent=t;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),1800)}function chime(){try{const A=new(window.AudioContext||window.webkitAudioContext)();[523,659,784,1046].forEach((f,i)=>{const o=A.createOscillator(),g=A.createGain();o.type="sine";o.frequency.value=f;g.gain.setValueAtTime(.0001,A.currentTime+i*.09);g.gain.exponentialRampToValueAtTime(.14,A.currentTime+i*.09+.02);g.gain.exponentialRampToValueAtTime(.0001,A.currentTime+i*.09+.36);o.connect(g);g.connect(A.destination);o.start(A.currentTime+i*.09);o.stop(A.currentTime+i*.09+.4)});}catch{}}function showDiscovery(s){$("discoveryImage").src=s.image;$("discoveryImage").alt=s.name;$("discoveryTitle").textContent=s.name+"を発見";$("discoveryMessage").textContent=s.message;$("discoveryScreen").classList.add("show");$("sparkles").innerHTML="";const icons=["✦","✨","⭐","💛","✧"];for(let i=0;i<30;i++){const e=document.createElement("i");e.textContent=icons[i%icons.length];const a=Math.random()*Math.PI*2,r=80+Math.random()*180;e.style.setProperty("--x",Math.cos(a)*r+"px");e.style.setProperty("--y",Math.sin(a)*r+"px");e.style.animationDelay=Math.random()*.35+"s";$("sparkles").appendChild(e)}chime();}
+function distance(a,b,c,d){const R=6371,x=rad(c-a),y=rad(d-b),q=Math.sin(x/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(y/2)**2;return 2*R*Math.asin(Math.sqrt(q))}
+function toast(t){$("toast").textContent=t;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),1900)}
+function go(id){document.querySelectorAll(".view").forEach(v=>v.classList.add("hidden"));$(id).classList.remove("hidden");document.querySelectorAll("[data-go]").forEach(b=>b.classList.toggle("active",b.dataset.go===id));window.scrollTo({top:0,behavior:"smooth"})}
 function render(){
- const got=Object.keys(state.stamps).length,total=state.spots.length,p=got/total;
- $("progressText").textContent=`${got}/${total}`;$("ring").style.background=`conic-gradient(var(--gold) ${p*360}deg,#e9ece7 0deg)`;$("chapterProgress").innerHTML=Array.from({length:total},(_,i)=>`<span class="${i<got?"on":""}"></span>`).join("");
- $("storyList").innerHTML=state.spots.map((s,i)=>{const g=state.stamps[s.id];return `<article class="story"><div class="thumb ${g?"":"locked"}">${g?`<img src="${s.image}" alt="${s.name}" referrerpolicy="no-referrer">`:""}</div><div><small>CHAPTER ${String(i+1).padStart(2,"0")} / ${s.area}</small><h3>${s.name}</h3><p>${g?s.message:"どんなポケふたかは、ゆのさんと現地で見つけてからのお楽しみ。"}</p></div><button onclick="openSpot('${s.id}')">${g?"思い出を見る":"探しに行く"}</button></article>`}).join("");
- const photos=Object.entries(state.stamps).filter(([_,v])=>v.photo).map(([id,v])=>({id,photo:v.photo,name:state.spots.find(s=>s.id===id).name}));
- $("album").innerHTML=photos.length?photos.map(x=>`<div class="polaroid"><img src="${x.photo}"><p>${x.name}<br>with YUNO</p></div>`).join(""):`<div class="glass empty-state">まだ写真はありません。<br>ポケふたを見つけたあと、ゆのさんとの写真を残せます。</div>`;
- const badges=[
- {i:"🌱",n:"最初の一歩",d:"ゆのさんと最初の思い出",on:got>=1},
- {i:"🚗",n:"宮崎トラベラー",d:"3か所を巡る",on:got>=3},
- {i:"📷",n:"思い出カメラマン",d:"写真を3枚残す",on:photos.length>=3},
- {i:"🌊",n:"絶景ハンター",d:"日向を巡る",on:!!state.stamps.hyuga},
- {i:"⛰️",n:"神話の旅人",d:"高千穂を巡る",on:!!state.stamps.takachiho},
- {i:"🏆",n:"YUNO'S MASTER",d:"全9か所コンプリート",on:got===total}
- ];
- $("badges").innerHTML=badges.map(b=>`<div class="badge ${b.on?"on":""}"><div class="bicon">${b.i}</div><h3>${b.n}</h3><p>${b.d}</p></div>`).join("");
- $("letterBtn").textContent=got===total?"ゆのさんへ、最後の手紙を開く":"あと"+(total-got)+"つで手紙が開きます";$("letterBtn").onclick=got===total?()=>{$("endingLetter").innerText=state.letter;$("endingDialog").showModal()}:()=>toast("9つの思い出が集まったら開くよ");
+ const total=state.spots.length,got=Object.keys(state.stamps).length;
+ $("count").textContent=`${got} / ${total}`;$("dexCount").textContent=`${got} / ${total}`;
+ $("track").innerHTML=state.spots.map(s=>`<div class="trackball ${state.stamps[s.id]?"on":""}"></div>`).join("");
+ $("dexGrid").innerHTML=state.spots.map((s,i)=>{const g=state.stamps[s.id];return `<div class="dexitem"><button onclick="openSpot('${s.id}')"><div class="dexball">${g?`<img src="${s.image}" alt="${s.name}" referrerpolicy="no-referrer">`:""}</div><small>${String(i+1).padStart(3,"0")}</small><strong>${s.name}</strong></button></div>`}).join("");
+ $("mapCard").querySelectorAll(".pin").forEach(x=>x.remove());
+ const positions=[[66,62],[62,50],[60,42],[58,35],[57,28],[69,23],[72,18],[55,12],[50,7]];
+ state.spots.forEach((s,i)=>{const pin=document.createElement("button");pin.className="pin "+(state.stamps[s.id]?"on":"");pin.style.left=positions[i][0]+"%";pin.style.top=positions[i][1]+"%";pin.innerHTML=`<span>${String(i+1).padStart(2,"0")}</span>`;pin.onclick=()=>openSpot(s.id);$("mapCard").appendChild(pin)});
+ const photos=Object.entries(state.stamps).filter(([_,v])=>v.photo).map(([id,v])=>({name:state.spots.find(s=>s.id===id).name,photo:v.photo}));
+ $("albumGrid").innerHTML=photos.length?photos.map(p=>`<div class="polaroid"><img src="${p.photo}"><p>${p.name}<br>SEIYA × YUNO</p></div>`).join(""):`<div class="empty paper-card">まだ写真はありません。<br>ポケふたを見つけたあと、思い出写真を残せます。</div>`;
+ $("letterBtn").textContent=got===total?"最後の手紙を見る":`あと${total-got}つで開きます`;
+ $("letterBtn").onclick=got===total?()=>{$("letterText").textContent=state.letter;$("letterDialog").showModal()}:()=>toast("すべて見つけたら開くよ");
 }
-function openSpot(id,d=null){const s=state.spots.find(x=>x.id===id),g=state.stamps[id];
-const visual=g?`<img class="modal-image" src="${s.image}" alt="${s.name}" referrerpolicy="no-referrer">`:`<div class="mystery-image"><div><div class="mystery-mark">？</div><div class="mystery-label">DISCOVER AT THE LOCATION</div></div></div>`;
-const identity=g?`<div class="sub">${s.area} / ${s.pokemon}</div>`:`<div class="sub">${s.area} / 未発見のポケふた</div>`;
-$("spotBody").innerHTML=`<div class="modal">${visual}${identity}<h2>${s.name}</h2><div class="mission"><small>MISSION FOR YUNO</small>${s.mission}</div>${!g?`<p style="text-align:center;color:var(--soft);line-height:1.7">デザインとポケモンは、ゆのさんと現地で見つけた瞬間に解放されます。</p>`:""}${d!==null?`<p style="text-align:center;color:var(--soft)">現在地から ${d<1?Math.round(d*1000)+"m":d.toFixed(1)+"km"}</p>`:""}${g?.photo?`<img src="${g.photo}" style="width:100%;border-radius:20px;margin-bottom:12px">`:""}<div class="actions"><button class="primary" onclick="checkSpot('${id}')">${g?"現在地を再確認":"ゆのさんと見つける"}</button>${g?`<label class="secondary" style="text-align:center">思い出写真を追加<input hidden type="file" accept="image/*" onchange="addPhoto('${id}',this)"></label>`:""}</div></div>`;$("spotDialog").showModal()}
-function checkSpot(id){const s=state.spots.find(x=>x.id===id);if(state.test){claim(s);return}navigator.geolocation.getCurrentPosition(p=>{const d=dist(p.coords.latitude,p.coords.longitude,s.lat,s.lng);d<=.15?claim(s):(openSpot(id,d),toast("まだ少し遠いみたいやじ"))},()=>toast("位置情報を許可してね"),{enableHighAccuracy:true,timeout:12000})}
-function claim(s){const first=!state.stamps[s.id];state.stamps[s.id]=state.stamps[s.id]||{time:new Date().toISOString()};save();render();$("spotDialog").close();if(first){showDiscovery(s)}else{openSpot(s.id);toast("取得済みやよ")}}
-function addPhoto(id,input){const f=input.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{state.stamps[id]=state.stamps[id]||{time:new Date().toISOString()};state.stamps[id].photo=r.result;save();render();openSpot(id);toast("ゆのさんとの写真を保存したよ")};r.readAsDataURL(f)}
-$("startBtn").onclick=()=>{$("opening").classList.add("hide");setTimeout(()=>$("opening").classList.add("hidden"),800)};$("closeDiscovery").onclick=()=>{$("discoveryScreen").classList.remove("show")};
-document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".tabpane").forEach(x=>x.classList.add("hidden"));$(b.dataset.tab+"Tab").classList.remove("hidden")});
+function openSpot(id,d=null){
+ const s=state.spots.find(x=>x.id===id),g=state.stamps[id];
+ $("spotBody").innerHTML=`<div class="modal"><div class="sub">${String(state.spots.indexOf(s)+1).padStart(3,"0")} / ${s.area}</div>
+ ${g?`<img class="modalimage" src="${s.image}" alt="${s.name}" referrerpolicy="no-referrer">`:`<div class="mystery">？</div>`}
+ <h2>${s.name}</h2>
+ <div class="sub">${g?s.pokemon:"ポケモンは見つけてからのお楽しみ"}</div>
+ <div class="mission"><small>MISSION FOR YUNO</small>${s.mission}</div>
+ ${d!==null?`<p style="text-align:center;color:var(--muted);font-size:12px">現在地から ${d<1?Math.round(d*1000)+"m":d.toFixed(1)+"km"}</p>`:""}
+ ${g?.photo?`<img src="${g.photo}" style="width:100%;border-radius:18px;margin:4px 0 14px">`:""}
+ <div class="actions"><button class="primary" onclick="checkSpot('${id}')">${g?"現在地を確認":"このポケふたを見つける"}</button>
+ ${g?`<label class="secondary" style="text-align:center">思い出写真を追加<input hidden type="file" accept="image/*" onchange="addPhoto('${id}',this)"></label>`:""}</div></div>`;
+ $("spotDialog").showModal()
+}
+function checkSpot(id){const s=state.spots.find(x=>x.id===id);if(state.test){claim(s);return}
+ if(!navigator.geolocation){toast("位置情報に対応していない端末です");return}
+ navigator.geolocation.getCurrentPosition(p=>{const d=distance(p.coords.latitude,p.coords.longitude,s.lat,s.lng);d<=.15?claim(s):(openSpot(id,d),toast("まだ少し遠いみたい"))},()=>toast("位置情報を許可してね"),{enableHighAccuracy:true,timeout:12000})
+}
+function claim(s){const first=!state.stamps[s.id];state.stamps[s.id]=state.stamps[s.id]||{time:new Date().toISOString()};save();render();$("spotDialog").close();if(first){$("discoveryImage").src=s.image;$("discoveryTitle").textContent=s.name+"を発見！";$("discoveryMessage").textContent=s.message;$("discovery").classList.add("show")}else{toast("取得済みです")}}
+function addPhoto(id,input){const f=input.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{state.stamps[id]=state.stamps[id]||{time:new Date().toISOString()};state.stamps[id].photo=r.result;save();render();$("spotDialog").close();openSpot(id);toast("思い出写真を保存しました")};r.readAsDataURL(f)}
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
 document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>$(b.dataset.close).close());
-$("settingsBtn").onclick=()=>{const s=state.spots[0];$("spotSelect").innerHTML=state.spots.map(x=>`<option value="${x.id}">${x.name}</option>`).join("");$("missionInput").value=s.mission;$("messageInput").value=s.message;$("letterInput").value=state.letter;$("settingsDialog").showModal()};
+$("startBtn").onclick=()=>{$("opening").classList.add("hide");setTimeout(()=>$("opening").classList.add("hidden"),650)};
+$("closeDiscovery").onclick=()=>{$("discovery").classList.remove("show");go("dex")};
+$("settingsBtn").onclick=()=>{$("spotSelect").innerHTML=state.spots.map(x=>`<option value="${x.id}">${x.name}</option>`).join("");const s=state.spots[0];$("missionInput").value=s.mission;$("messageInput").value=s.message;$("letterInput").value=state.letter;$("settingsDialog").showModal()};
 $("spotSelect").onchange=()=>{const s=state.spots.find(x=>x.id===$("spotSelect").value);$("missionInput").value=s.mission;$("messageInput").value=s.message};
-$("saveSettings").onclick=()=>{const s=state.spots.find(x=>x.id===$("spotSelect").value);s.mission=$("missionInput").value;s.message=$("messageInput").value;state.letter=$("letterInput").value;save();render();toast("保存したよ")};
+$("saveSettings").onclick=()=>{const s=state.spots.find(x=>x.id===$("spotSelect").value);s.mission=$("missionInput").value;s.message=$("messageInput").value;state.letter=$("letterInput").value;save();render();toast("保存しました")};
 $("toggleTest").onclick=()=>{state.test=!state.test;save();toast(state.test?"テストモードON":"テストモードOFF")};
-$("reset").onclick=()=>{if(confirm("進捗をリセットする？")){state.stamps={};save();render();toast("リセットしたよ")}};
-if("serviceWorker"in navigator&&location.protocol.startsWith("http"))window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js").catch(()=>{}));
+$("reset").onclick=()=>{if(confirm("進捗をリセットしますか？")){state.stamps={};save();render();toast("リセットしました")}};
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js").catch(()=>{}));
 render();
 </script>
 </body>

@@ -1,10 +1,10 @@
 {
-  "name": "YUNO NOTE｜宮崎の小さな冒険",
+  "name": "YUNO NOTE｜宮崎ポケふたの旅",
   "short_name": "YUNO NOTE",
-  "start_url": "./index.html",
+  "start_url": "./",
   "display": "standalone",
-  "background_color": "#eef7f5",
-  "theme_color": "#eef7f5",
+  "background_color": "#fbf8f2",
+  "theme_color": "#fbf8f2",
   "icons": [
     {
       "src": "icon.svg",
